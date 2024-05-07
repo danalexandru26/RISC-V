@@ -7,7 +7,7 @@ entity testbench_adder_32bit is
 end testbench_adder_32bit;
 
 architecture arch of testbench_adder_32bit is
-    component adder_32bit port(
+    component adder_word port(
         x: in std_logic_vector (31 downto 0);
         y: in std_logic_vector (31 downto 0);
         carry_in: in std_logic;
@@ -28,5 +28,5 @@ begin
     sig_carry_in<= '1' after 10ns;
 
 
-    DUT: adder_32bit port map(x=> sig_x, y => sig_y, carry_in=> sig_carry_in, q=> sig_q, carry_out=> sig_carry_out);   
+    DUT: adder_word port map(x=> sig_x, y => sig_y, carry_in=> sig_carry_in, q=> sig_q, carry_out=> sig_carry_out);   
 end architecture;

@@ -2,16 +2,15 @@ library IEEE;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity mux_21 is
-    generic(
+entity mux_21 is generic(
         word: integer := 31
     );
     
     port(
     a: in std_logic_vector (word downto 0);
     b: in std_logic_vector (word downto 0);
-    q: out std_logic_vector (word downto 0);
-    sel: in std_logic
+    sel: in std_logic;
+    q: out std_logic_vector (word downto 0)
 );
 end mux_21;
 
