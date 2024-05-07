@@ -8,10 +8,10 @@ end testbench_adder_32bit;
 
 architecture arch of testbench_adder_32bit is
     component adder_word port(
-        x: in std_logic_vector (31 downto 0);
-        y: in std_logic_vector (31 downto 0);
+        a: in std_logic_vector (31 downto 0);
+        b: in std_logic_vector (31 downto 0);
         carry_in: in std_logic;
-        q: out std_logic_vector (31 downto 0);
+        s: out std_logic_vector (31 downto 0);
         carry_out: out std_logic
     );
     end component;
@@ -19,7 +19,7 @@ architecture arch of testbench_adder_32bit is
     signal sig_a: std_logic_vector (31 downto 0) := x"00000000";
     signal sig_b: std_logic_vector (31 downto 0) := x"00000000";
     signal sig_carry_in: std_logic := '0';
-    signal sig_q: std_logic_vector (31 downto 0) := x"00000000";
+    signal sig_s: std_logic_vector (31 downto 0) := x"00000000";
     signal sig_carry_out: std_logic := '0';
 
 begin
@@ -28,5 +28,5 @@ begin
     sig_carry_in<= '1' after 10ns;
 
 
-    DUT: adder_word port map(a=> sig_a, b => sig_b, carry_in=> sig_carry_in, q=> sig_q, carry_out=> sig_carry_out);   
+    DUT: adder_word port map(a=> sig_a, b=> sig_b, carry_in=> sig_carry_in, s=> sig_s, carry_out=> sig_carry_out);   
 end architecture;
