@@ -28,8 +28,9 @@ architecture testbench of testbench_arithmetic_engine is
     signal sig_carry_out: std_logic := '0';
 
 begin
-    sig_a <= x"00000001" after 5ns;
-    sig_b <= x"00000003" after 7ns;
+    sig_a <= x"00000001" after 5ns, x"00000007" after 10ns;
+    sig_b <= x"00000003" after 7ns, x"00000007" after 15ns, x"0000000a" after 23ns;
+    sig_sel <= '1' after 13ns, '0' after 18ns, '1' after 20ns;
 
     DUT: arithmetic_engine port map(a=> sig_a, b=> sig_b, sel=> sig_sel, carry_out=> sig_carry_out, s=> sig_s);
 end architecture;
