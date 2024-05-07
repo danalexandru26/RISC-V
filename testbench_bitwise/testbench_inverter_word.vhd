@@ -6,7 +6,7 @@ use ieee.numeric_std.all;
 entity testbench_inverter is
 end testbench_inverter;
 
-architecture arch of testbench_inverter is
+architecture testbench of testbench_inverter is
     component inverter_word generic(
         word: integer := 31
         );

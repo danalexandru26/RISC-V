@@ -2,16 +2,16 @@ library IEEE;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity adder_32bit is port(
+entity adder_word is port(
     a: in std_logic_vector (31 downto 0);
     b: in std_logic_vector (31 downto 0);
     carry_in: in std_logic;
     s: out std_logic_vector (31 downto 0);
     carry_out: out std_logic
 );
-end adder_32bit;
+end adder_word;
 
-architecture arch of adder_32bit is
+architecture arch of adder_word is
     component byte_adder port(
         x: in std_logic_vector (7 downto 0);
         y: in std_logic_vector (7 downto 0);
