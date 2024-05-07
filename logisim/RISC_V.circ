@@ -1263,6 +1263,10 @@
     <a name="circuit" val="ALU"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(1020,900)" name="Tunnel">
+      <a name="label" val="over"/>
+      <a name="labelfont" val="SansSerif bold 8"/>
+    </comp>
     <comp lib="0" loc="(1030,380)" name="Pin">
       <a name="appearance" val="classic"/>
       <a name="label" val="a"/>
@@ -1315,14 +1319,13 @@
       <a name="label" val="ovf"/>
       <a name="labelfont" val="SansSerif bold 8"/>
     </comp>
-    <comp lib="0" loc="(1040,940)" name="Pin">
+    <comp lib="0" loc="(1050,1020)" name="Pin">
       <a name="appearance" val="classic"/>
       <a name="facing" val="north"/>
       <a name="label" val="c_out"/>
       <a name="output" val="true"/>
-      <a name="radix" val="16"/>
     </comp>
-    <comp lib="0" loc="(1040,940)" name="Tunnel">
+    <comp lib="0" loc="(1050,1020)" name="Tunnel">
       <a name="facing" val="south"/>
       <a name="label" val="ovf"/>
       <a name="labelfont" val="SansSerif bold 8"/>
@@ -1377,6 +1380,17 @@
       <a name="fanout" val="1"/>
       <a name="incoming" val="32"/>
     </comp>
+    <comp lib="0" loc="(1130,1020)" name="Pin">
+      <a name="appearance" val="classic"/>
+      <a name="facing" val="north"/>
+      <a name="label" val="overflow"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(1130,1020)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="label" val="over"/>
+      <a name="labelfont" val="SansSerif bold 8"/>
+    </comp>
     <comp lib="0" loc="(1130,700)" name="Tunnel">
       <a name="facing" val="north"/>
       <a name="label" val="op"/>
@@ -1387,6 +1401,48 @@
       <a name="label" val="s"/>
       <a name="labelfont" val="SansSerif bold 8"/>
       <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(660,1030)" name="Splitter">
+      <a name="fanout" val="32"/>
+      <a name="incoming" val="32"/>
+    </comp>
+    <comp lib="0" loc="(660,1030)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="x"/>
+      <a name="labelfont" val="SansSerif bold 8"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(660,1360)" name="Splitter">
+      <a name="fanout" val="32"/>
+      <a name="incoming" val="32"/>
+    </comp>
+    <comp lib="0" loc="(660,1360)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="s"/>
+      <a name="labelfont" val="SansSerif bold 8"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(660,1700)" name="Splitter">
+      <a name="fanout" val="32"/>
+      <a name="incoming" val="32"/>
+    </comp>
+    <comp lib="0" loc="(660,1700)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="y"/>
+      <a name="labelfont" val="SansSerif bold 8"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(680,1020)" name="Tunnel">
+      <a name="label" val="x0"/>
+      <a name="labelfont" val="SansSerif bold 8"/>
+    </comp>
+    <comp lib="0" loc="(680,1350)" name="Tunnel">
+      <a name="label" val="s31"/>
+      <a name="labelfont" val="SansSerif bold 8"/>
+    </comp>
+    <comp lib="0" loc="(680,1690)" name="Tunnel">
+      <a name="label" val="y0"/>
+      <a name="labelfont" val="SansSerif bold 8"/>
     </comp>
     <comp lib="0" loc="(840,660)" name="Tunnel">
       <a name="facing" val="east"/>
@@ -1432,6 +1488,16 @@
       <a name="labelfont" val="SansSerif bold 8"/>
       <a name="width" val="32"/>
     </comp>
+    <comp lib="0" loc="(920,880)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="x0"/>
+      <a name="labelfont" val="SansSerif bold 8"/>
+    </comp>
+    <comp lib="0" loc="(920,900)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="y0"/>
+      <a name="labelfont" val="SansSerif bold 8"/>
+    </comp>
     <comp lib="0" loc="(930,400)" name="Tunnel">
       <a name="facing" val="north"/>
       <a name="label" val="sel"/>
@@ -1467,7 +1533,7 @@
       <a name="labelfont" val="SansSerif bold 8"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(950,940)" name="Pin">
+    <comp lib="0" loc="(960,1020)" name="Pin">
       <a name="appearance" val="classic"/>
       <a name="facing" val="north"/>
       <a name="label" val="y"/>
@@ -1475,11 +1541,28 @@
       <a name="radix" val="16"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(950,940)" name="Tunnel">
+    <comp lib="0" loc="(960,1020)" name="Tunnel">
       <a name="facing" val="south"/>
       <a name="label" val="s"/>
       <a name="labelfont" val="SansSerif bold 8"/>
       <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(990,910)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="s31"/>
+      <a name="labelfont" val="SansSerif bold 8"/>
+    </comp>
+    <comp lib="1" loc="(1020,900)" name="AND Gate">
+      <a name="size" val="30"/>
+    </comp>
+    <comp lib="1" loc="(940,880)" name="NOT Gate">
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="1" loc="(940,900)" name="NOT Gate">
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="1" loc="(970,890)" name="AND Gate">
+      <a name="size" val="30"/>
     </comp>
     <comp lib="2" loc="(1150,680)" name="Multiplexer">
       <a name="select" val="2"/>
@@ -1511,6 +1594,7 @@
     <wire from="(920,670)" to="(940,670)"/>
     <wire from="(920,760)" to="(940,760)"/>
     <wire from="(920,840)" to="(940,840)"/>
+    <wire from="(970,890)" to="(990,890)"/>
   </circuit>
   <circuit name="and_byte">
     <a name="appearance" val="logisim_evolution"/>
@@ -2450,6 +2534,17 @@
     <a name="circuit" val="ALU_test"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(700,950)" name="Pin">
+      <a name="appearance" val="classic"/>
+      <a name="facing" val="south"/>
+      <a name="label" val="overflow"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(700,950)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="ovf"/>
+      <a name="labelfont" val="SansSerif bold 8"/>
+    </comp>
     <comp lib="0" loc="(740,710)" name="Pin">
       <a name="appearance" val="classic"/>
       <a name="facing" val="south"/>
@@ -2479,11 +2574,10 @@
       <a name="facing" val="south"/>
       <a name="label" val="carry_out"/>
       <a name="output" val="true"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(790,950)" name="Tunnel">
       <a name="facing" val="north"/>
-      <a name="label" val="ovf"/>
+      <a name="label" val="carry"/>
       <a name="labelfont" val="SansSerif bold 8"/>
     </comp>
     <comp lib="0" loc="(810,820)" name="Tunnel">
@@ -2538,6 +2632,10 @@
       <a name="width" val="32"/>
     </comp>
     <comp lib="0" loc="(930,830)" name="Tunnel">
+      <a name="label" val="carry"/>
+      <a name="labelfont" val="SansSerif bold 8"/>
+    </comp>
+    <comp lib="0" loc="(960,840)" name="Tunnel">
       <a name="label" val="ovf"/>
       <a name="labelfont" val="SansSerif bold 8"/>
     </comp>
@@ -2545,5 +2643,12 @@
     <wire from="(770,840)" to="(810,840)"/>
     <wire from="(790,830)" to="(810,830)"/>
     <wire from="(910,830)" to="(930,830)"/>
+    <wire from="(910,840)" to="(960,840)"/>
+  </circuit>
+  <circuit name="zero_extender">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="zero_extender"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
   </circuit>
 </project>
