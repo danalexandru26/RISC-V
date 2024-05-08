@@ -18,19 +18,17 @@ entity ALU is generic (
 end ALU;
 
 architecture arch of ALU is
-
-    component or_32bit port(
-        x: in std_logic_vector (31 downto 0);
-        y: in std_logic_vector (31 downto 0);
-        q: out std_logic_vector (31 downto 0)
-    );
-    end component;
-
-    component and_32bit port(
-        x: in std_logic_vector (31 downto 0);
-        y: in std_logic_vector (31 downto 0);
-        q: out std_logic_vector (31 downto 0)
-    );
+    component arithmetic_engine is generic(
+        word: integer := 31
+        );
+    
+        port(
+            a: in std_logic_vector (word downto 0);
+            b: in std_logic_vector (word downto 0);
+            sel: in std_logic;
+            carry_out: out std_logic;
+            s: out std_logic_vector (word downto 0)
+        );
     end component;
 
 begin
