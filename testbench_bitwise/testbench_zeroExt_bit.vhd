@@ -18,11 +18,11 @@ architecture testbemch of testbench_zeroExt_bit is
     );
     end component;
 
-    signal s_bit: std_logic := '0';
-    signal s_q: std_logic_vector (31 downto 0) := (others => '0');
+    signal sig_bit: std_logic := '0';
+    signal sig_q: std_logic_vector (31 downto 0) := (others => '0');
 
 begin
-    s_bit <= '1' after 5ns, '0' after 10ns;
+    s_bit <= '1' after 5ns, '0' after 15ns;
 
     DUT: zero_extender_bit port map (bit => s_bit, q => s_q);
 end architecture;
