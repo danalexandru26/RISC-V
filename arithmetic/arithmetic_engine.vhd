@@ -16,11 +16,15 @@ entity arithmetic_engine is generic(
 end arithmetic_engine;
 
 architecture arch of arithmetic_engine is 
-    component adder_word port(
-        a: in std_logic_vector (31 downto 0);
-        b: in std_logic_vector (31 downto 0);
+    component adder_word generic(
+            word: integer := 31
+        );
+        
+        port(
+        a: in std_logic_vector (word downto 0);
+        b: in std_logic_vector (word downto 0);
         carry_in: in std_logic;
-        s: out std_logic_vector (31 downto 0);
+        s: out std_logic_vector (word downto 0);
         carry_out: out std_logic
     );
     end component;
@@ -47,8 +51,8 @@ architecture arch of arithmetic_engine is
     );
     end component;
 
-    signal inverter_output: std_logic_vector (31 downto 0) := x"00000000";
-    signal multiplexed_output: std_logic_vector (31 downto 0) := x"00000000";
+    signal inverter_output: std_logic_vector (word downto 0) := (others => '0');
+    signal multiplexed_output: std_logic_vector (word downto 0) := (others => '0');
 
 begin
     d_inverter_word: inverter_word port map(a=> b, q=> inverter_output);

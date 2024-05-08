@@ -2,11 +2,16 @@ library IEEE;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity adder_word is port(
-    a: in std_logic_vector (31 downto 0);
-    b: in std_logic_vector (31 downto 0);
+entity adder_word is 
+    generic(
+        word: integer := 31
+    );
+    
+    port(
+    a: in std_logic_vector (word downto 0);
+    b: in std_logic_vector (word downto 0);
     carry_in: in std_logic;
-    s: out std_logic_vector (31 downto 0);
+    s: out std_logic_vector (word downto 0);
     carry_out: out std_logic
 );
 end adder_word;
