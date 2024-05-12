@@ -22,7 +22,7 @@ architecture testbemch of testbench_zeroExt_bit is
     signal sig_q: std_logic_vector (31 downto 0) := (others => '0');
 
 begin
-    s_bit <= '1' after 5ns, '0' after 15ns;
+    sig_bit <= '1' after 5ns, '0' after 15ns;
 
-    DUT: zero_extender_bit port map (bit => s_bit, q => s_q);
+    DUT: zero_extender_bit port map (bit => sig_bit, q => sig_q);
 end architecture;

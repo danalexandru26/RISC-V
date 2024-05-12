@@ -16,7 +16,7 @@ entity logic_engine is generic(
 end logic_engine;
 
 architecture arch of logic_engine is
-    component and_32bit is generic(
+    component and_32bit generic(
         word: integer := 31
     );
     
@@ -27,7 +27,7 @@ architecture arch of logic_engine is
     );
     end component;
 
-    component or_32bit is generic(
+    component or_32bit generic(
         word: integer := 31
     );
     
@@ -38,7 +38,7 @@ architecture arch of logic_engine is
     );
     end component;
 
-    component xor_word is generic(
+    component xor_word generic(
         word: integer := 31
     );
 
