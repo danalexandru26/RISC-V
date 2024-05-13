@@ -7,7 +7,7 @@ entity testbench_ALU is
 end testbench_ALU;
 
 architecture testbench of testbench_ALU is
-    component ALU is generic (
+    component ALU generic (
         word: integer := 31;
         opt: integer := 2
     );
@@ -32,7 +32,9 @@ architecture testbench of testbench_ALU is
     signal sig_carry: std_logic;
 
 begin
-    sig_a <= x"00000001" after 5ns;
+    sig_a <= x"00000001" after 5ns, x"00000005" after 10ns, x"0000000f" after 22ns, x"70000000" after 30ns;
+    sig_b <= x"00000005" after 15ns, x"00001f1f" after 32ns;
+    sig_sel <= "001" after 18ns, "000" after 28ns;
 
     DUT: ALU port map(a=> sig_a, b=> sig_b, sel=> sig_sel, s=> sig_s, carry=> sig_carry);
 end architecture;

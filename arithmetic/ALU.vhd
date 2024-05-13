@@ -46,7 +46,7 @@ architecture arch of ALU is
 
     component mux_51 generic(
             word: integer := 31;
-            opt: integer := 3
+            opt: integer := 2
         );
     
         port(
@@ -62,14 +62,13 @@ architecture arch of ALU is
 
 
     signal sig_arithmetic_engine_output: std_logic_vector (word downto 0) := (others => '0');
-    signal sig_arithmetic_engine_carry: std_logic;
 
     signal sig_logic_engine_and: std_logic_vector (word downto 0) := (others => '0');
     signal sig_logic_engine_or: std_logic_vector (word downto 0) := (others => '0');
     signal sig_logic_engine_xor: std_logic_vector (word downto 0) := (others => '0');
 
 begin
-    d_arithmetic_engine: arithmetic_engine port map(a=> a, b=> b, sel=> sel(0), s=> sig_arithmetic_engine_output, carry_out=> sig_arithmetic_engine_carry);
+    d_arithmetic_engine: arithmetic_engine port map(a=> a, b=> b, sel=> sel(0), s=> sig_arithmetic_engine_output, carry_out=> carry);
     d_logic_engine: logic_engine port map(a=> a, b=> b, q_and => sig_logic_engine_and, q_or=> sig_logic_engine_or, q_xor=> sig_logic_engine_xor);
     d_mux_51: mux_51 port map(a=> sig_arithmetic_engine_output, b=> sig_arithmetic_engine_output, c=> sig_logic_engine_and, d=> sig_logic_engine_or, e=> sig_logic_engine_xor, sel=> sel, q=> s);
 end architecture;
