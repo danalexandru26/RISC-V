@@ -22,15 +22,17 @@ architecture testbench of testbench_ALU is
     end component;
 
     constant word: integer := 31;
-    constant sopt: integer := 2
+    constant opt: integer := 2;
 
 
-    signal sig_a: std_logic_vector (word downto 0);
-    signal sig_b: std_logic_vector (word downto 0);
-    signal sig_sel: std_logic_vector (opt downto 0);
-    signal sig_s: std_logic_vector (word downto 0);
-    signal sig_carry: std_logic
+    signal sig_a: std_logic_vector (word downto 0) := (others => '0');
+    signal sig_b: std_logic_vector (word downto 0) := (others => '0');
+    signal sig_sel: std_logic_vector (opt downto 0) := (others => '0');
+    signal sig_s: std_logic_vector (word downto 0) := (others => '0');
+    signal sig_carry: std_logic;
 
 begin
+    sig_a <= x"00000001" after 5ns;
 
+    DUT: ALU port map(a=> sig_a, b=> sig_b, sel=> sig_sel, s=> sig_s, carry=> sig_carry);
 end architecture;
