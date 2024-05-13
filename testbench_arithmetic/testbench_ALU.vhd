@@ -32,9 +32,18 @@ architecture testbench of testbench_ALU is
     signal sig_carry: std_logic;
 
 begin
-    sig_a <= x"00000001" after 5ns, x"00000005" after 10ns, x"0000000f" after 22ns, x"70000000" after 30ns;
-    sig_b <= x"00000005" after 15ns, x"00001f1f" after 32ns;
-    sig_sel <= "001" after 18ns, "000" after 28ns;
+    -- ALU summation and substraction test-bench
+    
+--    sig_a <= x"00000001" after 5ns, x"00000005" after 10ns, x"0000000f" after 22ns, x"70000000" after 30ns;
+--    sig_b <= x"00000005" after 15ns, x"00001f1f" after 32ns;
+--    sig_sel <= "001" after 18ns, "000" after 28ns;
+
+    -- ALU logic bitwise functions testbench, includes AND, OR, XOR, in this specified order
+    
+    sig_sel <= "010", "011" after 8ns, "100" after 12ns;
+    sig_a <= x"01000001" after 5ns, x"01000001" after 8ns, x"01010101" after 12ns;
+    sig_b <= x"01000001" after 5ns, x"ffffffff" after 8ns, x"11001011" after 12ns;
+    
 
     DUT: ALU port map(a=> sig_a, b=> sig_b, sel=> sig_sel, s=> sig_s, carry=> sig_carry);
 end architecture;
