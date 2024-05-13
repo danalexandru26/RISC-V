@@ -34,6 +34,8 @@ begin
                 q <= d;
             when "100" =>
                 q <= e; 
+            when "101" =>
+                q <= e; 
             when others =>
                 null;
         end case;

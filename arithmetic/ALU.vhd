@@ -3,8 +3,8 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity ALU is generic (
-    word: integer := 31;
-    opt: integer := 2
+        word: integer := 31;
+        opt: integer := 2
     );
 
     port(
@@ -19,7 +19,7 @@ end ALU;
 
 architecture arch of ALU is
     component arithmetic_engine is generic(
-        word: integer := 31
+            word: integer := 31
         );
     
         port(
@@ -31,9 +31,46 @@ architecture arch of ALU is
         );
     end component;
 
+    component logic_engine generic(
+            word: integer := 31
+        );
+
+    port(
+        a: in std_logic_vector (word downto 0);
+        b: in std_logic_vector (word downto 0);
+        q_and: out std_logic_vector (word downto 0);
+        q_or: out std_logic_vector (word downto 0);
+        q_xor: out std_logic_vector (word downto 0)
+    );
+    end component;
+
+    component mux_51 generic(
+            word: integer := 31;
+            opt: integer := 3
+        );
+    
+        port(
+            a: in std_logic_vector (word downto 0);
+            b: in std_logic_vector (word downto 0);
+            c: in std_logic_vector (word downto 0);
+            d: in std_logic_vector (word downto 0);
+            e: in std_logic_vector (word downto 0);
+            q: out std_logic_vector (word downto 0);
+            sel: in std_logic_vector (opt downto 0)
+        );
+    end component;
+
+
+    signal sig_arithmetic_engine_output: std_logic_vector (word downto 0) := (others => '0');
+    signal sig_arithmetic_engine_carry: std_logic;
+
+    signal sig_logic_engine_and: std_logic_vector (word downto 0) := (others => '0');
+    signal sig_logic_engine_or: std_logic_vector (word downto 0) := (others => '0');
+    signal sig_logic_engine_xor: std_logic_vector (word downto 0) := (others => '0');
+
 begin
-
-
-
+    d_arithmetic_engine: arithmetic_engine port map(a=> a, b=> b, sel=> sel(0), s=> sig_arithmetic_engine_output, carry=> sig_arithmetic_engine_carry);
+    d_logic_engine: logic_engine port map(a=> a, b=> b, q_and => sig_logic_engine_and, q_or=> sig_logic_engine_or, q_xor=> sig_logic_engine_xor);
+    d_mux_51: mux_51 port map(a=> sig_arithmetic_engine_output, b=> sig_arithmetic_engine_output, c=> sig_logic_engine_and, d=> sig_logic_engine_or, e=> sig_logic_engine_xor, sel=> sel, q=> s);
 end architecture;
 
