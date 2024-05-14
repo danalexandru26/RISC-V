@@ -13,6 +13,7 @@ entity mux_51 is generic(
         c: in std_logic_vector (word downto 0);
         d: in std_logic_vector (word downto 0);
         e: in std_logic_vector (word downto 0);
+        f: in std_logic_vector (word downto 0);
         q: out std_logic_vector (word downto 0);
         sel: in std_logic_vector(opt downto 0)
     );
@@ -35,7 +36,7 @@ begin
             when "100" =>
                 q <= e; 
             when "101" =>
-                q <= e; 
+                q <= f; 
             when others =>
                 null;
         end case;

@@ -3,7 +3,6 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity zero_extender_bit is generic(
-        size: integer := 30;
         word: integer := 31
     );
 
@@ -15,7 +14,7 @@ entity zero_extender_bit is generic(
 end zero_extender_bit;
 
 architecture arch of zero_extender_bit is
-
+        constant size: integer := 30;
         signal zero_extend: std_logic_vector (size downto 0) := (others => '0');
 
 begin

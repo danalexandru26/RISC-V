@@ -8,7 +8,6 @@ end testbench_zeroExt_bit;
 
 architecture testbemch of testbench_zeroExt_bit is
     component zero_extender_bit is generic(
-        size: integer := 30;
         word: integer := 31
     );
 
