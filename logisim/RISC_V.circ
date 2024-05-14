@@ -2670,6 +2670,7 @@
       <a name="labelfont" val="SansSerif bold 8"/>
       <a name="width" val="32"/>
     </comp>
+    <comp loc="(870,810)" name="ALU"/>
   </circuit>
   <circuit name="zero_extender">
     <a name="appearance" val="evolution"/>
