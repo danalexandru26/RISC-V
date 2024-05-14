@@ -8,7 +8,7 @@ entity overflow is port(
         s_31: in std_logic;
         sel_0: in std_logic;
         sel_1: in std_logic;
-        q: out std_logic;
+        q: out std_logic
     );
 end overflow;
 
