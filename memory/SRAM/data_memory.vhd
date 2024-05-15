@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity data_memory is generic(
-        word: integer := 31;
+        word: integer := 31
     );
     port(
         clk: in std_logic;
