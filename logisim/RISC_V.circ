@@ -2949,7 +2949,6 @@
     <comp lib="0" loc="(860,340)" name="Pin">
       <a name="appearance" val="classic"/>
       <a name="label" val="sel"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(860,340)" name="Tunnel">
       <a name="label" val="sel"/>
@@ -2972,7 +2971,6 @@
       <a name="facing" val="south"/>
       <a name="label" val="carry"/>
       <a name="output" val="true"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(920,870)" name="Tunnel">
       <a name="facing" val="north"/>
@@ -3683,5 +3681,21 @@
     <wire from="(1290,520)" to="(1290,540)"/>
     <wire from="(1300,520)" to="(1300,560)"/>
     <wire from="(1310,520)" to="(1310,580)"/>
+  </circuit>
+  <circuit name="data_memory">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="data_memory"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="4" loc="(400,500)" name="RAM">
+      <a name="appearance" val="logisim_evolution"/>
+      <a name="type" val="nonvolatile"/>
+    </comp>
+  </circuit>
+  <circuit name="instruction_memory">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="instruction_memory"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
   </circuit>
 </project>
