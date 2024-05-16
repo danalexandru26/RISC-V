@@ -5,6 +5,8 @@
 \usepackage{setspace}
 \usepackage{titlesec}
 \usepackage[romanian]{babel}
+%\usepackage{helvet}
+%\renewcommand{\familydefault}{\sfdefault}
 
 \usepackage{geometry}
  \geometry{
@@ -18,14 +20,53 @@
 \setlength\parindent{15mm}
 
 \begin{document}
+\begin{titlepage}
+
+\fontsize{20pt}{18pt}\selectfont
+\title{\textbf{Microprocesorul RISC-V}}
+\date{}
+\maketitle
+
+\vspace*{150mm}
+
+
+\begingroup
+    \fontsize{14pt}{12pt}\selectfont
+	\textbf{Canditat: Dan-Alexandru Bulzan}
+	\bigbreak
+	\textbf{Coordonator științific: Ș.l.dr.ing Eugen-Horațiu GURBAN}
+\endgroup
+
+
+\vspace*{\fill}
+\begin{center}
+\fontsize{14pt}{12pt}\selectfont
+Sesiune: Iunie 2024
+\end{center}
+\end{titlepage}
+
+
+\newpage
 \section{\centering INTRODUCERE}
-
-
-\subsection{Motivație}
+\bigbreak
+\subsection{SCOPUL ȘI MOTIVAȚIA LUCRĂRII}
 \setstretch{1.2}
+
 Implementarea personală a setului de instrucțiuni RISC, ediția a 5-a, s-a născut din dorința de a realiza ceea ce poate fi considerat nimic mai puțin decât un apogeu al metodelor științifice din ultimul secol, și anume, procesorul.
 
 Aceste dispozitive electronice reprezintă fundamentul tuturor științelor informatice, grație capacității computaționale intrinsece. Procesoarele, indiferent de gradul lor de specializare, au fost și rămân nucleul unei revoluții tehnologice pe care nici din pură ignoranță nu o putem omite, aceasta fiind prezentă până și în cele mai mundane aspecte ale vieții cotidiene. Ramuri noi industriale, variind de la producătorii de semiconductoare  s-au constituit ca vectori de dezvoltare, producând de-a lungul deceniilor 
 
-Scopul acestei lucrări este de a traversa universul digital, începând din rădăcinile sale analogice, ajungând într-un final la organizarea ierarhică a numeroaselor entități digitale în a căror întregime se constituie un sistem de calcul complet funcțional. Adesea este usor sa ne pierdem în complexitățiile ascunde printre miile de porți logice, un veritabil microcosm digital, însă prin mijloacele abstractizării și modularizării, proiectarea unui procesor devine nimic mai mult decât o modelare ierarhică a unui sistem descriptibil prin operațiile algebrei Booleane.
+Scopul acestei lucrări este de a traversa universul digital, începând din rădăcinile sale analogice, ajungând într-un final la organizarea ierarhică a numeroaselor entități digitale în a căror întregime se constituie un sistem de calcul complet funcțional.
+
+Adesea este usor sa ne pierdem în complexitățiile ascunse printre miile de porți logice, un veritabil microcosm digital, însă prin mijloacele abstractizării și modularizării, proiectarea unui procesor devine nimic mai mult decât o modelare regulată a unui sistem descriptibil prin operațiile algebrei Booleane. Pe parcursul lucrării, se va prezenta de asemenea o simplă implementare didactică a modulului de memorie cache, un component digital de o importanță deosebită, precum si problematica care cere o astfel de soluție.
+
+Implementarea va fi realizată în limbajul de descriere hardware VHDL, entitățile urmând să fie simulate prin intermediul Vivado, soluție de design și sinteză hardware oferită de Advanced Micro Devices.
+
+
+\newpage
+\section{\centering STUDIU BIBLIOGRAFIC}
+
+
+\newpage
+\section{\centering FUNDAMENTARE TEORETICĂ}
 \end{document} 
