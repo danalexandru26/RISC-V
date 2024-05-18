@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.16)  17 MAY 2024 00:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.16)  18 MAY 2024 21:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -156,28 +156,28 @@ LaTeX Font Info:    ... okay on input line 22.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 28.
+(Font)              <14.4> on input line 27.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 28.
+(Font)              <7> on input line 27.
 
 LaTeX Warning: No \author given.
 
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 37.
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 36.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14> on input line 37.
+(Font)              <14> on input line 36.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9.79996> on input line 37.
+(Font)              <9.79996> on input line 36.
 [1
 
 {c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/
 texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 55.
+(Font)              <12> on input line 53.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 55.
+(Font)              <8> on input line 53.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 55.
- [1] [2] [3]
+(Font)              <6> on input line 53.
+ [2] [3] [4] [5]
 (./licetna.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -186,23 +186,24 @@ L3 programming layer <2024-04-11>
  ) 
 Here is how much of TeX's memory you used:
  2719 strings out of 474050
- 45133 string characters out of 5746298
- 1935754 words of memory out of 5000000
- 25159 multiletter control sequences out of 15000+600000
- 571264 words of font info for 64 fonts, out of 8000000 for 9000
+ 45093 string characters out of 5746298
+ 1941754 words of memory out of 5000000
+ 25158 multiletter control sequences out of 15000+600000
+ 571948 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,65p,576b,229s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,6n,65p,899b,200s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx0700.pfb><c:/texl
 ive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2024/t
 exmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2024/texmf-dist/
 fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2024/texmf-dist/fonts/type
 1/public/cm-super/sfrm0600.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/c
 m-super/sfrm1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sf
-rm1440.pfb>
-Output written on licetna.pdf (4 pages, 93852 bytes).
+rm1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb
+>
+Output written on licetna.pdf (5 pages, 122376 bytes).
 PDF statistics:
- 53 PDF objects out of 1000 (max. 8388607)
- 32 compressed objects within 1 object stream
+ 61 PDF objects out of 1000 (max. 8388607)
+ 37 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
