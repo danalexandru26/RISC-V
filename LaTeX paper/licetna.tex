@@ -118,6 +118,47 @@ Pentru a produce un rezultat de o oarecare utilitate, sistemele computaționale 
 Problema reprezentării datelor primește o importanță specială, deosebită chiar, dând naștere următoarei multitudini de întrebări, \textit{care este este modul corect de reprezentare}; \textit{cum asigurăm coerența datelor cu analizarea acestora de către sistemul de calcul}; \textit{cum ne asigurăm ca datele indiferent formatului ligibil uman, nu sunt iligibile procesorului.}
 
 
-Pentru a răspunde pe deplin, trebuie mai întâi să definim tipul datelor pe care microprocesorul le va accepta. Este rapid evident, din natura sistemului, că datele vor trebui să fie numerice. Însă, nu la fel de evident este modul în care aceste numere vor fi reprezentate pentru a suporta toate operațiile admisibile unui motor logic-aritmetic.
+Pentru a răspunde pe deplin, trebuie mai întâi să definim tipul datelor pe care microprocesorul le va accepta. Este rapid evident, din natura sistemului, că datele trebuie să fie numerice. Însă, nu la fel de evident este modul în care aceste numere vor fi reprezentate pentru a suporta toate operațiile admisibile de un motor logic-aritmetic.
+
+Cea mai reprezentativă caracteristică a unui sistem de numerație este numărul de simboluri unice utilizate de acesta. Numărul de simboluri poartă numele de radix și este congruent cu conceptul de bază numerică. Valoarea minimă pe care radix-ul unui sistem de numerație o poate lua este \textit{1}, corespunzând unui sistem cu un singur simbol, fiecare numâr continând \textit{n+1} simboluri față de precedentul sau \textit{n}. Însă, trecând cu vederea această anomalie numerică, bazele care vor reprezenta suportul matematic al acestei lucrări sunt cea decimală, cea hexadecimală și cea binară. În Tabela \ref{Tabela:1} se pot observa bazele anterior menționate, însoțite de simbolurile aferente cât și de un exemplu reprezentativ.
+
+\begin{table}[h]
+\centering
+\caption{Intervalul de simboluri posibile, raportate la baza numerică }
+\label{Tabela:1}
+\begin{tabular}{ ||c|c|c|| }
+ \hline
+ Radix & Valori & Exemplu \\ 
+ \hline  \hline
+ Unar & 1 & 111\\
+ \hline
+ Binar & 0, 1 & 1000\\ 
+ \hline
+ Decimal & [0, 9]  & 10\\ 
+ \hline 
+ Hexadecimal & $[0, 9] \cup [A, F]$ & B4\\ 
+ \hline
+\end{tabular}
+\end{table}
+
+Un alt aspect important, strâns legat de radix, este numărul de simboluri \textit{s} necesare pentru a reprezenta un număr oarecare \textit{n} în baza \textit{r}. Relația matematică care defineste acest aspect este redată prin formula \ref{Formula:1}.
+
+\begin{equation}
+\label{Formula:1}
+s = log_r n
+\end{equation}
+
+
+\subsubsection{NUMERELE BINARE}
+Modul de funcționare a dispozitivelor digitale  este constituit pe oscilațiile rapide ale semnalelor electrice, semnale a căror valori se identifică cu unul dintre membri faimosului cuplu binar, \textit{0 și 1}. Prin urmare, datele vor avea o reprezentare care utilizează radixul binar. 
+
+Fiecare simbol dintr-un număr binar poarte numele de bit, un amalgam de 4 biți se numește nibble, iar o înșiruire de 2 nibble, echivalent cu 8 biți, poartă numele de octet. Conceptul de împărțire a unui numar binar în octeți ajuta reprezentarea acestora într-o bază numerica superioară, în special cea hexadecimală.
+
+
+Cea mai elementară operație matematică care poate fi aplicată unui număr, ignorând excepțiile de rigoare, este adunarea. Însumarea numerelor este cu atât mai facilă cu cât numărul de simboluri folosite în reprezentarea acestora scade.
 \bigbreak
 \end{document} 
+
+
+
+Pentru a utiliza în mod corect reprezentările în această bază, modul în care calculele matematice sunt efectuate asupra numerelor binare necesită clarificare.
