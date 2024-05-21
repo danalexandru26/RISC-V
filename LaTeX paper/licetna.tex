@@ -5,6 +5,7 @@
 \usepackage{setspace}
 \usepackage{titlesec}
 \usepackage[romanian]{babel}
+\usepackage{graphicx}
 %\usepackage{helvet}
 %\renewcommand{\familydefault}{\sfdefault}
 
@@ -152,13 +153,117 @@ s = log_r n
 \subsubsection{NUMERELE BINARE}
 Modul de funcționare a dispozitivelor digitale  este constituit pe oscilațiile rapide ale semnalelor electrice, semnale a căror valori se identifică cu unul dintre membri faimosului cuplu binar, \textit{0 și 1}. Prin urmare, datele vor avea o reprezentare care utilizează radixul binar. 
 
-Fiecare simbol dintr-un număr binar poarte numele de bit, un amalgam de 4 biți se numește nibble, iar o înșiruire de 2 nibble, echivalent cu 8 biți, poartă numele de octet. Conceptul de împărțire a unui numar binar în octeți ajuta reprezentarea acestora într-o bază numerica superioară, în special cea hexadecimală.
+Fiecare simbol dintr-un număr binar poarte numele de bit, un amalgam de 4 biți se numește nibble, iar o înșiruire de 2 nibble, echivalentă cu 8 biți, poartă numele de octet. Conceptul de împărțire a unui numar binar în octeți ajuta reprezentarea acestora într-o bază numerică superioară, în special cea hexadecimală. Figura \ref{Figura:1} prezintă clar părtile constituente a unui octet și relația dintre acestea.
 
+ \begin{figure}[h!]
+ \centering
+ \caption{Modul de împărțire a unui octet, părțile sale constituente}
+ \label{Figura:1}
+ \includegraphics[width=0.5\textwidth]{byte.png}
+ \end{figure}
 
-Cea mai elementară operație matematică care poate fi aplicată unui număr, ignorând excepțiile de rigoare, este adunarea. Însumarea numerelor este cu atât mai facilă cu cât numărul de simboluri folosite în reprezentarea acestora scade.
-\bigbreak
-\end{document} 
+Octet-ul va reprezenta unitatea fundamentală și indivizibilă pentru microarhitectura microprocesorul dezvoltat prin această lucrare. Acesta, prin urmare, este cea mai mică entitate adresabilă cu care se va lucra. Un octet este limitat de numărul de date pe care le poate reprezenta, acestea fiind calculate prin exponentul $\ 2^n$, în cazul nostru, $\ 2^8$ sau 256 de valori.
 
+Un lucru important de menționat este că valoarea maximă a unui număr pe \textit{n} biți va fi mereu $\ 2^n -1$. Prin urmare, dacă dorim să reprezentăm o putere oarecare $\ 2^n$, vor fi necesari $\ n +1$ biți de date.
+Tabelul \ref{Tabela:2} prezintă realația dintre magnitudinea binară (număul de biți folosiți în reprezentare) și cantitata de date reprezentate prin plaja de valori adiacentă, ignorând existenta numerelor negative.
 
+\begin{table}[h]
+\centering
+\caption{Plaja de valori asumând numere strict pozitive, de magnitudini binare diverse }
+\label{Tabela:2}
+\begin{tabular}{ ||c|c|c|| }
+ \hline
+ Biți de date & Numărul datelor & Interval valori \\ 
+ \hline  \hline
+ 8 & 256 & $\ 0 \le n \le 2^{8} - 1$ \\
+ \hline
+ 16 & 65536 & $\ 0 \le n \le 2^{16} - 1$ \\
+ \hline
+ 32 &  $\ 2^{32}$ & $\ 0 \le n \le 2^{32} - 1$ \\
+ \hline
+ 64 & $\ 2^{64}$ & $\ 0 \le n \le 2^{64} -1$ \\
+ \hline
+\end{tabular}
+\end{table}
 
+\subsubsection{OPERAȚIILE MATEMATICE ȘI NUMERELE BINARE}
 Pentru a utiliza în mod corect reprezentările în această bază, modul în care calculele matematice sunt efectuate asupra numerelor binare necesită clarificare.
+
+Datele nu sunt folositoare doar prin existența lor. Pentru a dobândi utilitate, acestea sunt supuse aparatului matematic, prin care se calculează diverse valori, asumând un algoritm corect, care ne oferă informații despre problema pe care dorim să o rezolvăm.
+
+Cea mai elementară operație matematică care poate fi aplicată unui număr este adunarea. Însumarea numerelor este cu atât mai facilă cu cât numărul de simboluri folosite în reprezentarea acestora scade. Spre norocul lumii digitale, radix-ul utilizat permite efectuarea operațiilor matematice în cele mai simple metode. Există doar $\ 4$ operații fundamentale posibile, acestea fiind prezentate în Tabela \ref{Tabela:3}.
+
+\begin{table}[h]
+\centering
+\caption{Operațiile fundamentale de însumare a numerelor binare }
+\label{Tabela:3}
+\begin{tabular}{ ||c|c|c|| }
+ \hline
+ Operație & Sumă & Carry \\ 
+ \hline  \hline
+ 0 + 0 & 0 & 0\\
+ \hline
+ 0 + 1 & 1  & 0\\
+ \hline
+ 1 + 0 &  1 & 0 \\
+ \hline
+ 1 + 1 & 0 & 1 \\
+ \hline
+\end{tabular}
+\end{table}
+Dintre toate aceste operații, cea căreia îi vom oferi o importanță ridicată este $\ 1 + 1 = 0$ \textit{carry} 1. Aceasta  ne obligă să adunăm o unitate bițiilor de pe poziții superioare. Practic, acestă sumă, odată ce este generalizată, ne spune că $\ 2^n + 2^n = 2 \cdot 2^n = 2^{n+1}$, o trivialitate matematică. Diverse exemple de adunare ale numerelor binare pot fi consultate în Figura \ref{Figura:2}.
+
+ \begin{figure}[h!]
+ \centering
+ \caption{Exemple de adunare a numerelor binare}
+ \label{Figura:2}
+ \includegraphics[width=0.9\textwidth]{binary_addition.png}
+ \end{figure}
+
+Modul în care numerele positive sunt adunate fiind acum clarificat, următoara operație matematică tratată este scăderea. Aceasta poate fi vizualizată ca adunarea unui numar \textit{a} la inversul aditiv al altui număr \textit{b}.
+Această operație cere prin urmare un mod de reprezentare al numerelor binare negative, soluție care vine prin trei metode.
+
+\subsubsection{SEMN MAGNITUDINE}
+Primul mod de reprezentare a numerelor binare negative este cel prin semn-magnitudine. Acesta este cel mai intuitiv, fiind similar cu reprezentarea numerelor decimale cu semn. Cel mai semnificativ bit devine acum bit-ul de semn, 1 reprezentând un număr negativă, iar 0 unul pozitiv. Tabelul \ref{Tabela:4} prezintă aplicarea acestei reprezentări asupra numerelor pe 8 biți.
+
+Se pot astfel distinge următoarele lucruri:
+
+\newpage
+\begin{table}[h]
+\centering
+\caption{Reprezentarea prin semn-magnitudine }
+\label{Tabela:4}
+\begin{tabular}{ ||c|c|c|| }
+ \hline
+ Valoare binară & Semn magnitudine &  Fără semn\\ 
+ \hline  \hline
+ 00000000 & 0 & 0\\
+ \hline
+ 00000001 & 1  & 1\\
+ \hline
+ 00000010 &  2 & 2 \\
+ \hline
+  ... &  ... & ... \\
+ \hline
+ 10000000 & -0 & 128 \\
+ \hline
+ 10000001 & -1 & 129 \\
+ \hline
+ 10000010 & -2 & 130 \\
+ \hline
+   ... &  ... & ... \\
+ \hline
+  11111101 & -125 & 253 \\
+ \hline
+ 11111110 & -126 & 254 \\
+ \hline
+ 11111111 & -127 & 255 \\
+ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection{COMPLEMENT DE 1}
+todo
+\subsubsection{COMPLEMENT DE 2}
+todo
+\end{document}
