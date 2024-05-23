@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.16)  23 MAY 2024 00:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.16)  23 MAY 2024 23:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -550,34 +550,37 @@ texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2] [3] [4] [5]
 <byte.png, id=38, 644.4075pt x 442.65375pt>
 File: byte.png Graphic file (type png)
 <use byte.png>
-Package pdftex.def Info: byte.png  used on input line 163.
+Package pdftex.def Info: byte.png  used on input line 165.
 (pdftex.def)             Requested size: 241.84843pt x 166.12982pt.
- [7 <./byte.png>]
-<binary_addition.png, id=47, 843.15pt x 322.20375pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7 <./byte.png>]
+<binary_addition.png, id=46, 843.15pt x 322.20375pt>
 File: binary_addition.png Graphic file (type png)
 <use binary_addition.png>
-Package pdftex.def Info: binary_addition.png  used on input line 221.
+Package pdftex.def Info: binary_addition.png  used on input line 269.
 (pdftex.def)             Requested size: 435.32422pt x 166.35713pt.
- [8 <./binary_addition.png>] [9{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-s
-uper/cm-super-ts1.enc}]
-Overfull \hbox (18.2136pt too wide) detected at line 324
-[]
- []
 
-[10] (./licetna.aux)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8] [9{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <.
+/binary_addition.png>] [10] [11] (./licetna.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-04-11>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 16124 strings out of 474050
- 337436 string characters out of 5746298
- 1948754 words of memory out of 5000000
- 38260 multiletter control sequences out of 15000+600000
+ 16330 strings out of 474050
+ 342656 string characters out of 5746298
+ 1959754 words of memory out of 5000000
+ 38466 multiletter control sequences out of 15000+600000
  579388 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 113i,17n,121p,899b,1082s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,17n,121p,899b,1097s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/tex
 live/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist
@@ -593,10 +596,10 @@ fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2024/texmf-dist/fonts/type
 m-super/sfrm1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sf
 rm1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti0600.pfb
 ><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on licetna.pdf (10 pages, 245879 bytes).
+Output written on licetna.pdf (11 pages, 250977 bytes).
 PDF statistics:
- 135 PDF objects out of 1000 (max. 8388607)
- 83 compressed objects within 1 object stream
+ 138 PDF objects out of 1000 (max. 8388607)
+ 85 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -154,7 +154,9 @@ s = log_r n
 \subsubsection{NUMERELE BINARE}
 Modul de funcționare a dispozitivelor digitale  este constituit pe oscilațiile rapide ale semnalelor electrice, semnale a căror valori se identifică cu unul dintre membri faimosului cuplu binar, \textit{0 și 1}. Prin urmare, datele vor avea o reprezentare care utilizează radixul binar. 
 
-Fiecare simbol dintr-un număr binar poarte numele de bit, un amalgam de 4 biți se numește nibble, iar o înșiruire de 2 nibble, echivalentă cu 8 biți, poartă numele de octet. Conceptul de împărțire a unui numar binar în octeți ajuta reprezentarea acestora într-o bază numerică superioară, în special cea hexadecimală. Figura \ref{Figura:1} prezintă clar părtile constituente a unui octet și relația dintre acestea.
+Fiecare simbol dintr-un număr binar poarte numele de bit, un amalgam de 4 biți se numește nibble, iar o înșiruire de 2 nibble, echivalentă cu 8 biți, poartă numele de octet. Bit-ul care corespunde celui mai mare exponent de 2 poartă numele de \textit{msb}, iar bit-ul care corespunde celui mai mic exponent are denumirea de \textit{lsb}.
+
+Conceptul de împărțire a unui numar binar în octeți ajuta reprezentarea acestora într-o bază numerică superioară, în special cea hexadecimală. Figura \ref{Figura:1} prezintă clar părtile constituente a unui octet și relația dintre acestea.
 
  \begin{figure}[h!]
  \centering
@@ -187,6 +189,52 @@ Tabelul \ref{Tabela:2} prezintă realația dintre magnitudinea binară (număul 
 \end{tabular}
 \end{table}
 
+\subsubsection{BAZA HEXADECIMALĂ}
+Datorită clarificării reprezentării datelor în radix-ul binar, întelegerea bazei hexadecimale va fi cu atât mai simplă. Convertirea unui număr din binar in hexadecimal se face pe baza împărțirii acestuia în serii de \textit{nibble}. În situația când reprezentarea binară nu are destui biți pentru a acomoda o așa diviziune a sa, se completează cu diferența de simboluri de 0 necesare. Tabela \ref{Tabela:3} prezintă valorile care vor fi utilizate în conversie cât și echivalența dintre baza binară, decimală și hexadecimală.
+
+\begin{table}[h]
+\centering
+\caption{Echivalența nibble - simbol hexadecimal }
+\label{Tabela:3}
+\begin{tabular}{ ||c|c|c|| }
+ \hline
+ Nibble & Simbol & Decimal\\ 
+ \hline  \hline
+ 0000 & 0 & 0\\
+ \hline
+ 0001 & 1 & 1\\
+ \hline
+ 0010 & 2 & 2\\
+ \hline
+ 0011 &  3 & 3\\
+ \hline
+ 0100 & 4 & 4\\
+ \hline
+ 0101 & 5 & 5 \\
+ \hline
+ 0110 & 6 & 6\\
+ \hline
+ 0111 & 7 & 7\\
+ \hline
+ 1000 & 8 & 8\\
+ \hline
+ 1001 & 9 & 9\\
+ \hline
+ 1010 & A & 10\\
+ \hline
+ 1011 & B & 11\\
+ \hline
+ 1100 & C & 12\\
+ \hline
+ 1101 & D & 13\\
+ \hline
+ 1110 & E & 14\\
+ \hline
+ 1111 & F & 15\\
+ \hline
+\end{tabular}
+\end{table}
+
 \subsubsection{OPERAȚIILE MATEMATICE ȘI NUMERELE BINARE}
 Pentru a utiliza în mod corect reprezentările în această bază, modul în care calculele matematice sunt efectuate asupra numerelor binare necesită clarificare.
 
@@ -197,7 +245,7 @@ Cea mai elementară operație matematică care poate fi aplicată unui număr es
 \begin{table}[h]
 \centering
 \caption{Operațiile fundamentale de însumare a numerelor binare }
-\label{Tabela:3}
+\label{Tabela:4}
 \begin{tabular}{ ||c|c|c|| }
  \hline
  Operație & Sumă & Carry \\ 
@@ -227,11 +275,10 @@ Această operație cere prin urmare un mod de reprezentare al numerelor binare n
 
 Primul mod de reprezentare este cel prin semn-magnitudine. Acesta este intuitiv, fiind similar cu reprezentarea numerelor decimale cu semn. Bit-ul cel mai semnificativ devine acum bit-ul de semn, 1 reprezentând un număr negativă, iar 0 unul pozitiv. Tabelul \ref{Tabela:4} prezintă aplicarea acestei reprezentări asupra numerelor pe 8 biți.
 
-\newpage
 \begin{table}[h]
 \centering
 \caption{Reprezentarea prin semn-magnitudine }
-\label{Tabela:4}
+\label{Tabela:5}
 \begin{tabular}{ ||c|c|c|| }
  \hline
  Valoare binară & Semn magnitudine &  Fără semn\\ 
@@ -274,7 +321,7 @@ O altă medotă de reprezentare este prin complementul de 1. Conform acesteia, s
 \begin{table}[h]
 \centering
 \caption{Reprezentarea prin complement de 1 }
-\label{Tabela:5}
+\label{Tabela:6}
 \begin{tabular}{ ||c|c|c|| }
  \hline
  Valoare binară & Semn magnitudine &  Fără semn\\ 
@@ -308,19 +355,45 @@ O altă medotă de reprezentare este prin complementul de 1. Conform acesteia, s
 \end{tabular}
 \end{table}
 
-La fel ca în cazul reprezentării prin semn-magnitudine, 0 dorește să respecte principiul superpoziției, diferența pricipală însă, precum se distinge din compararea Tabelei \ref{Tabela:5} cu  Tabela \ref{Tabela:4} este faptul ca valorile negative sunt eșalonate invers.
+La fel ca în cazul reprezentării prin semn-magnitudine, 0 dorește să respecte principiul superpoziției, diferența pricipală însă, precum se distinge din compararea Tabelei \ref{Tabela:5} cu  Tabela \ref{Tabela:4}, este faptul ca valorile negative sunt eșalonate invers.
 
-Problema acestor reprezentări este cu atât mai vizibilă când se efectuează adunarea a două numere binare, rezultatul fiind mereu $\ 111...111$. Soluția vine prin complementul de 2, complement format prin adăugarea unei unități reprezentării complementare de 1. Efectul însumării unitare este cel mai bine explicitat de Figura \ref{Figura:3}.
+Problema acestor reprezentări este cu atât mai vizibilă când se efectuează adunarea a două numere binare, rezultatul fiind mereu $\ 111..1..111$, unda dintre reprezentările posibile ale lui 0. Soluția vine prin complementul de 2, complement format prin adăugarea unei unități reprezentării complementare de 1. Efectul însumării unitare este cel mai bine explicitat de Figura \ref{Figura:3}.
  
  \begin{figure}[h!]
  \centering
- \caption{PLACEHOLDER}
+ \caption{Efectul adunării unității asupra complementului de 1}
  \label{Figura:3}
-% https://q.uiver.app/#q=WzAsMyxbMCwwLCItMl57bi0xfSsxIl0sWzUsMCwiMCJdLFsxMCwwLCIyXntuLTF9LTEiXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJhcnJvd2hlYWQifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsxLDJdXQ==
-\[\begin{tikzcd}[column sep=3.15em,row sep=scriptsize]
-	{-2^{n-1}+1} &&&&& 0 &&&&& {2^{n-1}-1}
-	\arrow[tail reversed, no head, from=1-1, to=1-6]
-	\arrow[from=1-6, to=1-11]
+% https://q.uiver.app/#q=WzAsMjYsWzQsMCwiMDAwMDAwMDAgPSAxMTExMTExMSJdLFs0LDEsIjAiXSxbNCw0LCIwIl0sWzQsMywiMDAwMDAwMDAiXSxbMiw0LCIuLi4iXSxbMiwxLCIuLi4iXSxbNiwxLCIuLi4iXSxbNiw0LCIuLi4iXSxbMCw0LCItMTI4Il0sWzMsNCwiLTEiXSxbNSw0LCIxIl0sWzUsMywiMDAwMDAwMDEiXSxbNyw0LCIxMjciXSxbNywzLCIwMTExMTExMSJdLFs1LDEsIjEiXSxbNSwwLCIwMDAwMDAwMSJdLFs3LDEsIjEyNyJdLFs3LDAsIjAxMTExMTExIl0sWzMsMSwiLTEiXSxbMywwLCIxMTExMTExMCJdLFszLDMsIjExMTExMTExIl0sWzEsMSwiLTEyNyJdLFsxLDQsIi0xMjciXSxbMSwwLCIxMDAwMDAwMCJdLFsxLDMsIjEwMDAwMDAwIl0sWzAsMywiMTAwMDAwMDAiXSxbMiw5XSxbMiwxMF0sWzEwLDddLFs3LDEyXSxbMSwxNF0sWzE0LDZdLFs2LDE2XSxbMSwxOF0sWzE4LDIwLCIrMSIsMV0sWzIwLDldLFsxOCw1XSxbOSw0XSxbNSwyMV0sWzQsMjJdLFsyMiw4XSxbMjEsMjQsIisxIiwxXSxbMjQsMjJdXQ==
+\[\begin{tikzcd}[cramped,column sep=tiny,row sep=scriptsize]
+	& 10000000 && 11111110 & {00000000 = 11111111} & 00000001 && 01111111 \\
+	& {-127} & {...} & {-1} & 0 & 1 & {...} & 127 \\
+	\\
+	10000000 & 10000000 && 11111111 & 00000000 & 00000001 && 01111111 \\
+	{-128} & {-127} & {...} & {-1} & 0 & 1 & {...} & 127
+	\arrow["{+1}"{description}, from=2-2, to=4-2]
+	\arrow[from=2-3, to=2-2]
+	\arrow[from=2-4, to=2-3]
+	\arrow["{+1}"{description}, from=2-4, to=4-4]
+	\arrow[from=2-5, to=2-4]
+	\arrow[from=2-5, to=2-6]
+	\arrow[from=2-6, to=2-7]
+	\arrow[from=2-7, to=2-8]
+	\arrow[from=4-2, to=5-2]
+	\arrow[from=4-4, to=5-4]
+	\arrow[from=5-2, to=5-1]
+	\arrow[from=5-3, to=5-2]
+	\arrow[from=5-4, to=5-3]
+	\arrow[from=5-5, to=5-4]
+	\arrow[from=5-5, to=5-6]
+	\arrow[from=5-6, to=5-7]
+	\arrow[from=5-7, to=5-8]
 \end{tikzcd}\]
- \end{figure}
+\end{figure}
+Din această figură se observa următoarele:
+\begin{itemize}
+\item În cazul complementului de 2, nu mai există două reprezentări posibile pentru 0, locul suplimentar fiind luat de posibilitatea reprezentării unui număr negativ adițional, $\ -128$.
+\item Intervalul posibil de valori devine acum  $\ [-2^{n-1}, 2^{n-1}-1]$.
+\end{itemize}
+
+Odată cu clarificarea reprezentării numerelor binare negative, operațiile matematice fundamentale pe care microprocesorul modelat pe decursul acestei lucrări le va utiliza, pot fi acum implementate. Însă, pentru a face legătura dintre abstractul arhitectural al sistemului și datele numerice, este necesară tratarea entităților digitale fundamentale cunoscute drept porți logice. 
 \end{document}
