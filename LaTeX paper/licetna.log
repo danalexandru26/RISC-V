@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.16)  23 MAY 2024 23:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.16)  30 MAY 2024 01:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -88,12 +88,6 @@ File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
 \Gin@req@height=\dimen147
 \Gin@req@width=\dimen148
 )
-(c:/texlive/2024/texmf-dist/tex/latex/quiver/quiver.sty
-Package: quiver 2021/01/11 quiver
-
-(c:/texlive/2024/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
-Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
-
 (c:/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (c:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (c:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
@@ -368,6 +362,31 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 brarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )))
+(c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+braryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\arrowsize=\dimen199
+))
+(c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+braryshapes.gates.logic.US.code.tex
+File: tikzlibraryshapes.gates.logic.US.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/circuits/pgflibrar
+yshapes.gates.logic.US.code.tex
+(c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/circuits/pgflibrar
+yshapes.gates.logic.code.tex)))
+(c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (c:/texlive/2024/texmf-dist/tex/latex/quiver/quiver.sty
+Package: quiver 2021/01/11 quiver
+
+(c:/texlive/2024/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
+Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
+
 (c:/texlive/2024/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
 brarymatrix.code.tex
@@ -380,10 +399,10 @@ File: tikzlibraryquotes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.cod
 e.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen199
-\pgfarrowlength=\dimen256
-\pgfarrowwidth=\dimen257
-\pgfarrowlinewidth=\dimen258
+\pgfarrowinset=\dimen256
+\pgfarrowlength=\dimen257
+\pgfarrowwidth=\dimen258
+\pgfarrowlinewidth=\dimen259
 ))) (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
@@ -397,23 +416,19 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
-brarycalc.code.tex
-File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)
-(c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
 brarydecorations.pathmorphing.code.tex
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
 brarydecorations.code.tex
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.t
 ex
-\pgfdecoratedcompleteddistance=\dimen259
-\pgfdecoratedremainingdistance=\dimen260
-\pgfdecoratedinputsegmentcompleteddistance=\dimen261
-\pgfdecoratedinputsegmentremainingdistance=\dimen262
-\pgf@decorate@distancetomove=\dimen263
+\pgfdecoratedcompleteddistance=\dimen260
+\pgfdecoratedremainingdistance=\dimen261
+\pgfdecoratedinputsegmentcompleteddistance=\dimen262
+\pgfdecoratedinputsegmentremainingdistance=\dimen263
+\pgf@decorate@distancetomove=\dimen264
 \pgf@decorate@repeatstate=\count286
-\pgfdecorationsegmentamplitude=\dimen264
-\pgfdecorationsegmentlength=\dimen265
+\pgfdecorationsegmentamplitude=\dimen265
+\pgfdecorationsegmentlength=\dimen266
 )
 \tikz@lib@dec@box=\box63
 )
@@ -431,14 +446,14 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@cnth=\count287
 \Gm@cntv=\count288
 \c@Gm@tempcnt=\count289
-\Gm@bindingoffset=\dimen266
-\Gm@wd@mp=\dimen267
-\Gm@odd@mp=\dimen268
-\Gm@even@mp=\dimen269
-\Gm@layoutwidth=\dimen270
-\Gm@layoutheight=\dimen271
-\Gm@layouthoffset=\dimen272
-\Gm@layoutvoffset=\dimen273
+\Gm@bindingoffset=\dimen267
+\Gm@wd@mp=\dimen268
+\Gm@odd@mp=\dimen269
+\Gm@even@mp=\dimen270
+\Gm@layoutwidth=\dimen271
+\Gm@layoutheight=\dimen272
+\Gm@layouthoffset=\dimen273
+\Gm@layoutvoffset=\dimen274
 \Gm@dimlist=\toks32
 )
 
@@ -454,33 +469,49 @@ File: l3backend-pdftex.def 2024-04-11 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count290
 \l__pdf_internal_box=\box64
 )
-(./licetna.aux)
+(./licetna.aux
+
+LaTeX Warning: Label `Figura:5' multiply defined.
+
+
+LaTeX Warning: Label `Tabela:8' multiply defined.
+
+
+LaTeX Warning: Label `Tabela:8' multiply defined.
+
+
+LaTeX Warning: Label `Tabela:8' multiply defined.
+
+
+LaTeX Warning: Label `Figura:7' multiply defined.
+
+)
 \openout1 = `licetna.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
  (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count291
-\scratchdimen=\dimen274
+\scratchdimen=\dimen275
 \scratchbox=\box65
 \nofMPsegments=\count292
 \nofMParguments=\count293
 \everyMPshowfont=\toks33
 \MPscratchCnt=\count294
-\MPscratchDim=\dimen275
+\MPscratchDim=\dimen276
 \MPnumerator=\count295
 \makeMPintoPDFobject=\count296
 \everyMPtoPDFconversion=\toks34
@@ -527,12 +558,12 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 29.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
 
 (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 29.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
 
 
 (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -541,7 +572,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 LaTeX Warning: No \author given.
 
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 38.
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 40.
 [1
 
 {c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/
@@ -550,7 +581,7 @@ texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2] [3] [4] [5]
 <byte.png, id=38, 644.4075pt x 442.65375pt>
 File: byte.png Graphic file (type png)
 <use byte.png>
-Package pdftex.def Info: byte.png  used on input line 165.
+Package pdftex.def Info: byte.png  used on input line 167.
 (pdftex.def)             Requested size: 241.84843pt x 166.12982pt.
 
 
@@ -560,27 +591,38 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <binary_addition.png, id=46, 843.15pt x 322.20375pt>
 File: binary_addition.png Graphic file (type png)
 <use binary_addition.png>
-Package pdftex.def Info: binary_addition.png  used on input line 269.
+Package pdftex.def Info: binary_addition.png  used on input line 271.
 (pdftex.def)             Requested size: 435.32422pt x 166.35713pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [8] [9{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <.
-/binary_addition.png>] [10] [11] (./licetna.aux)
+/binary_addition.png>] [10]
+
+LaTeX Warning: Reference `Figura:4' on page 11 undefined on input line 412.
+
+[11] [12] [13] [14] (./licetna.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-04-11>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 16330 strings out of 474050
- 342656 string characters out of 5746298
+ 17335 strings out of 474050
+ 369933 string characters out of 5746298
  1959754 words of memory out of 5000000
- 38466 multiletter control sequences out of 15000+600000
+ 39455 multiletter control sequences out of 15000+600000
  579388 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 113i,17n,121p,899b,1097s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,17n,111p,899b,1097s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/tex
 live/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist
@@ -596,10 +638,10 @@ fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2024/texmf-dist/fonts/type
 m-super/sfrm1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sf
 rm1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti0600.pfb
 ><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on licetna.pdf (11 pages, 250977 bytes).
+Output written on licetna.pdf (14 pages, 264531 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
+ 148 PDF objects out of 1000 (max. 8388607)
+ 92 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
