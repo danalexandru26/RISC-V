@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.16)  30 MAY 2024 01:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.16)  2 JUN 2024 20:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -381,7 +381,42 @@ yshapes.gates.logic.code.tex)))
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
 brarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (c:/texlive/2024/texmf-dist/tex/latex/quiver/quiver.sty
+)
+(c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/circui
+ts/tikzlibrarycircuits.logic.CDH.code.tex
+(c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/circui
+ts/tikzlibrarycircuits.logic.US.code.tex
+(c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/circui
+ts/tikzlibrarycircuits.logic.code.tex
+(c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/circui
+ts/tikzlibrarycircuits.code.tex
+(c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarydecorations.markings.code.tex
+(c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarydecorations.code.tex
+(c:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.t
+ex
+\pgfdecoratedcompleteddistance=\dimen256
+\pgfdecoratedremainingdistance=\dimen257
+\pgfdecoratedinputsegmentcompleteddistance=\dimen258
+\pgfdecoratedinputsegmentremainingdistance=\dimen259
+\pgf@decorate@distancetomove=\dimen260
+\pgf@decorate@repeatstate=\count286
+\pgfdecorationsegmentamplitude=\dimen261
+\pgfdecorationsegmentlength=\dimen262
+)
+\tikz@lib@dec@box=\box63
+)
+(c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydec
+orations.markings.code.tex))
+\tikz@lib@circ@count=\count287
+\tikzcircuitssizeunit=\dimen263
+))))
+(c:/texlive/2024/texmf-dist/tex/latex/quiver/quiver.sty
 Package: quiver 2021/01/11 quiver
 
 (c:/texlive/2024/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
@@ -399,10 +434,10 @@ File: tikzlibraryquotes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.cod
 e.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen256
-\pgfarrowlength=\dimen257
-\pgfarrowwidth=\dimen258
-\pgfarrowlinewidth=\dimen259
+\pgfarrowinset=\dimen264
+\pgfarrowlength=\dimen265
+\pgfarrowwidth=\dimen266
+\pgfarrowlinewidth=\dimen267
 ))) (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
@@ -417,23 +452,21 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ))
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
 brarydecorations.pathmorphing.code.tex
-(c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
-brarydecorations.code.tex
-(c:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.t
-ex
-\pgfdecoratedcompleteddistance=\dimen260
-\pgfdecoratedremainingdistance=\dimen261
-\pgfdecoratedinputsegmentcompleteddistance=\dimen262
-\pgfdecoratedinputsegmentremainingdistance=\dimen263
-\pgf@decorate@distancetomove=\dimen264
-\pgf@decorate@repeatstate=\count286
-\pgfdecorationsegmentamplitude=\dimen265
-\pgfdecorationsegmentlength=\dimen266
-)
-\tikz@lib@dec@box=\box63
-)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydec
 orations.pathmorphing.code.tex)))
+(c:/texlive/2024/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2024/04/23 v4.2 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip52
+\f@nch@O@elh=\skip53
+\f@nch@O@erh=\skip54
+\f@nch@O@olh=\skip55
+\f@nch@O@orh=\skip56
+\f@nch@O@elf=\skip57
+\f@nch@O@erf=\skip58
+\f@nch@O@olf=\skip59
+\f@nch@O@orf=\skip60
+)
 (c:/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
@@ -443,17 +476,17 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (c:/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
-\Gm@cnth=\count287
-\Gm@cntv=\count288
-\c@Gm@tempcnt=\count289
-\Gm@bindingoffset=\dimen267
-\Gm@wd@mp=\dimen268
-\Gm@odd@mp=\dimen269
-\Gm@even@mp=\dimen270
-\Gm@layoutwidth=\dimen271
-\Gm@layoutheight=\dimen272
-\Gm@layouthoffset=\dimen273
-\Gm@layoutvoffset=\dimen274
+\Gm@cnth=\count288
+\Gm@cntv=\count289
+\c@Gm@tempcnt=\count290
+\Gm@bindingoffset=\dimen268
+\Gm@wd@mp=\dimen269
+\Gm@odd@mp=\dimen270
+\Gm@even@mp=\dimen271
+\Gm@layoutwidth=\dimen272
+\Gm@layoutheight=\dimen273
+\Gm@layouthoffset=\dimen274
+\Gm@layoutvoffset=\dimen275
 \Gm@dimlist=\toks32
 )
 
@@ -464,56 +497,62 @@ Package geometry Warning: Over-specification in `h'-direction.
 Package geometry Warning: Over-specification in `v'-direction.
     `height' (845.04684pt) is ignored.
 
+
+Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less.
+(fancyhdr)                Please consider using the `twoside' option on input l
+ine 37.
+
+
+Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less.
+(fancyhdr)                Please consider using the `twoside' option on input l
+ine 46.
+
+
+Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less.
+(fancyhdr)                Please consider using the `twoside' option on input l
+ine 50.
+
 (c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-04-11 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count290
+\l__color_backend_stack_int=\count291
 \l__pdf_internal_box=\box64
 )
 (./licetna.aux
 
 LaTeX Warning: Label `Figura:5' multiply defined.
 
-
-LaTeX Warning: Label `Tabela:8' multiply defined.
-
-
-LaTeX Warning: Label `Tabela:8' multiply defined.
-
-
-LaTeX Warning: Label `Tabela:8' multiply defined.
-
-
-LaTeX Warning: Label `Figura:7' multiply defined.
-
 )
 \openout1 = `licetna.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
  (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count291
-\scratchdimen=\dimen275
+\scratchcounter=\count292
+\scratchdimen=\dimen276
 \scratchbox=\box65
-\nofMPsegments=\count292
-\nofMParguments=\count293
+\nofMPsegments=\count293
+\nofMParguments=\count294
 \everyMPshowfont=\toks33
-\MPscratchCnt=\count294
-\MPscratchDim=\dimen276
-\MPnumerator=\count295
-\makeMPintoPDFobject=\count296
+\MPscratchCnt=\count295
+\MPscratchDim=\dimen277
+\MPnumerator=\count296
+\makeMPintoPDFobject=\count297
 \everyMPtoPDFconversion=\toks34
 ) (c:/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -540,9 +579,9 @@ e
 * \textheight=717.00946pt
 * \oddsidemargin=-15.36449pt
 * \evensidemargin=-15.36449pt
-* \topmargin=-38.1381pt
-* \headheight=12.0pt
-* \headsep=25.0pt
+* \topmargin=-54.59085pt
+* \headheight=28.45274pt
+* \headsep=46.97505pt
 * \topskip=12.0pt
 * \footskip=30.0pt
 * \marginparwidth=44.0pt
@@ -558,12 +597,12 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 57.
 
 (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 57.
 
 
 (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -572,37 +611,277 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 LaTeX Warning: No \author given.
 
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 40.
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 66.
 [1
 
 {c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/
-texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2] [3] [4] [5]
+texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+<Picture1.jpg, id=14, 141.52875pt x 51.94406pt>
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 97.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[2 <./Picture1.jpg>]
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 117.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[3]
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 126.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[4]
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 146.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[5]
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 186.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
 [6]
-<byte.png, id=38, 644.4075pt x 442.65375pt>
+<byte.png, id=39, 644.4075pt x 442.65375pt>
 File: byte.png Graphic file (type png)
 <use byte.png>
-Package pdftex.def Info: byte.png  used on input line 167.
+Package pdftex.def Info: byte.png  used on input line 193.
 (pdftex.def)             Requested size: 241.84843pt x 166.12982pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 269.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
 [7 <./byte.png>]
-<binary_addition.png, id=46, 843.15pt x 322.20375pt>
+<binary_addition.png, id=47, 843.15pt x 322.20375pt>
 File: binary_addition.png Graphic file (type png)
 <use binary_addition.png>
-Package pdftex.def Info: binary_addition.png  used on input line 271.
+Package pdftex.def Info: binary_addition.png  used on input line 297.
 (pdftex.def)             Requested size: 435.32422pt x 166.35713pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[8] [9{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <.
-/binary_addition.png>] [10]
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 303.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
 
-LaTeX Warning: Reference `Figura:4' on page 11 undefined on input line 412.
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
 
-[11] [12] [13] [14] (./licetna.aux)
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[8]
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 346.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[9{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./bin
+ary_addition.png>]
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 423.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[10]
+
+LaTeX Warning: Reference `Figura:4' on page 11 undefined on input line 438.
+
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 472.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[11]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 564.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[12]
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 604.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[13]
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 687.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[14]
+<rtype.drawio.png, id=74, 623.32875pt x 91.34125pt>
+File: rtype.drawio.png Graphic file (type png)
+<use rtype.drawio.png>
+Package pdftex.def Info: rtype.drawio.png  used on input line 709.
+(pdftex.def)             Requested size: 241.84843pt x 35.44035pt.
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 712.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[15 <./rtype.drawio.png>]
+<rtypeexample.png, id=79, 623.32875pt x 120.45pt>
+File: rtypeexample.png Graphic file (type png)
+<use rtypeexample.png>
+Package pdftex.def Info: rtypeexample.png  used on input line 728.
+(pdftex.def)             Requested size: 241.84843pt x 46.73453pt.
+<stype.png, id=80, 623.32875pt x 91.34125pt>
+File: stype.png Graphic file (type png)
+<use stype.png>
+Package pdftex.def Info: stype.png  used on input line 737.
+(pdftex.def)             Requested size: 241.84843pt x 35.44035pt.
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 749.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[16 <./rtypeexample.png> <./stype.png>]
+<stypeexample.png, id=86, 623.32875pt x 120.45pt>
+File: stypeexample.png Graphic file (type png)
+<use stypeexample.png>
+Package pdftex.def Info: stypeexample.png  used on input line 756.
+(pdftex.def)             Requested size: 241.84843pt x 46.73453pt.
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 761.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[17 <./stypeexample.png>] (./licetna.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-04-11>
@@ -616,13 +895,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17335 strings out of 474050
- 369933 string characters out of 5746298
- 1959754 words of memory out of 5000000
- 39455 multiletter control sequences out of 15000+600000
+ 17866 strings out of 474050
+ 383682 string characters out of 5746298
+ 1961754 words of memory out of 5000000
+ 39960 multiletter control sequences out of 15000+600000
  579388 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,17n,111p,899b,1097s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,17n,111p,899b,1098s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/tex
 live/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist
@@ -638,10 +917,10 @@ fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2024/texmf-dist/fonts/type
 m-super/sfrm1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sf
 rm1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti0600.pfb
 ><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on licetna.pdf (14 pages, 264531 bytes).
+Output written on licetna.pdf (17 pages, 290894 bytes).
 PDF statistics:
- 148 PDF objects out of 1000 (max. 8388607)
- 92 compressed objects within 1 object stream
+ 166 PDF objects out of 1000 (max. 8388607)
+ 98 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 48 words of extra memory for PDF output out of 10000 (max. 10000000)
 

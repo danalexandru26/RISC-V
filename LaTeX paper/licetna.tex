@@ -8,7 +8,10 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{arrows, shapes.gates.logic.US, calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary {circuits.logic.CDH} 
 \usepackage{quiver} 
+\usepackage{fancyhdr}
 %\usepackage{helvet}
 %\renewcommand{\familydefault}{\sfdefault}
 
@@ -20,13 +23,36 @@
  right=20mm,
  top=25mm,
  bottom=20mm,
+ headheight = 10mm,
  }
 \setlength\parindent{15mm}
 
-\begin{document}
+\pagestyle{fancy}
+%... then configure it.
+\fancyhead{} % clear all header fields
+\setlength{\headsep}{0.65in}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
 
+\fancyfoot[CE,CO]{\thepage}
+\fancyhead[LE, LO]{
+
+Departamentul de Ingineria Sistemelor
+
+2020-2024
+
+Bulzan Dan-Alexandru
+
+Microprocesorul RISC-V}
+
+\fancyhead[RE, RO]{
+\includegraphics{Picture1.jpg}
+}
+
+\begin{document}
 \fontsize{20pt}{18pt}\selectfont
 \title{\textbf{Microprocesorul RISC-V}}
+
 \date{}
 \maketitle
 
@@ -65,7 +91,7 @@ Implementarea va fi realizată în limbajul de descriere hardware VHDL, entită�
 
 \begin{center}
 \vspace*{40mm}
-DE CONTINUAT, ALTERAT
+DE CONTINUAT
 \end{center}
 
 \newpage
@@ -401,7 +427,7 @@ Odată cu clarificarea reprezentării numerelor binare negative, operațiile mat
 
 \subsection{ABSTRACȚIA LOGICĂ} 
 
-Porțile logice sunt acele dispozitive care fac legătura dintre operațiile matematice abstracte definite anterior și implementarea propriu zisă a sistemului practic de calcul. În spatele unei porți logice se găsesc tranzistoarele, mici întrerupătoare electrice ale căror mărime a ajuns în zilele noastre să atingă ordinul nanometric (\textit{$\ 10^{-9}$ metri}). Subtilitățile de  funcționare ale unui tranzistor sunt dincolo de scopul acestei lucrări, acesta fiind considerat cutia neagră de la baza implementării entitățolor digitale.
+Porțile logice sunt acele dispozitive care fac legătura dintre operațiile matematice abstracte definite anterior și implementarea propriu zisă a sistemului practic de calcul. În spatele unei porți logice se găsesc tranzistoarele, mici întrerupătoare electrice ale căror mărime a ajuns în zilele noastre să atingă ordinul nanometric (\textit{$\ 10^{-9}$ metri}). Subtilitățile de  funcționare ale unui tranzistor sunt dincolo de scopul acestei lucrări, acesta fiind considerat cutia neagră de la baza implementării entităților digitale.
 
 O poartă logică are rolul de a implementa o funcție matematică a algebrei Booleane. Comportamentul acestora este considerat ideal, întârzierile de propagare a impulsului astfel neglijabile. Pentru analiza funcției algebrice descrise se vor utiliza  tabele logice,a căror rol este de a relaționa în format tabelar semnalele de intrare cu rezultatul produs.
 
@@ -482,28 +508,29 @@ Poarta logică \textit{sau} reprezintă implementarea operației de disjuncție 
 \end{tabular}
 \end{table}
 
-Simbolul utilizat în diagramele circuitelor este prezentat prin Figura \ref{Figura:6}
+Simbolul utilizat în diagramele circuitelor este prezentat prin Figura \ref{Figura:6}.
 
  \begin{figure}[h!]
  \centering
  \caption{Simbolul porții logice SAU}
  \label{Figura:6}
-\begin{tikzpicture}[thick,scale=2.0, every node/.style={transform shape}]
-    \node (x) at (0, 1) {$A$};
-    \node (y) at (1.9, 1) {$Q$};
-    \node[or gate US, draw] at ($(x) + (0.8, 0)$) (notx) {};
-    \draw (notx.output) -- ++(0.4, 0);
-\end{tikzpicture}
+    \begin{tikzpicture}[thick,scale=2.0, every node/.style={transform shape}]
+    \node[or gate US, minimum size = 28pt, draw] at (1.5,0.5) (NAND) {};
+	\node[label={[above] left:$A$}] at ([xshift=-0.6cm]NAND.input 1) (A) {};
+	\node[label={[below] left:$B$}] at ([xshift=-0.6cm]NAND.input 2) (B) {};
+	\draw (A.east) -- (NAND.input 1);
+	\draw (B.east) -- (NAND.input 2);
+    \draw (NAND.output) -- ($(NAND) + (1.2,0)$);
+    \node (z) at ($(NAND) + (1.5,0)$) {$Q$};
+    \end{tikzpicture}
  \end{figure}
  
- 
-\newpage
 \subsubsection{ȘI}
-TO DO
+Poarta logică \textit{și} reprezintă implementarea operației de conjuncție matematică, a cărei rezultat este 1 doar atunci când ambele intrări logice sunt 1. Tabela \ref{Tabela:9} prezintă valorile operației raportate la intrările logice. Expresia matematică a operației \textit{sau} este $\ Q = A \cdot B$.
  \begin{table}[h]
 \centering
 \caption{Funcția logică ȘI}
-\label{Tabela:8}
+\label{Tabela:9}
 \begin{tabular}{ ||c|c|c|| }
  \hline
  A & B & Q\\ 
@@ -519,24 +546,29 @@ TO DO
 \end{tabular}
 \end{table}
 
+Simbolul utilizat în diagramele circuitelor este prezentat prin Figura \ref{Figura:7}.
+
  \begin{figure}[h!]
  \centering
  \caption{Simbolul porții logice ȘI}
  \label{Figura:7}
-\begin{tikzpicture}[thick,scale=2.0, every node/.style={transform shape}]
-    \node (x) at (0, 1) {$A$};
-    \node (y) at (1.9, 1) {$Q$};
-    \node[and gate US, draw] at ($(x) + (0.8, 0)$) (notx) {};
-    \draw (notx.output) -- ++(0.4, 0);
-\end{tikzpicture}
+    \begin{tikzpicture}[thick,scale=2.0, every node/.style={transform shape}]
+    \node[and gate US, minimum size = 28pt, draw] at (1.5,0.5) (NAND) {};
+	\node[label={[above] left:$A$}] at ([xshift=-0.6cm]NAND.input 1) (A) {};
+	\node[label={[below] left:$B$}] at ([xshift=-0.6cm]NAND.input 2) (B) {};
+	\draw (A.east) -- (NAND.input 1);
+	\draw (B.east) -- (NAND.input 2);
+    \draw (NAND.output) -- ($(NAND) + (1.2,0)$);
+    \node (z) at ($(NAND) + (1.5,0)$) {$Q$};
+    \end{tikzpicture}
  \end{figure}
 
 \subsubsection{XOR}
-TO DO
+Poarta logică \textit{xor}, de asemenea cunoscută ca \textit{SAU exclusiv} setează semnalul de output pe 1 logic doar în cazul în care cel mult una dintre intrări este activă. Comportamentul acesteia este cel mai bine reprezentat de Tabela \ref{Tabela:10}. Operația matematică care descrie această poartă este $\ Q = A \oplus B$.
 \begin{table}[h]
 \centering
 \caption{Funcția logică XOR}
-\label{Tabela:8}
+\label{Tabela:10}
 \begin{tabular}{ ||c|c|c|| }
  \hline
  A & B & Q\\ 
@@ -552,25 +584,32 @@ TO DO
 \end{tabular}
 \end{table}
 
+
+Această operație logică implică practic excluderea mutuală a semnalelor de intrare, indiferent de numărul acestora. Simbolul logic utilizat în diagramele digitale se poate regăsi în Figura \ref{Figura:8}.
  \begin{figure}[h!]
  \centering
  \caption{Simbolul porții logice XOR}
- \label{Figura:8}
-\begin{tikzpicture}[thick,scale=2.0, every node/.style={transform shape}]
-    \node (x) at (0, 1) {$A$};
-    \node (y) at (1.9, 1) {$Q$};
-    \node[xor gate US, draw] at ($(x) + (0.8, 0)$) (notx) {};
-    \draw (notx.output) -- ++(0.4, 0);
-\end{tikzpicture}
+  \label{Figura:8}
+    \begin{tikzpicture}[thick,scale=2.0, every node/.style={transform shape}]
+    \node[xor gate US, minimum size = 28pt, draw] at (1.5,0.5) (NAND) {};
+	\node[label={[above] left:$A$}] at ([xshift=-0.6cm]NAND.input 1) (A) {};
+	\node[label={[below] left:$B$}] at ([xshift=-0.6cm]NAND.input 2) (B) {};
+	\draw (A.east) -- (NAND.input 1);
+	\draw (B.east) -- (NAND.input 2);
+    \draw (NAND.output) -- ($(NAND) + (1.2,0)$);
+    \node (z) at ($(NAND) + (1.5,0)$) {$Q$};
+    \end{tikzpicture}
  \end{figure}
 
 \newpage
 \subsubsection{NAND}
-TO DO
+Ca o regulă generala, totalitatea porților logice la ale căror denumire se atașează prefixul \textit{N-} sunt varianta negată a portii logice originale. Însă, spre deosebire de restul porților, NAND este de asemenea cunoscută ca și poarta logică fundamentală. Această denumire reiese din operațiile algebrei Booleane.
+
+ În mod firesc, semnalul de ieșire al acestei porți va fi complementarul operației \textit{and}. La nivelul Tabelei \ref{Tabela:11} se poate observa clar acest lucru. Expresia matematică a acestei operații este  $\ Q = \overline{A \cdot B}$.
  \begin{table}[h]
 \centering
 \caption{Funcția logică NAND}
-\label{Tabela:8}
+\label{Tabela:11}
 \begin{tabular}{ ||c|c|c|| }
  \hline
  A & B & Q\\ 
@@ -586,15 +625,138 @@ TO DO
 \end{tabular}
 \end{table}
 
+Simbolul utilizat în diagramele circuitelor este prezentat prin Figura \ref{Figura:7}.
  \begin{figure}[h!]
  \centering
- \caption{Simbolul porții logice XOR}
- \label{Figura:7}
-\begin{tikzpicture}[thick,scale=2.0, every node/.style={transform shape}]
-    \node (x) at (0, 1) {$A$};
-    \node (z) at (2, 1) {$Q$};
-    \node[nand gate US, draw] at ($(x) + (0.8, 0)$) (notx) {};
-    \draw (notx.output) -- ++(0.4, 0);
-\end{tikzpicture}
+ \caption{Simbolul porții logice NAND}
+ \label{Figura:9}
+    \begin{tikzpicture}[thick,scale=2.0, every node/.style={transform shape}]
+    \node[nand gate US, minimum size = 28pt, draw] at (1.5,0.5) (NAND) {};
+	\node[label={[above] left:$A$}] at ([xshift=-0.6cm]NAND.input 1) (A) {};
+	\node[label={[below] left:$B$}] at ([xshift=-0.6cm]NAND.input 2) (B) {};
+	\draw (A.east) -- (NAND.input 1);
+	\draw (B.east) -- (NAND.input 2);
+    \draw (NAND.output) -- ($(NAND) + (1.2,0)$);
+    \node (z) at ($(NAND) + (1.5,0)$) {$Q$};
+    \end{tikzpicture}
  \end{figure}
+ 
+ \subsection{ABSTRACTIA ARHITECTURALĂ}
+La nivelul acestei se vor analiza detalile arhitecturii RISC-V, printre care numărându-se structura organizațională a registrelor, tipurile de instrucțiuni cât si modul în care octeții sunt organizați la nivelul acestora. Ne vom limita însă la extensia de bază RISC-V care include doar instrucțiunile fundamentale asupra numerelor întregi.
+
+\subsubsection{FIȘIERUL DE REGISTRE}
+  Cel mai important detaliu microarhitectural este fișierul de registre. Acesta este singurul dintre elementele de design a cărei respectare a tiparului impus de standardul RISC-V este imperativă.
+  
+   Standardul impune un fișiser de 32 de registre în cazul setului RV32I și 32 sau 64 de registre, în funcție de mărimea spațiului de adresare, pentru un procesor RV64I. Denumirea acestor registre, conform convenției, îndică modul destinat de utilizare dar, nu există constrângeri la doar astfel de utilizări.
+   
+Tabela \ref{Tabela:12} ne ajută să identificăm registrele procesorului RV32I cât și utilizarea acestora. Coloana \textit{Denumire Simbolică} prezintă modul de adresarea ale acestor registre la nivelul limbajului de asamblare.
+
+\begin{table}[h]
+\centering
+\caption{Fișierul de registre RV32I}
+\label{Tabela:12}
+\begin{tabular}{ ||c|c|c|| }
+ \hline
+ Registru & Denumire simbolică & Descriere\\ 
+ \hline  \hline
+ x0 & zero & Legat la valoarea 0 \\
+ \hline
+ x1 & ra & Adresa de return \\
+ \hline
+ x2 & sp & Pointer stivă \\
+ \hline 
+ x3 & gp & Pointer global \\
+  \hline
+ x4 & tp & Pointer thread \\
+  \hline  
+ x5-7 & t0-2 & Valori temporare \\
+ \hline
+ x8 & fp & Stocare date sau pointer cadru \\
+  \hline  
+ x9 & s1 & Stocare date \\
+  \hline  
+ x10-11 & a0-1 & Argumente apel funcție sau valori de return \\
+  \hline  
+ x12-17 & a2-7 & Argumente apel funcție \\
+  \hline  
+ x18-27 & s2-11 & Stocare date \\
+  \hline  
+ x28-31 & t3-6 & Valori temporare \\
+  \hline  
+\end{tabular}
+\end{table}
+
+\subsubsection{INSTRUCȚIUNILE DE BAZĂ RISC-V}
+
+Operațile de bază executate de un procesor RV32I sunt transcrise în instrucțiuni având o mărime de 4 octeți. Aceste instrucțiuni pot fi de următoarele tipuri:
+
+\begin{itemize}
+\item Instrucțiuni R, \textit{Register-Register}, pentru operațile de la registru la registru.
+\item Instrucțiuni I, \textit{Immediate}, pentru operații asupra valorilor imediate.
+\item Instrucțiuni S, \textit{Store}, cu rol de încărcare a datelor în memoria volatilă.
+\item Instrucțiuni U, \textit{Upper Immediate}, cu rol de încarcare imediată a octeților cei mai semnificativi în registre.
+\end{itemize}
+
+\subsubsection{INSTRUCȚIUNEA R}
+Instrucțiunile de acest format adresează 3 registre, 2 dintre ele fiind sursa datelor, cel de al 3-lea reprezentând destinația. Acestea sunt în general utilizate în operațile aritmetice, precum adunarea și scăderea numerelor. Figura \ref{Figura:10} prezintă formatul acestei instrucțiuni cât și câmpurile de date constituente.
+
+
+
+ \begin{figure}[h!]
+ \centering
+ \caption{Instrucțiunea R și câmpurile de date}
+ \label{Figura:10}
+ \includegraphics[width=0.5\textwidth]{rtype.drawio.png}
+ \end{figure}
+ 
+\newpage
+ Campurile acestei instrucțiuni au următoarele semnificații:
+ \begin{itemize}
+\item Câmpul \textit{opcode} indică tipul instrucțiinii care va fi executată de ALU.
+\item Câmpul \textit{rd} conține adresa registrului unde va fi stocat rezultatul operației.
+\item Câmpul \textit{rs1} conține adresa registrului primului operand.
+\item Câmpul \textit{rs2} conține adresa registrului celui de al 2-lea operand.
+\item Câmpurile \textit{funct7} și \textit{funct3} conțin date adiționale pentru operația aritmetică de executat.
+\end{itemize}
+
+Un exemplu practic al acestei instrucțiuni se poate vedea în Figura \ref{Figura:11}. Datele din registrele 1 și 2 sunt însumate, rezultatul fiind plasat în registrul 3.
+
+ \begin{figure}[h!]
+ \centering
+ \caption{Exemplu de utilizare al instrucțiunii R}
+ \label{Figura:11}
+ \includegraphics[width=0.5\textwidth]{rtypeexample.png}
+ \end{figure}
+
+\subsubsection{INSTRUCȚIUNEA S}
+Rolul instrucțiunilor de acest format este stocarea datelor. Pentru a facilita acest lucru, formatul instrucțiunii include 2 registre și câmpul imediat. Un registru este utilizat în calculul adresei de memorie, alături de un offset reprezentat de datele imediate, cel doilea conținând datele care se doresc stocate. Figura \ref{Figura:12} arată structura unei astfel de instrucțiuni.
+ \begin{figure}[h!]
+ \centering
+ \caption{Instrucțiunea R și câmpurile de date}
+ \label{Figura:12}
+ \includegraphics[width=0.5\textwidth]{stype.png}
+ \end{figure}
+ 
+Semnificația câmpurilor este următoarea:
+ \begin{itemize}
+\item Câmpul \textit{opcode} indică tipul instrucțiinii de executat.
+\item Câmpul \textit{rs1} conține adresa registrului în care se găsesc datele destinate stocării.
+\item Câmpul \textit{rs2} conține adresa registrului față de a cărui valoare se va calcula offset-ul.
+\item Câmpul \textit{funct3} conțin date adiționale despre operația de \textit{store} executată.
+\item Câmpul \textit{Immediate} format din \textit{imm1} și \textit{imm2}, în această ordine,  reprezintă offset-ul adresei în care de dorește stocarea.
+\end{itemize}
+
+\newpage
+Un exemplu practic al acestei instrucțiuni se poate vedea în Figura \ref{Figura:13}. Valoarea din registrul 1 va fi stocată la adresa indicată de registrul 2, la care se va adauga un offset de \textit{-1}.
+
+ \begin{figure}[h!]
+ \centering
+ \caption{Instrucțiunea R și câmpurile de date}
+ \label{Figura:13}
+ \includegraphics[width=0.5\textwidth]{stypeexample.png}
+ \end{figure}
+ 
+ \subsubsection{INSTRUCȚIUNEA I}
+ Instrucțiunea I are rolul de a scota o valoare imediată
+ \subsubsection{INSTRUCȚIUNEA U}
 \end{document}
