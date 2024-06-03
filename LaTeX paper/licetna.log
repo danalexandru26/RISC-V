@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.16)  3 JUN 2024 23:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.16)  4 JUN 2024 00:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -838,7 +838,7 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 [13]
 File: Picture1.jpg Graphic file (type jpg)
 <use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 655.
+Package pdftex.def Info: Picture1.jpg  used on input line 654.
 (pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
 
 
@@ -853,7 +853,7 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 <rtype.drawio.png, id=74, 623.32875pt x 91.34125pt>
 File: rtype.drawio.png Graphic file (type png)
 <use rtype.drawio.png>
-Package pdftex.def Info: rtype.drawio.png  used on input line 711.
+Package pdftex.def Info: rtype.drawio.png  used on input line 712.
 (pdftex.def)             Requested size: 241.84843pt x 35.44035pt.
 
 
@@ -861,7 +861,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 File: Picture1.jpg Graphic file (type jpg)
 <use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 714.
+Package pdftex.def Info: Picture1.jpg  used on input line 715.
 (pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
 
 Package fancyhdr Warning: \headheight is too small (28.45274pt): 
@@ -875,16 +875,16 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 <rtypeexample.png, id=78, 623.32875pt x 120.45pt>
 File: rtypeexample.png Graphic file (type png)
 <use rtypeexample.png>
-Package pdftex.def Info: rtypeexample.png  used on input line 730.
+Package pdftex.def Info: rtypeexample.png  used on input line 731.
 (pdftex.def)             Requested size: 241.84843pt x 46.73453pt.
 <stype.png, id=79, 623.32875pt x 91.34125pt>
 File: stype.png Graphic file (type png)
 <use stype.png>
-Package pdftex.def Info: stype.png  used on input line 739.
+Package pdftex.def Info: stype.png  used on input line 740.
 (pdftex.def)             Requested size: 241.84843pt x 35.44035pt.
 File: Picture1.jpg Graphic file (type jpg)
 <use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 751.
+Package pdftex.def Info: Picture1.jpg  used on input line 752.
 (pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
 
 
@@ -899,20 +899,20 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 <stypeexample.png, id=86, 623.32875pt x 120.45pt>
 File: stypeexample.png Graphic file (type png)
 <use stypeexample.png>
-Package pdftex.def Info: stypeexample.png  used on input line 758.
+Package pdftex.def Info: stypeexample.png  used on input line 759.
 (pdftex.def)             Requested size: 241.84843pt x 46.73453pt.
 <itype.png, id=87, 623.32875pt x 91.34125pt>
 File: itype.png Graphic file (type png)
 <use itype.png>
-Package pdftex.def Info: itype.png  used on input line 768.
+Package pdftex.def Info: itype.png  used on input line 769.
 (pdftex.def)             Requested size: 241.84843pt x 35.44035pt.
 File: itype.png Graphic file (type png)
 <use itype.png>
-Package pdftex.def Info: itype.png  used on input line 777.
+Package pdftex.def Info: itype.png  used on input line 778.
 (pdftex.def)             Requested size: 241.84843pt x 35.44035pt.
 File: Picture1.jpg Graphic file (type jpg)
 <use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 783.
+Package pdftex.def Info: Picture1.jpg  used on input line 784.
 (pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
 
 
@@ -924,7 +924,7 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 (fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
 
 [17 <./stypeexample.png> <./itype.png>]
-Overfull \hbox (9.68057pt too wide) in paragraph at lines 794--795
+Overfull \hbox (9.68057pt too wide) in paragraph at lines 795--796
 []\T1/cmr/m/n/12 Sumatorul im-ple-men-tat în aceast  lu-crare este de ti-pul ri
 -pple ad-der, carry-ul propagându-
  []
@@ -932,16 +932,16 @@ Overfull \hbox (9.68057pt too wide) in paragraph at lines 794--795
 <fulladder.png, id=93, 1828.58156pt x 971.88094pt>
 File: fulladder.png Graphic file (type png)
 <use fulladder.png>
-Package pdftex.def Info: fulladder.png  used on input line 802.
+Package pdftex.def Info: fulladder.png  used on input line 803.
 (pdftex.def)             Requested size: 435.32422pt x 231.37282pt.
 <byteadder.png, id=94, 2341.24687pt x 651.93562pt>
 File: byteadder.png Graphic file (type png)
 <use byteadder.png>
-Package pdftex.def Info: byteadder.png  used on input line 810.
+Package pdftex.def Info: byteadder.png  used on input line 811.
 (pdftex.def)             Requested size: 435.32422pt x 121.21301pt.
 File: Picture1.jpg Graphic file (type jpg)
 <use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 812.
+Package pdftex.def Info: Picture1.jpg  used on input line 813.
 (pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
 
 Package fancyhdr Warning: \headheight is too small (28.45274pt): 
@@ -955,11 +955,11 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 <32bitadder.png, id=99, 2348.02219pt x 632.3625pt>
 File: 32bitadder.png Graphic file (type png)
 <use 32bitadder.png>
-Package pdftex.def Info: 32bitadder.png  used on input line 819.
+Package pdftex.def Info: 32bitadder.png  used on input line 820.
 (pdftex.def)             Requested size: 435.32422pt x 117.2361pt.
 File: Picture1.jpg Graphic file (type jpg)
 <use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 842.
+Package pdftex.def Info: Picture1.jpg  used on input line 843.
 (pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
 
 
@@ -974,16 +974,16 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 <ArithmeticEngine.png, id=106, 2070.98718pt x 486.31688pt>
 File: ArithmeticEngine.png Graphic file (type png)
 <use ArithmeticEngine.png>
-Package pdftex.def Info: ArithmeticEngine.png  used on input line 849.
+Package pdftex.def Info: ArithmeticEngine.png  used on input line 850.
 (pdftex.def)             Requested size: 435.32422pt x 102.2186pt.
 <LogicEngine.png, id=107, 2055.17813pt x 1253.43282pt>
 File: LogicEngine.png Graphic file (type png)
 <use LogicEngine.png>
-Package pdftex.def Info: LogicEngine.png  used on input line 861.
+Package pdftex.def Info: LogicEngine.png  used on input line 862.
 (pdftex.def)             Requested size: 435.32422pt x 265.4855pt.
 File: Picture1.jpg Graphic file (type jpg)
 <use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 864.
+Package pdftex.def Info: Picture1.jpg  used on input line 865.
 (pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
 
 
@@ -998,11 +998,11 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 <ALU.png, id=113, 2076.25688pt x 850.67813pt>
 File: ALU.png Graphic file (type png)
 <use ALU.png>
-Package pdftex.def Info: ALU.png  used on input line 875.
+Package pdftex.def Info: ALU.png  used on input line 876.
 (pdftex.def)             Requested size: 435.32422pt x 178.34914pt.
 File: Picture1.jpg Graphic file (type jpg)
 <use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 878.
+Package pdftex.def Info: Picture1.jpg  used on input line 879.
 (pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
 
 
@@ -1049,7 +1049,7 @@ fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2024/texmf-dist/fonts/type
 m-super/sfrm1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sf
 rm1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti0600.pfb
 ><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on licetna.pdf (21 pages, 618312 bytes).
+Output written on licetna.pdf (21 pages, 618525 bytes).
 PDF statistics:
  194 PDF objects out of 1000 (max. 8388607)
  107 compressed objects within 2 object streams
