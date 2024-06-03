@@ -12,6 +12,8 @@
 \usetikzlibrary {circuits.logic.CDH} 
 \usepackage{quiver} 
 \usepackage{fancyhdr}
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Exemplu de cod}
 %\usepackage{helvet}
 %\renewcommand{\familydefault}{\sfdefault}
 
@@ -642,7 +644,7 @@ Simbolul utilizat în diagramele circuitelor este prezentat prin Figura \ref{Fig
  \end{figure}
  
  \subsection{ABSTRACTIA ARHITECTURALĂ}
-La nivelul acestei se vor analiza detalile arhitecturii RISC-V, printre care numărându-se structura organizațională a registrelor, tipurile de instrucțiuni cât si modul în care octeții sunt organizați la nivelul acestora. Ne vom limita însă la extensia de bază RISC-V care include doar instrucțiunile fundamentale asupra numerelor întregi.
+Arhitectura face legătura dintre microarhitectura sistemului și programatorul care dorește să-l utilizeze. Acest nivel de abstracție are rolul de a oferi un ghid asupra interacțiunii cu interfața definită de standardul RISC-V. Prin urmare, vor analiza detalile arhitecturii, printre care se numără structura organizațională a registrelor, tipurile de instrucțiuni cât si modul în care octeții sunt organizați la nivelul acestora. Ne vom limita însă la extensia de bază RISC-V care include doar instrucțiunile fundamentale asupra numerelor întregi.
 
 \subsubsection{FIȘIERUL DE REGISTRE}
   Cel mai important detaliu microarhitectural este fișierul de registre. Acesta este singurul dintre elementele de design a cărei respectare a tiparului impus de standardul RISC-V este imperativă.
@@ -757,6 +759,120 @@ Un exemplu practic al acestei instrucțiuni se poate vedea în Figura \ref{Figur
  \end{figure}
  
  \subsubsection{INSTRUCȚIUNEA I}
- Instrucțiunea I are rolul de a scota o valoare imediată
+ Instrucțiunea I are rol în execuția operaților aritmetice cu valori imediate. Aceste valori sunt extinse la 32 de biti, ele ocupând doar 12 biți din lătimea instrucțiunii. În urma extensiei de semn, se efectueaza operația aritmetică specificată prin câmpul \textit{funct3} cu registrul \textit{rs1}, rezultatul fiind stocat în registrul \textit{rd}. Figura \ref{Figura:14} prezintă structura instrucțiunii și câmpurile relevante.
+
+ \begin{figure}[h!]
+ \centering
+ \caption{Instrucțiunea I și câmpurile de date}
+ \label{Figura:14}
+ \includegraphics[width=0.5\textwidth]{itype.png}
+ \end{figure}
+
+ Fie o valoare imediată egală cu \textit{5}, se dorește însumarea sa cu valoare din registrul \textit{1}, rezultatul operației fiind trimis registrului \textit{3}. Un astfel de exemplu se poate vedea în Figura \ref{Figura:15}
+
+ \begin{figure}[h!]
+ \centering
+ \caption{Instrucțiunea I și câmpurile de date}
+ \label{Figura:15}
+ \includegraphics[width=0.5\textwidth]{itype.png}
+ \end{figure}
+ 
  \subsubsection{INSTRUCȚIUNEA U}
+
+
+ \newpage
+\section{\centering IMPLEMENTARE}
+\bigbreak
+\subsection{ABSTRACȚIA MICROARHITECTURALĂ}
+Microarhitectura reprezintă organizarea ierarhică și modulară a componentelor digitale prin care se realizează implementarea practică a unui microprocesor. Precum parcurgem acest nivel de abstracție, vor fi prezentate toate componentele de bază pe care un microprocesor le necesită pentru a funcționa la cel mai de bază nivel. Odată ce toate astfel de componente sunt definite, este posibilă organizarea lor conform arhitecturii RISC-V, rezultând astfel într-un procesor funcțional.
+
+Componentele vor fi prezentate atât în format grafic, prin diagrame digitale, cât și prin codul aferent entității VHDL. Testarea entităților se va face printr-un \textit{testbench} VHDL, fiind prezentate formele de undă caracteristice.
+
+ \subsubsection{SUMATORUL ȘI ARITMETICA NUMERELOR}
+ Cea mai necesară operație pe care un sistem de calcul digital o poate executa este adunarea. Pe baza circuitului sumator se vor constitui alte componente digitale, precum \textit{program counter-ul}. Din cauza utilizării extensive a circuitelor sumatoare, acestea sunt adesea ținta unei multitudini de optimizări, rezultând astfel circuite de o complexitate digitală mai ridicată, dar cu o amprentă temporală redusă.
+ 
+Sumatorul implementat în această lucrare este de tipul ripple adder, carry-ul propagându-se de la un full adder la altul. Avantajul acestei implementări este ușurința modelării hardware, dezavantajul fiind lipsa de optimizare temporală și spațială a operației.
+
+Schema digitală a unui sumator full adder poate fi observată în Figura \ref{Figura:16}. Acesta are rolul de a executa suma a 2 biți, precum s-a prezentat la nivelul abstracției numerice.
+
+ \begin{figure}[h!]
+ \centering
+ \caption{Sumator integral și structura sa internă}
+ \label{Figura:16}
+ \includegraphics[width=0.9\textwidth]{fulladder.png}
+ \end{figure}
+
+Prin legarea serială a 8 sumatoare, rezultă entitatea fundamentală de adunare a procesorului nostru, și anume sumatorul de octeți sau \textit{byte adder}. Structura acestuia este prezentată în Figura \ref{Figura:17}. Se poate observa faptul ca cele 8 sumatoare sunt împărține în două grupuri de 4, fiecare numit \textit{nibble adder}.
+ \begin{figure}[h!]
+ \centering
+ \caption{Sumator de octeți si elementele constituente}
+ \label{Figura:17}
+ \includegraphics[width=0.9\textwidth]{byteadder.png}
+ \end{figure}
+
+Sumatorul de 32 de biți, cunoscut de asemenea ca sumatorul de cuvinte sau \textit{word adder} este prin urmare alcătuit din 4 sumatoare de octeți și poate fi văzut în Figura \ref{Figura:18}.
+
+ \begin{figure}[h!]
+ \centering
+ \caption{Sumator ripple carry adder de 32 de biți}
+ \label{Figura:18}
+ \includegraphics[width=0.9\textwidth]{32bitadder.png}
+ \end{figure}
+ 
+Pentru a efectua operația de scădere, sunt necesare mai multe lucruri. În primul rând, avem nevoie de un inversor pentru a reprezenta forma complementară a numărului de scăzut. Pe lângă acest lucru, este necesar un multiplexor 2:1, a cărui rol este selecția între numărul inversat și valoarea sa inițială, în funcție de operația dorită. Tabela \ref{Tabela:13} prezintă modul în care va funcționa o astfel de operație.
+
+\begin{table}[h]
+\centering
+\caption{Efectuarea operaților în funcție de selecția multiplexorului}
+\label{Tabela:13}
+\begin{tabular}{ ||c|c|c|c|c|| }
+ \hline
+ A & B & Carry & Sel & Operație\\ 
+ \hline  \hline
+ 0x0406001F & 0x031400A5 & 0 & 0 & Adunare \\
+ \hline
+ 0x0013121F & 0x01144EB5 & 1 & 1 & Scădere \\
+ 
+  \hline  
+\end{tabular}
+\end{table}
+
+Se poate observa faptul că semnalul de \textit{carry} este setat pe 1 în cazul scăderii. Acest lucru formează practic complementul de 2 necesar scăderii, numarul fiind doar inversat în prealabil, rezultând un complement de 1.
+
+\newpage
+Prin comasarea inversorului, a multiplexorului și a sumatorului rezultă astfel ceea ce vom denumi motor aritmetic. Schema digitală a acestuia se poate regăsi în Figura \ref{Figura:19}.
+
+ \begin{figure}[h!]
+ \centering
+ \caption{Motorul aritmetic}
+ \label{Figura:19}
+ \includegraphics[width=0.9\textwidth]{ArithmeticEngine.png}
+ \end{figure}
+ 
+ \subsubsection{OPERAȚII LOGICE ȘI MOTORUL LOGIC}
+ 
+ Pe lângă operațile aritmetice, un procesor de asemenea are posibilitatea de executare a operaților logice pe biți. Microprocesorul nostru va avea implementarea hardware a funcțiilor SAU, ȘI, XOR. Toate entitățile necesare efectuării acestor operații vor fi comasate într-un element hardware denumit motor logic.
+ 
+Figura \ref{Figura:20} conține schema digitală a motorului logic cât și a elementelor care-l definesc, cele 3 porți logice pe 32 de biți ȘI, SAU, XOR.
+  \begin{figure}[h!]
+ \centering
+ \caption{Motorul logic și entitățile interne}
+ \label{Figura:20}
+ \includegraphics[width=0.9\textwidth]{LogicEngine.png}
+ \end{figure}
+ 
+\newpage
+
+\subsubsection{UNITATEA ARITMETICĂ ȘI LOGICĂ}
+
+Unitatea aritmetică și logică este prima entitate ierarhică superioară pe care o vom reprezenta. Aceasta este formată din entitățile logice definite în prealabil, precum motorul logic și cel aritmetic, dar conține de asemenea elementul pentru detecție de \textit{overflow}, entitate care îi sporește gradul de utilitate.
+
+ 
+\begin{figure}[h!]
+ \centering
+ \caption{Unitatea aritmetică și logică}
+ \label{Figura:21}
+ \includegraphics[width=0.9\textwidth]{ALU.png}
+ \end{figure}
+
 \end{document}

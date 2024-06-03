@@ -50,7 +50,7 @@ architecture arch of ALU is
         s_31: in std_logic;
         sel_0: in std_logic;
         sel_1: in std_logic;
-        q: out std_logic;
+        q: out std_logic
     );
     end component;
 
