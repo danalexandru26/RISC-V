@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.16)  4 JUN 2024 00:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.16)  7 JUN 2024 20:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -836,11 +836,19 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 (fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
 
 [13]
+<mux41.png, id=71, 1437.87187pt x 788.19469pt>
+File: mux41.png Graphic file (type png)
+<use mux41.png>
+Package pdftex.def Info: mux41.png  used on input line 658.
+(pdftex.def)             Requested size: 241.84843pt x 132.57214pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 File: Picture1.jpg Graphic file (type jpg)
 <use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 654.
+Package pdftex.def Info: Picture1.jpg  used on input line 664.
 (pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
-
 
 Package fancyhdr Warning: \headheight is too small (28.45274pt): 
 (fancyhdr)                Make it at least 62.35004pt, for example:
@@ -850,18 +858,151 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 (fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
 
 [14]
-<rtype.drawio.png, id=74, 623.32875pt x 91.34125pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 720.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[15 <./mux41.png>]
+<rtype.drawio.png, id=79, 623.32875pt x 91.34125pt>
 File: rtype.drawio.png Graphic file (type png)
 <use rtype.drawio.png>
-Package pdftex.def Info: rtype.drawio.png  used on input line 712.
+Package pdftex.def Info: rtype.drawio.png  used on input line 727.
 (pdftex.def)             Requested size: 241.84843pt x 35.44035pt.
+<rtypeexample.png, id=80, 623.32875pt x 120.45pt>
+File: rtypeexample.png Graphic file (type png)
+<use rtypeexample.png>
+Package pdftex.def Info: rtypeexample.png  used on input line 745.
+(pdftex.def)             Requested size: 241.84843pt x 46.73453pt.
+<stype.png, id=81, 623.32875pt x 91.34125pt>
+File: stype.png Graphic file (type png)
+<use stype.png>
+Package pdftex.def Info: stype.png  used on input line 754.
+(pdftex.def)             Requested size: 241.84843pt x 35.44035pt.
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 756.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[16 <./rtype.drawio.png> <./rtypeexample.png>]
+<stypeexample.png, id=87, 623.32875pt x 120.45pt>
+File: stypeexample.png Graphic file (type png)
+<use stypeexample.png>
+Package pdftex.def Info: stypeexample.png  used on input line 773.
+(pdftex.def)             Requested size: 241.84843pt x 46.73453pt.
+<itype.png, id=88, 623.32875pt x 91.34125pt>
+File: itype.png Graphic file (type png)
+<use itype.png>
+Package pdftex.def Info: itype.png  used on input line 783.
+(pdftex.def)             Requested size: 241.84843pt x 35.44035pt.
+File: itype.png Graphic file (type png)
+<use itype.png>
+Package pdftex.def Info: itype.png  used on input line 792.
+(pdftex.def)             Requested size: 241.84843pt x 35.44035pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<utype.png, id=89, 623.32875pt x 91.34125pt>
+File: utype.png Graphic file (type png)
+<use utype.png>
+Package pdftex.def Info: utype.png  used on input line 801.
+(pdftex.def)             Requested size: 241.84843pt x 35.44035pt.
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 803.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[17 <./stype.png> <./stypeexample.png> <./itype.png>]
+<utypeexample.png, id=96, 623.32875pt x 91.34125pt>
+File: utypeexample.png Graphic file (type png)
+<use utypeexample.png>
+Package pdftex.def Info: utypeexample.png  used on input line 810.
+(pdftex.def)             Requested size: 241.84843pt x 35.44035pt.
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 813.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[18 <./utype.png> <./utypeexample.png>]
+Overfull \hbox (9.68057pt too wide) in paragraph at lines 824--825
+[]\T1/cmr/m/n/12 Sumatorul im-ple-men-tat în aceast  lu-crare este de ti-pul ri
+-pple ad-der, carry-ul propagându-
+ []
+
+<fulladder.png, id=102, 1828.58156pt x 971.88094pt>
+File: fulladder.png Graphic file (type png)
+<use fulladder.png>
+Package pdftex.def Info: fulladder.png  used on input line 832.
+(pdftex.def)             Requested size: 435.32422pt x 231.37282pt.
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 836.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[19 <./fulladder.png>]
+<fulladderVHDL.png, id=108, 967.36406pt x 800.23969pt>
+File: fulladderVHDL.png Graphic file (type png)
+<use fulladderVHDL.png>
+Package pdftex.def Info: fulladderVHDL.png  used on input line 841.
+(pdftex.def)             Requested size: 435.32422pt x 360.11674pt.
+<byteadder.png, id=109, 2341.24687pt x 651.93562pt>
+File: byteadder.png Graphic file (type png)
+<use byteadder.png>
+Package pdftex.def Info: byteadder.png  used on input line 849.
+(pdftex.def)             Requested size: 435.32422pt x 121.21301pt.
+<32bitadder.png, id=110, 2348.02219pt x 632.3625pt>
+File: 32bitadder.png Graphic file (type png)
+<use 32bitadder.png>
+Package pdftex.def Info: 32bitadder.png  used on input line 858.
+(pdftex.def)             Requested size: 435.32422pt x 117.2361pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 File: Picture1.jpg Graphic file (type jpg)
 <use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 715.
+Package pdftex.def Info: Picture1.jpg  used on input line 862.
 (pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
 
 Package fancyhdr Warning: \headheight is too small (28.45274pt): 
@@ -871,20 +1012,10 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
 
-[15]
-<rtypeexample.png, id=78, 623.32875pt x 120.45pt>
-File: rtypeexample.png Graphic file (type png)
-<use rtypeexample.png>
-Package pdftex.def Info: rtypeexample.png  used on input line 731.
-(pdftex.def)             Requested size: 241.84843pt x 46.73453pt.
-<stype.png, id=79, 623.32875pt x 91.34125pt>
-File: stype.png Graphic file (type png)
-<use stype.png>
-Package pdftex.def Info: stype.png  used on input line 740.
-(pdftex.def)             Requested size: 241.84843pt x 35.44035pt.
+[20 <./fulladderVHDL.png> <./byteadder.png>]
 File: Picture1.jpg Graphic file (type jpg)
 <use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 752.
+Package pdftex.def Info: Picture1.jpg  used on input line 881.
 (pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
 
 
@@ -895,95 +1026,20 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
 
-[16 <./rtype.drawio.png> <./rtypeexample.png> <./stype.png>]
-<stypeexample.png, id=86, 623.32875pt x 120.45pt>
-File: stypeexample.png Graphic file (type png)
-<use stypeexample.png>
-Package pdftex.def Info: stypeexample.png  used on input line 759.
-(pdftex.def)             Requested size: 241.84843pt x 46.73453pt.
-<itype.png, id=87, 623.32875pt x 91.34125pt>
-File: itype.png Graphic file (type png)
-<use itype.png>
-Package pdftex.def Info: itype.png  used on input line 769.
-(pdftex.def)             Requested size: 241.84843pt x 35.44035pt.
-File: itype.png Graphic file (type png)
-<use itype.png>
-Package pdftex.def Info: itype.png  used on input line 778.
-(pdftex.def)             Requested size: 241.84843pt x 35.44035pt.
-File: Picture1.jpg Graphic file (type jpg)
-<use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 784.
-(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
-
-
-Package fancyhdr Warning: \headheight is too small (28.45274pt): 
-(fancyhdr)                Make it at least 62.35004pt, for example:
-(fancyhdr)                \setlength{\headheight}{62.35004pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
-
-[17 <./stypeexample.png> <./itype.png>]
-Overfull \hbox (9.68057pt too wide) in paragraph at lines 795--796
-[]\T1/cmr/m/n/12 Sumatorul im-ple-men-tat în aceast  lu-crare este de ti-pul ri
--pple ad-der, carry-ul propagându-
- []
-
-<fulladder.png, id=93, 1828.58156pt x 971.88094pt>
-File: fulladder.png Graphic file (type png)
-<use fulladder.png>
-Package pdftex.def Info: fulladder.png  used on input line 803.
-(pdftex.def)             Requested size: 435.32422pt x 231.37282pt.
-<byteadder.png, id=94, 2341.24687pt x 651.93562pt>
-File: byteadder.png Graphic file (type png)
-<use byteadder.png>
-Package pdftex.def Info: byteadder.png  used on input line 811.
-(pdftex.def)             Requested size: 435.32422pt x 121.21301pt.
-File: Picture1.jpg Graphic file (type jpg)
-<use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 813.
-(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
-
-Package fancyhdr Warning: \headheight is too small (28.45274pt): 
-(fancyhdr)                Make it at least 62.35004pt, for example:
-(fancyhdr)                \setlength{\headheight}{62.35004pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
-
-[18 <./fulladder.png>]
-<32bitadder.png, id=99, 2348.02219pt x 632.3625pt>
-File: 32bitadder.png Graphic file (type png)
-<use 32bitadder.png>
-Package pdftex.def Info: 32bitadder.png  used on input line 820.
-(pdftex.def)             Requested size: 435.32422pt x 117.2361pt.
-File: Picture1.jpg Graphic file (type jpg)
-<use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 843.
-(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
-
-
-Package fancyhdr Warning: \headheight is too small (28.45274pt): 
-(fancyhdr)                Make it at least 62.35004pt, for example:
-(fancyhdr)                \setlength{\headheight}{62.35004pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
-
-[19 <./byteadder.png> <./32bitadder.png>]
-<ArithmeticEngine.png, id=106, 2070.98718pt x 486.31688pt>
+[21 <./32bitadder.png>]
+<ArithmeticEngine.png, id=120, 2070.98718pt x 486.31688pt>
 File: ArithmeticEngine.png Graphic file (type png)
 <use ArithmeticEngine.png>
-Package pdftex.def Info: ArithmeticEngine.png  used on input line 850.
+Package pdftex.def Info: ArithmeticEngine.png  used on input line 888.
 (pdftex.def)             Requested size: 435.32422pt x 102.2186pt.
-<LogicEngine.png, id=107, 2055.17813pt x 1253.43282pt>
+<LogicEngine.png, id=121, 2055.17813pt x 1253.43282pt>
 File: LogicEngine.png Graphic file (type png)
 <use LogicEngine.png>
-Package pdftex.def Info: LogicEngine.png  used on input line 862.
+Package pdftex.def Info: LogicEngine.png  used on input line 900.
 (pdftex.def)             Requested size: 435.32422pt x 265.4855pt.
 File: Picture1.jpg Graphic file (type jpg)
 <use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 865.
+Package pdftex.def Info: Picture1.jpg  used on input line 903.
 (pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
 
 
@@ -994,15 +1050,15 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
 
-[20 <./ArithmeticEngine.png> <./LogicEngine.png>]
-<ALU.png, id=113, 2076.25688pt x 850.67813pt>
+[22 <./ArithmeticEngine.png> <./LogicEngine.png>]
+<ALU.png, id=127, 2076.25688pt x 850.67813pt>
 File: ALU.png Graphic file (type png)
 <use ALU.png>
-Package pdftex.def Info: ALU.png  used on input line 876.
+Package pdftex.def Info: ALU.png  used on input line 914.
 (pdftex.def)             Requested size: 435.32422pt x 178.34914pt.
 File: Picture1.jpg Graphic file (type jpg)
 <use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 879.
+Package pdftex.def Info: Picture1.jpg  used on input line 917.
 (pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
 
 
@@ -1013,7 +1069,7 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
 
-[21 <./ALU.png>] (./licetna.aux)
+[23 <./ALU.png>] (./licetna.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-04-11>
@@ -1027,10 +1083,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 19294 strings out of 474050
- 404615 string characters out of 5746298
+ 19326 strings out of 474050
+ 405208 string characters out of 5746298
  1961754 words of memory out of 5000000
- 41376 multiletter control sequences out of 15000+600000
+ 41408 multiletter control sequences out of 15000+600000
  579388 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,17n,111p,899b,1098s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1049,10 +1105,10 @@ fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2024/texmf-dist/fonts/type
 m-super/sfrm1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sf
 rm1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti0600.pfb
 ><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on licetna.pdf (21 pages, 618525 bytes).
+Output written on licetna.pdf (23 pages, 711030 bytes).
 PDF statistics:
- 194 PDF objects out of 1000 (max. 8388607)
- 107 compressed objects within 2 object streams
+ 208 PDF objects out of 1000 (max. 8388607)
+ 111 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 83 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 103 words of extra memory for PDF output out of 10000 (max. 10000000)
 

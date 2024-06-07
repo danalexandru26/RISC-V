@@ -528,7 +528,7 @@ Simbolul utilizat în diagramele circuitelor este prezentat prin Figura \ref{Fig
  \end{figure}
  
 \subsubsection{ȘI}
-Poarta logică \textit{și} reprezintă implementarea operației de conjuncție matematică, a cărei rezultat este 1 doar atunci când ambele intrări logice sunt 1. Tabela \ref{Tabela:9} prezintă valorile operației raportate la intrările logice. Expresia matematică a operației \textit{sau} este $\ Q = A \cdot B$.
+Poarta logică \textit{și} reprezintă implementarea operației de conjuncție matematică, a cărei rezultat este 1 doar atunci când ambele intrări logice sunt 1. Tabela \ref{Tabela:9} prezintă valorile operației raportate la intrările logice. Expresia matematică a operației \textit{și} este $\ Q = A \cdot B$.
  \begin{table}[h]
 \centering
 \caption{Funcția logică ȘI}
@@ -566,7 +566,7 @@ Simbolul utilizat în diagramele circuitelor este prezentat prin Figura \ref{Fig
  \end{figure}
 
 \subsubsection{XOR}
-Poarta logică \textit{xor}, de asemenea cunoscută ca \textit{SAU exclusiv} setează semnalul de output pe 1 logic doar în cazul în care cel mult una dintre intrări este activă. Comportamentul acesteia este cel mai bine reprezentat de Tabela \ref{Tabela:10}. Operația matematică care descrie această poartă este $\ Q = A \oplus B$.
+Poarta logică \textit{xor}, de asemenea cunoscută ca \textit{SAU exclusiv} setează semnalul de output pe 1 logic doar în cazul în care cel mult una dintre intrări este activă. Comportamentul acesteia este cel mai bine reprezentat de Tabela \ref{Tabela:10}. Expresia matematică care descrie această poartă este $\ Q = A \oplus B$.
 \begin{table}[h]
 \centering
 \caption{Funcția logică XOR}
@@ -607,7 +607,7 @@ Această operație logică implică practic excluderea mutuală a semnalelor de 
 \subsubsection{NAND}
 Ca o regulă generala, totalitatea porților logice la ale căror denumire se atașează prefixul \textit{N-} sunt varianta negată a portii logice originale. Însă, spre deosebire de restul porților, NAND este de asemenea cunoscută ca și poarta logică fundamentală. Această denumire reiese din operațiile algebrei Booleane.
 
- În mod firesc, semnalul de ieșire al acestei porți va fi complementarul operației \textit{and}. La nivelul Tabelei \ref{Tabela:11} se poate observa clar acest lucru. Expresia matematică a acestei operații este  $\ Q = \overline{A \cdot B}$.
+ În mod firesc, semnalul de ieșire al acestei porți va fi complementarul operației \textit{and}. La nivelul Tabelei \ref{Tabela:11} se poate observa acest lucru. Expresia matematică a acestei operații este  $\ Q = \overline{A \cdot B}$.
  \begin{table}[h]
 \centering
 \caption{Funcția logică NAND}
@@ -644,6 +644,21 @@ Simbolul utilizat în diagramele circuitelor este prezentat prin Figura \ref{Fig
  \end{figure}
  
 \subsubsection{MULTIPLEXARE}
+Pe lângă circuitele clasice reprezentate de porțile logice, un alt component digital, multiplexorul, merită studiat, acesta având o importanță deosebită. Prin multiplexare se întelege selecția unui anumite intrări dintr-o lista de \textit{n} posibilități. Selecția este dictată de un alt semnal de intrare numit selecție sau selector.
+
+Multiplexara de asemenea are o operație opusă, aceasta purtând numele de demultiplexare. Dintr-o listă de \textit{n} ieșiri posibile, se va alege conform semnalului selector drumul pe care-l va lua un semnal de intrare.
+
+Atunci când se dorește utilizarea unui dispozitiv multiplexor, cel mai important parametru este reprezentat de numărul de intrări specificate de cazul de utilizare. Conform acestor \textit{n} intrări, se va calcula utilizând expresia $\log_2{n}$ biții necesari semnalului de selecție.
+
+Figura \ref{Figura:24} arată modul de reprezentare grafic al unui multiplexor cu 4 intrări pe 32 de biți și un semnal de selecție de 2 biți.
+ \begin{figure}[h]
+ \centering
+ \caption{Diagrama logică a unui multiplexor}
+ \label{Figura:24}
+ \includegraphics[width=0.5\textwidth]{mux41.png}
+ \end{figure}
+ 
+
  \subsection{ABSTRACTIA ARHITECTURALĂ}
 Arhitectura face legătura dintre microarhitectura sistemului și programatorul care dorește să-l utilizeze. Acest nivel de abstracție are rolul de a oferi un ghid asupra interacțiunii cu interfața definită de standardul RISC-V. Prin urmare, vor analiza detalile arhitecturii, printre care se numără structura organizațională a registrelor, tipurile de instrucțiuni cât si modul în care octeții sunt organizați la nivelul acestora. Ne vom limita însă la extensia de bază RISC-V care include doar instrucțiunile fundamentale asupra numerelor întregi.
 
@@ -711,8 +726,7 @@ Instrucțiunile de acest format adresează 3 registre, 2 dintre ele fiind sursa 
  \label{Figura:10}
  \includegraphics[width=0.5\textwidth]{rtype.drawio.png}
  \end{figure}
- 
-\newpage
+
  Campurile acestei instrucțiuni au următoarele semnificații:
  \begin{itemize}
 \item Câmpul \textit{opcode} indică tipul instrucțiinii care va fi executată de ALU.
@@ -749,7 +763,7 @@ Semnificația câmpurilor este următoarea:
 \item Câmpul \textit{Immediate} format din \textit{imm1} și \textit{imm2}, în această ordine,  reprezintă offset-ul adresei în care de dorește stocarea.
 \end{itemize}
 
-\newpage
+
 Un exemplu practic al acestei instrucțiuni se poate vedea în Figura \ref{Figura:13}. Valoarea din registrul 1 va fi stocată la adresa indicată de registrul 2, la care se va adauga un offset de \textit{-1}.
 
  \begin{figure}[h!]
@@ -779,9 +793,24 @@ Un exemplu practic al acestei instrucțiuni se poate vedea în Figura \ref{Figur
  \end{figure}
  
  \subsubsection{INSTRUCȚIUNEA U}
+ Această instrucțiune este folositoare atunci când se dorește de către programator încărcarea unei valori imediate într-un registru, vizată ulterior unor calcule. Formatul instrucțiunii are în compoziția sa câmpul datelor imediate, întins pe 20 de biți, registrul destinație și codul identificator al operației de executat. Cei 20 de biți sunt cei mai semnificativi ai numărului imediat, urmând ca acesta să fie extins la 32 de biți. Aranjamentul anterior descris poate fi observat în Figura \ref{Figura:22}.
+ \begin{figure}[h!]
+ \centering
+ \caption{Instrucțiunea U și câmpurile de date}
+ \label{Figura:22}
+ \includegraphics[width=0.5\textwidth]{utype.png}
+ \end{figure}
 
+Figura \ref{Figura:23} prezintă un exemplu de utilizare, în registrul 5 fiind încărcată valoarea imediată 0X51AA3.
 
- \newpage
+ \begin{figure}[h!]
+ \centering
+ \caption{Exemplu de utilizare al instrucțiunii U}
+ \label{Figura:23}
+ \includegraphics[width=0.5\textwidth]{utypeexample.png}
+ \end{figure}
+ 
+\newpage
 \section{\centering IMPLEMENTARE}
 \bigbreak
 \subsection{ABSTRACȚIA MICROARHITECTURALĂ}
@@ -801,6 +830,15 @@ Schema digitală a unui sumator full adder poate fi observată în Figura \ref{F
  \caption{Sumator integral și structura sa internă}
  \label{Figura:16}
  \includegraphics[width=0.9\textwidth]{fulladder.png}
+ \end{figure}
+
+Implementarea VHDL a entității cât și a arhitecturii sumatorului integral este redată prin secvența de cod aferentă Figurii \ref{Figura:25}. Se observă faptul că acestă entitate este construită prin relaționarea a două sumatoare pe jumătăți și a unei porți logice \textit{sau}.
+
+ \begin{figure}[h!]
+ \centering
+ \caption{Entitatea și arhitectura VHDL a sumatorului integral}
+ \label{Figura:25}
+ \includegraphics[width=0.9\textwidth]{fulladderVHDL.png}
  \end{figure}
 
 Prin legarea serială a 8 sumatoare, rezultă entitatea fundamentală de adunare a procesorului nostru, și anume sumatorul de octeți sau \textit{byte adder}. Structura acestuia este prezentată în Figura \ref{Figura:17}. Se poate observa faptul ca cele 8 sumatoare sunt împărține în două grupuri de 4, fiecare numit \textit{nibble adder}.
@@ -850,7 +888,7 @@ Prin comasarea inversorului, a multiplexorului și a sumatorului rezultă astfel
  \includegraphics[width=0.9\textwidth]{ArithmeticEngine.png}
  \end{figure}
  
- \subsubsection{OPERAȚII LOGICE ȘI MOTORUL LOGIC}
+ \subsubsection{OPERAȚII LOGICE ȘI UNITATEA LOGIC}
  
  Pe lângă operațile aritmetice, un procesor de asemenea are posibilitatea de executare a operaților logice pe biți. Microprocesorul nostru va avea implementarea hardware a funcțiilor SAU, ȘI, XOR. Toate entitățile necesare efectuării acestor operații vor fi comasate într-un element hardware denumit motor logic.
  

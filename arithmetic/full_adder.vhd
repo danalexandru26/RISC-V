@@ -54,3 +54,7 @@ begin
     half_adder_b: half_adder port map(op_a => carry_in, op_b => q_half_adder_a, q => q, carry => carry_half_adder_b);
     h_or_gate_a: h_or_gate port map(x => carry_half_adder_a, y => carry_half_adder_b, q => carry_out);
 end architecture;
+
+
+
+

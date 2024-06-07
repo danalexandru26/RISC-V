@@ -23,6 +23,10 @@ architecture arch of byte_adder is
 
     signal sig_carry_out: std_logic := '0';
 begin
-    nibble_adder_a: nibble_adder port map(x => x(3 downto 0), y=> y(3 downto 0), carry_in => carry_in, q => q(3 downto 0), carry_out => sig_carry_out);
-    nibble_adder_b: nibble_adder port map(x => x(7 downto 4), y=> y(7 downto 4), carry_in => sig_carry_out, q => q(7 downto 4), carry_out => carry_out);
+    nibble_adder_a: nibble_adder port map(x => x(3 downto 0), y=> y(3 downto 0),
+                    carry_in => carry_in, q => q(3 downto 0), carry_out => sig_carry_out);
+    nibble_adder_b: nibble_adder port map(x => x(7 downto 4), y=> y(7 downto 4),
+                    carry_in => sig_carry_out, q => q(7 downto 4), carry_out => carry_out);
 end architecture;
+
+
