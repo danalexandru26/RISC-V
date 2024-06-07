@@ -150,7 +150,7 @@ Pentru a produce un rezultat de o oarecare utilitate, sistemele computaționale 
 Problema reprezentării datelor primește o importanță specială, deosebită chiar, dând naștere următoarei multitudini de întrebări, \textit{care este este modul corect de reprezentare}; \textit{cum asigurăm coerența datelor cu analizarea acestora de către sistemul de calcul}; \textit{cum ne asigurăm ca datele indiferent formatului ligibil uman, nu sunt iligibile procesorului.}
 
 
-Pentru a răspunde pe deplin, trebuie mai întâi să definim tipul datelor pe care microprocesorul le va accepta. Este rapid evident, din natura sistemului, că datele trebuie să fie numerice. Însă, nu la fel de evident este modul în care aceste numere vor fi reprezentate pentru a suporta toate operațiile admisibile de un motor logic-aritmetic.
+Pentru a răspunde pe deplin, trebuie mai întâi să definim tipul datelor pe care microprocesorul le va accepta. Este rapid evident, din natura sistemului, că datele trebuie să fie numerice. Însă, nu la fel de evident este modul în care aceste numere vor fi reprezentate pentru a suporta toate operațiile admisibile de o unitate logico-aritmetică.
 
 Cea mai reprezentativă caracteristică a unui sistem de numerație este numărul de simboluri unice utilizate de acesta. Numărul de simboluri poartă numele de radix și este congruent cu conceptul de bază numerică. Valoarea minimă pe care radix-ul unui sistem de numerație o poate lua este \textit{1}, corespunzând unui sistem cu un singur simbol, fiecare numâr continând \textit{n+1} simboluri față de precedentul sau \textit{n}. Însă, trecând cu vederea această anomalie numerică, bazele care vor reprezenta suportul matematic al acestei lucrări sunt cea decimală, cea hexadecimală și cea binară. În Tabela \ref{Tabela:1} se pot observa bazele anterior menționate, însoțite de simbolurile aferente cât și de un exemplu reprezentativ.
 
@@ -849,6 +849,15 @@ Prin legarea serială a 8 sumatoare, rezultă entitatea fundamentală de adunare
  \includegraphics[width=0.9\textwidth]{byteadder.png}
  \end{figure}
 
+Implementarea VHDL a structurii digitale prezentată mai sus se poate vedea în Figura \ref{Figura:26}.
+
+ \begin{figure}[h!]
+ \centering
+ \caption{Entitatea și arhitectura VHDL a sumatorului de octeți}
+ \label{Figura:26}
+ \includegraphics[width=0.9\textwidth]{byteadderVHDL.png}
+ \end{figure}
+ 
 Sumatorul de 32 de biți, cunoscut de asemenea ca sumatorul de cuvinte sau \textit{word adder} este prin urmare alcătuit din 4 sumatoare de octeți și poate fi văzut în Figura \ref{Figura:18}.
 
  \begin{figure}[h!]
@@ -858,7 +867,7 @@ Sumatorul de 32 de biți, cunoscut de asemenea ca sumatorul de cuvinte sau \text
  \includegraphics[width=0.9\textwidth]{32bitadder.png}
  \end{figure}
  
-Pentru a efectua operația de scădere, sunt necesare mai multe lucruri. În primul rând, avem nevoie de un inversor pentru a reprezenta forma complementară a numărului de scăzut. Pe lângă acest lucru, este necesar un multiplexor 2:1, a cărui rol este selecția între numărul inversat și valoarea sa inițială, în funcție de operația dorită. Tabela \ref{Tabela:13} prezintă modul în care va funcționa o astfel de operație.
+Pentru a efectua operația de scădere, sunt necesare mai multe lucruri. În primul rând, avem nevoie de un inversor pentru a reprezenta forma complementară a numărului de scăzut. Pe lângă acest lucru, este necesar un multiplexor 2:1, a cărui rol este alegerea dintre numărul inversat și valoarea sa inițială, în funcție de operația dorită. Tabela \ref{Tabela:13} prezintă modul în care va funcționa o astfel de selecție.
 
 \begin{table}[h]
 \centering
@@ -878,35 +887,107 @@ Pentru a efectua operația de scădere, sunt necesare mai multe lucruri. În pri
 
 Se poate observa faptul că semnalul de \textit{carry} este setat pe 1 în cazul scăderii. Acest lucru formează practic complementul de 2 necesar scăderii, numarul fiind doar inversat în prealabil, rezultând un complement de 1.
 
-\newpage
-Prin comasarea inversorului, a multiplexorului și a sumatorului rezultă astfel ceea ce vom denumi motor aritmetic. Schema digitală a acestuia se poate regăsi în Figura \ref{Figura:19}.
+Prin comasarea inversorului, a multiplexorului și a sumatorului rezultă astfel ceea ce vom denumi unitatea aritmetică. Schema digitală a acestuia se poate regăsi în Figura \ref{Figura:19}.
 
  \begin{figure}[h!]
  \centering
- \caption{Motorul aritmetic}
+ \caption{Unitatea aritmetică}
  \label{Figura:19}
  \includegraphics[width=0.9\textwidth]{ArithmeticEngine.png}
  \end{figure}
  
+Entitatea VHDL e unității aritmetice este redată prin codul prezentat în Figura \ref{Figura:26}.
+ 
+ \begin{figure}[h!]
+ \centering
+ \caption{Entitatea și arhitectura VHDL a unității aritmetice}
+ \label{Figura:26}
+ \includegraphics[width=0.9\textwidth]{arithmeticengineVHDL.png}
+ \end{figure} 
+ 
  \subsubsection{OPERAȚII LOGICE ȘI UNITATEA LOGIC}
  
- Pe lângă operațile aritmetice, un procesor de asemenea are posibilitatea de executare a operaților logice pe biți. Microprocesorul nostru va avea implementarea hardware a funcțiilor SAU, ȘI, XOR. Toate entitățile necesare efectuării acestor operații vor fi comasate într-un element hardware denumit motor logic.
+ Pe lângă operațile aritmetice, un procesor de asemenea are posibilitatea de executare a operaților logice pe biți. Microprocesorul nostru va avea implementarea hardware a funcțiilor SAU, ȘI, XOR. Toate entitățile necesare efectuării acestor operații vor fi comasate într-un element hardware denumit unitatea logică.
  
 Figura \ref{Figura:20} conține schema digitală a motorului logic cât și a elementelor care-l definesc, cele 3 porți logice pe 32 de biți ȘI, SAU, XOR.
   \begin{figure}[h!]
  \centering
  \caption{Motorul logic și entitățile interne}
  \label{Figura:20}
- \includegraphics[width=0.9\textwidth]{LogicEngine.png}
+ \includegraphics[width=0.8\textwidth]{LogicEngine.png}
+ \end{figure}
+
+Spre deosebire de calculul aritmetic, operațile logice sunt o trivialitate, lucru redat nu doar prin diagrama digitală, dar și prin codul asociat unității logice, prezent în Figura \ref{Figura:27}.
+
+ \begin{figure}[h!]
+ \centering
+ \caption{Entitatea și arhitectura VHDL a unității logice}
+ \label{Figura:27}
+ \includegraphics[width=0.7\textwidth]{logicengineVHDL.png}
+ \end{figure}
+ 
+\newpage
+\subsubsection{UNITATEA ARITMETICĂ ȘI LOGICĂ}
+
+Unitatea aritmetică și logică este prima entitate ierarhică superioară pe care o vom reprezenta. Aceasta este formată din entitățile logice definite în prealabil, precum unitatea logică și cea aritmetică, dar conține de asemenea elementul pentru detecție de \textit{overflow}.
+
+Utilitatea detectării unui posibil \textit{overflow} reiese în momentul în care dorim să executăm instrucțiunea \textit{less than}. În cazul a două numere, a și b, se va execut operația de scădere, semnul rezultant acestei operații determinând care dintre cele 2 numere este mai mare. O magnitudine negativă indică faptul ca primul număr, a, este mai mic, în schimb, semnul pozitiv indică spre b fiind numărul mai mic.
+
+Precum se poate vedea în Tabela \ref{Tabela:14}, intervalul alocat numerelor pe 32 de biți este depăsit doar în cazul scăderii a douâ valori de semn opus.
+
+\begin{table}[h]
+\centering
+\caption{Rezultatele posibile în cazul scâderii a 2 numere binare pe 32 de biți}
+\label{Tabela:14}
+\begin{tabular}{ ||c|c|c|c|| }
+ \hline
+ A & B & A-B & Overflow\\ 
+ \hline  \hline
+  $\ A \le 0$ & $\ B \le 0$ & $\ -2^{32} +1\le A-B \le 2^{31} - 1$ & Fără overflow \\
+ \hline
+  $\ A \ge 0$ & $\ B \ge 0$ & $\ -2^{32} +1\le A-B \le 2^{31} - 1$ & Fără overflow \\
+ \hline
+  $\ A \ge 0$ & $\ B \le 0$ & $\ 0 \le A-B \le 2^{32} - 2$ &  Overflow posibil\\
+ \hline
+  $\ A \le 0$ & $\ B \le 0$ & $\ -2^{33} \le A-B \le 0$ &   Overflow posibil\\
+ 
+  \hline  
+\end{tabular}
+\end{table}
+
+De asemenea, semnul diferenței este mereu diferit de semnul descăzutului, în cazul unui overflow. Astfel, acesta poate fi detectat prin verificarea bit-ului de semn al diferenței în cazul în care operanzii sunt de magnitudini opuse. Tabela \ref{Tabela:15} prezintă cazurile în care se poate detecta overflow-ul, raportat la bit-ul de semn al operanzilor.
+
+\begin{table}[h]
+\centering
+\caption{Valorile logice în cazul scăderii a 2 numere binare}
+\label{Tabela:15}
+\begin{tabular}{ ||c|c|c|c|| }
+ \hline
+ Bit de Semn A &  Bit de Semn B &  Bit de Semn A-B & Overflow\\ 
+ \hline  \hline
+  1 & 0& 1 & Fără overflow \\
+  \hline
+  1 & 0& 0 & Overflow \\
+ \hline
+  0 & 1& 0 & Fără overflow \\
+ \hline
+ 0 &1& 1 &  Overflow \\
+  \hline  
+\end{tabular}
+\end{table}
+
+În Figura \ref{Figura:28} se poate vedea diagrama logică a circuitului de detecție al overflow-ului, acesta fiind construit conform ecuației logice deduse anterior.
+
+ \begin{figure}[h!]
+ \centering
+ \caption{Diagrama logică a circuitului de detecție overflow}
+ \label{Figura:28}
+ \includegraphics[width=0.7\textwidth]{overflow.png}
  \end{figure}
  
 \newpage
 
-\subsubsection{UNITATEA ARITMETICĂ ȘI LOGICĂ}
-
-Unitatea aritmetică și logică este prima entitate ierarhică superioară pe care o vom reprezenta. Aceasta este formată din entitățile logice definite în prealabil, precum motorul logic și cel aritmetic, dar conține de asemenea elementul pentru detecție de \textit{overflow}, entitate care îi sporește gradul de utilitate.
-
- 
+Prin urmare, îmbinând toate elementele modelate anterior, rezultă schema digitală a unității aritmetice și logice din Figura \ref{Figura:21}.
 \begin{figure}[h!]
  \centering
  \caption{Unitatea aritmetică și logică}

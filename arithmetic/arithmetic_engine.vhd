@@ -59,3 +59,5 @@ begin
     d_mux_21: mux_21 port map(a=> b, b=> inverter_output, sel=> sel, q=> multiplexed_output);
     d_adder_word: adder_word port map(a=> a, b=> multiplexed_output, carry_in=> sel, s=>s, carry_out=> carry_out);
 end architecture;
+
+

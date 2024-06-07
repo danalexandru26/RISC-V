@@ -54,3 +54,7 @@ begin
     d_or_32bit: or_32bit port map(x=> a, y=> b, q=> q_or);
     d_xor_32bit: xor_word port map(x=> a, y=> b, q=> q_xor);
 end architecture;
+
+
+
+

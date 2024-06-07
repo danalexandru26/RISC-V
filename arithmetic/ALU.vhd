@@ -98,6 +98,7 @@ begin
     d_logic_engine: logic_engine port map(a=> a, b=> b, q_and => sig_logic_engine_and, q_or=> sig_logic_engine_or, q_xor=> sig_logic_engine_xor);
     d_overflow: overflow port map(a_31=> a(31), b_31=> b(31), s_31=> sig_arithmetic_engine_output(31), sel_0=> sel(0), sel_1=> sel(1), q=> sig_overflow);
     d_zero_extender: zero_extender_bit port map(bit=> sig_overflow, q=> sig_zero_extender);
-    d_mux_51: mux_51 port map(a=> sig_arithmetic_engine_output, b=> sig_arithmetic_engine_output, c=> sig_logic_engine_and, d=> sig_logic_engine_or, e=> sig_logic_engine_xor, f=> sig_zero_extender, sel=> sel, q=> s);
+    d_mux_51: mux_51 port map(a=> sig_arithmetic_engine_output, b=> sig_arithmetic_engine_output,
+                              c=> sig_logic_engine_and, d=> sig_logic_engine_or, e=> sig_logic_engine_xor, f=> sig_zero_extender, sel=> sel, q=> s);
 end architecture;
 
