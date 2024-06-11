@@ -35,5 +35,5 @@ begin
         end if;
     end process;
     
-    rd <= x"00000000" when we = '1' else data(output);
+    rd<= x"00000000" when we = '1' else data(output);
 end architecture;
