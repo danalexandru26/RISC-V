@@ -16,6 +16,8 @@
 \renewcommand{\lstlistingname}{Exemplu de cod}
 %\usepackage{helvet}
 %\renewcommand{\familydefault}{\sfdefault}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
 
 \usepackage{geometry}
  \geometry{
@@ -52,6 +54,7 @@ Microprocesorul RISC-V}
 }
 
 \begin{document}
+
 \fontsize{20pt}{18pt}\selectfont
 \title{\textbf{Microprocesorul RISC-V}}
 
@@ -987,7 +990,7 @@ De asemenea, semnul diferenței este mereu diferit de semnul descăzutului, în 
  
 \newpage
 
-Prin urmare, îmbinând toate elementele modelate anterior, rezultă schema digitală a unității aritmetice și logice din Figura \ref{Figura:21}.
+Prin urmare, îmbinând toate elementele modelate anterior, rezultă schema digitală a unității aritmetice și logice din Figura \ref{Figura:21}. în Figura \ref{Figura:29} se poate observa codul entității și al arhitecturii VHDL aferent acestei componente.
 \begin{figure}[h!]
  \centering
  \caption{Unitatea aritmetică și logică}
@@ -995,4 +998,22 @@ Prin urmare, îmbinând toate elementele modelate anterior, rezultă schema digi
  \includegraphics[width=0.9\textwidth]{ALU.png}
  \end{figure}
 
+
+\begin{figure}[h!]
+ \centering
+ \caption{Unitatea aritmetică și logică}
+ \label{Figura:29}
+ \includegraphics[width=0.9\textwidth]{aluVHDL.png}
+ \end{figure}
+
+\newpage 
+\section{\centering BIBLIOGRAFIE}
+\begin{thebibliography}{0}
+\bibitem{riscv}
+Sarah Harris, David Harris (Octombrie, 2021), Digital Design and Computer Architecture, RISC-V Edition: RISC-V Edition, Morgan Kaufmann. Accesare: Mai 2024
+\bibitem{code}
+Charles Petzold (Octombrie, 2000), Code: The Hidden Language of Computer Hardware and Software, Microsoft Press. Accesare: Mai 2024
+\bibitem{roscv_petterson}
+David A. Patterson, John L. Hennessy (Aprilie, 2017), omputer Organization and Design RISC-V Edition: The Hardware Software Interface, Morgan Kaufmann. Accesare: Mai 2024
+\end{thebibliography}
 \end{document}

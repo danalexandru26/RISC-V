@@ -22,7 +22,7 @@ architecture testbench of testbench_register_file is
         rd1: out std_logic_vector (word downto 0);
         rd2: out std_logic_vector (word downto 0)
     );
-end component;
+    end component;
 
     constant word: integer := 31;
     constant mlen: integer := 4;
@@ -35,8 +35,6 @@ end component;
     signal sig_wrs3: std_logic_vector (word downto 0) := x"00000000";
     signal sig_rd1: std_logic_vector (word downto 0) := x"00000000";
     signal sig_rd2: std_logic_vector (word downto 0) := x"00000000";
-
-
 begin
     sig_clk<= not sig_clk after 1ns;
     
