@@ -23,7 +23,12 @@ end register_file;
 architecture arch of register_file is
     type matrix is array(word downto 0) of std_logic_vector(word downto 0);
 
-    signal registers: matrix := (others => x"00000000");
+    signal registers: matrix := (
+        1=> x"00000001",
+        2=> x"00000002",
+        5=> x"00000003",
+        6=> x"00000004",
+        others => x"00000000");
 
 begin
     process(clk) begin
