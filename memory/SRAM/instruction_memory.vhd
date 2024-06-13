@@ -20,15 +20,18 @@ architecture arch of instruction_memory is
         1 => x"00000004",
         2 => x"00000008",
         3 => x"00000003",        
-        4 => x"00000004",    
+        4 => x"00000007",    
         5 => x"00000005",
         6 => x"00000006",
         7 => x"00000007",                    
         others => x"0000000f");
+        
+        signal output: std_logic_vector(word downto 0);
 begin
-    process(clk, address) begin
-        if rising_edge(clk) then
-            rd<= instruction(to_integer(unsigned(address(xlen-1 downto 2))));
-        end if;
+
+    process(clk) begin
+     if rising_edge(clk) then
+        rd<= instruction(to_integer(unsigned(address(xlen-1 downto 2))));
+    end if;
     end process;
 end architecture;
