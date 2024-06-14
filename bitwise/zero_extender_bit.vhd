@@ -7,7 +7,7 @@ entity zero_extender_bit is generic(
     );
 
     port(
-       bit: in std_logic;
+       bit_in: in std_logic;
        q: out std_logic_vector (word downto 0) 
     );
 
@@ -18,5 +18,5 @@ architecture arch of zero_extender_bit is
         signal zero_extend: std_logic_vector (size downto 0) := (others => '0');
 
 begin
-    q <= zero_extend & bit;
+    q <= zero_extend & bit_in;
 end architecture;

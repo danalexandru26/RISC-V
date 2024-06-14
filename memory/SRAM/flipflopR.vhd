@@ -18,7 +18,7 @@ end flipflopR;
 architecture arch of flipflopR is
 
 begin
-    process(clk, reset) begin
+    process(clk, reset, a) begin
         if reset = '1' then
             q<= x"00000000";
         elsif rising_edge(clk) then

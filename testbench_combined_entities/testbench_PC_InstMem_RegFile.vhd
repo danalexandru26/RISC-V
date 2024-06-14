@@ -29,7 +29,7 @@ architecture arch of testbench_PC_InstMem_RegFile is
     signal sig_carry: std_logic;
 begin
     sig_clk<= not sig_clk after 1ns;
-    sig_reset<= '1' after 0ns, '0' after 0.9ns;
+    sig_reset<= '1' after 1ns, '0' after 2ns;
     sig_write_enable<='1' after 2ns, '0' after 6ns;
     DUT: PC_InstMem_RegFile port map(write_enable=> sig_write_enable, clk=> sig_clk, sel_decoder=> sig_sel_decoder, reset=> sig_reset,
                                      carry=> sig_carry);

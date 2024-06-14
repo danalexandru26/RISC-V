@@ -24,22 +24,24 @@ architecture arch of register_file is
     type matrix is array(word downto 0) of std_logic_vector(word downto 0);
 
     signal registers: matrix := (
-        1=> x"00000001",
-        2=> x"00000002",
+        1=> x"00000003",
+        2=> x"00000001",
         5=> x"00000003",
         6=> x"00000004",
         others => x"00000000");
-
+        
+        signal reg: std_logic_vector(word downto 0) :=x"00000000";
+        
 begin
     process(clk) begin
         if rising_edge(clk) then
             if wen = '1' then
                 registers(to_integer(unsigned(rs3))) <= wrs3;
+                end if;
             end if;
-        end if;
     end process;
 
-    process(rs1, rs2) begin
+    process(rs1, rs2, clk) begin
         if to_integer(unsigned(rs1)) = 0 then 
             rd1 <= x"00000000";
         else rd1 <= registers(to_integer(unsigned(rs1)));
@@ -50,4 +52,5 @@ begin
         else rd2 <= registers(to_integer(unsigned(rs2)));
         end if;
     end process;
+
 end architecture;
