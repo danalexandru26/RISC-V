@@ -16,13 +16,8 @@ end instruction_memory;
 architecture arch of instruction_memory is
     type matrix is array(2**xlen - 1 downto 0) of std_logic_vector(word downto 0);
     signal instruction: matrix := (
-        0 => x"00520233",
-        1 => x"00126233",
-        2=>x"00520233",
-        4=>x"00520233",
-        6=>x"00520233",
-        7=>x"00520233",
-        8=>x"00520233",
+        0 => x"0262A0A3",
+        1=> x"0014A303",
         others => x"00000000");
         
 begin

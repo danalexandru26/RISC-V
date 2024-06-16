@@ -28,6 +28,7 @@ architecture arch of register_file is
         2=> x"00000001",
         5=> x"00000003",
         6=> x"00000004",
+        9=> x"00000009",
         others => x"00000000");
         
         signal reg: std_logic_vector(word downto 0) :=x"00000000";

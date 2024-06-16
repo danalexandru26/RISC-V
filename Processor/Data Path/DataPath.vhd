@@ -22,7 +22,7 @@ entity Datapath is generic(
         Zero: out std_logic;
         PC: out std_logic_vector(word downto 0);
         ALUResult: buffer std_logic_vector(word downto 0);
-        WriteData: out std_logic_vector(word downto 0)
+        WriteData: buffer std_logic_vector(word downto 0)
     );
 end Datapath;
 
@@ -81,8 +81,18 @@ architecture arch of Datapath is
     );
     end component;
 
+    component ImmediateExtender generic (
+        word: integer := 31
+    );
+    port(
+        immediatein: in std_logic_vector(31 downto 7);
+        immsrc: in std_logic_vector(1 downto 0);
+        immout: out std_logic_vector(word downto 0)
+    );
+    end component;
+
     signal ALU_SrcA: std_logic_vector(word downto 0):= x"00000000";
-    signal ALU_SrcMux: std_logic_vector(word downto 0):= x"00000000";
+    --signal ALU_SrcMux: std_logic_vector(word downto 0):= x"00000000";
     signal ALU_SrcB: std_logic_vector(word downto 0):= x"00000000";
     signal Result_Mux_ALU_DM: std_logic_vector(word downto 0):= x"00000000";
     signal ImmExt_ALU: std_logic_vector(word downto 0):= x"00000000"; -- to add immediate extender
@@ -91,11 +101,13 @@ begin
     d_program_counter: program_counter port map(clk=> clk, reset=>Reset, sel_decoder=>PCSrc, PC=>PC);
     
     d_register_file: register_file port map(clk=> clk, wen=> RegWrite, rs1=> Instruction(19 downto 15), rs2=> Instruction(24 downto 20),
-                                            rs3=> Instruction(11 downto 7), wrs3=> Result_Mux_ALU_DM , rd1=> ALU_SrcA, rd2=> ALU_SrcMux);
+                                            rs3=> Instruction(11 downto 7), wrs3=> Result_Mux_ALU_DM , rd1=> ALU_SrcA, rd2=> WriteData);
 
-    d_Mux_RegFile_ALU: mux_21 port map(a=> ALU_SrcMux, b=> ImmExt_ALU, sel=> ALUSrc, q=>ALU_SrcB);
+    d_Mux_RegFile_ALU: mux_21 port map(a=> WriteData, b=> ImmExt_ALU, sel=> ALUSrc, q=>ALU_SrcB);
 
     d_ALU: ALU port map(a=> ALU_SrcA, b=> ALU_SrcB, sel=> ALUControl, s=> ALUResult, carry=>Zero); -- to replace carry with zero signal
 
     d_Mux_ALU_DM: mux_21 port map(a=> ALUResult, b=> ReadData, sel=> ResultSrc, q=> Result_Mux_ALU_DM);
+
+    d_ImmediateExtender: ImmediateExtender port map(immediatein => Instruction(31 downto 7), immsrc=> ImmSrc, immout => ImmExt_ALU);
 end architecture;

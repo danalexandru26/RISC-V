@@ -20,7 +20,7 @@ architecture arch of data_memory is
     type matrix is array(2**memory_size downto 0) of std_logic_vector(word downto 0);
 
     signal data: matrix := (
-        1 => x"00000001",
+        6 => x"00000001",
         2 => x"00000002",
         others => x"00000000");
     signal output: integer := 0;

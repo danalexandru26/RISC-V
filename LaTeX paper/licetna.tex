@@ -422,6 +422,8 @@ Problema acestor reprezentări este cu atât mai vizibilă când se efectuează 
 	\arrow[from=5-7, to=5-8]
 \end{tikzcd}\]
 \end{figure}
+
+\newpage
 Din această figură se observa următoarele:
 \begin{itemize}
 \item În cazul complementului de 2, nu mai există două reprezentări posibile pentru 0, locul suplimentar fiind luat de posibilitatea reprezentării unui număr negativ adițional, $\ -128$.
@@ -519,7 +521,7 @@ Simbolul utilizat în diagramele circuitelor este prezentat prin Figura \ref{Fig
  \centering
  \caption{Simbolul porții logice SAU}
  \label{Figura:6}
-    \begin{tikzpicture}[thick,scale=2.0, every node/.style={transform shape}]
+    \begin{tikzpicture}[thick,scale=1.3, every node/.style={transform shape}]
     \node[or gate US, minimum size = 28pt, draw] at (1.5,0.5) (NAND) {};
 	\node[label={[above] left:$A$}] at ([xshift=-0.6cm]NAND.input 1) (A) {};
 	\node[label={[below] left:$B$}] at ([xshift=-0.6cm]NAND.input 2) (B) {};
@@ -557,7 +559,7 @@ Simbolul utilizat în diagramele circuitelor este prezentat prin Figura \ref{Fig
  \centering
  \caption{Simbolul porții logice ȘI}
  \label{Figura:7}
-    \begin{tikzpicture}[thick,scale=2.0, every node/.style={transform shape}]
+    \begin{tikzpicture}[thick,scale=1.3, every node/.style={transform shape}]
     \node[and gate US, minimum size = 28pt, draw] at (1.5,0.5) (NAND) {};
 	\node[label={[above] left:$A$}] at ([xshift=-0.6cm]NAND.input 1) (A) {};
 	\node[label={[below] left:$B$}] at ([xshift=-0.6cm]NAND.input 2) (B) {};
@@ -595,7 +597,7 @@ Această operație logică implică practic excluderea mutuală a semnalelor de 
  \centering
  \caption{Simbolul porții logice XOR}
   \label{Figura:8}
-    \begin{tikzpicture}[thick,scale=2.0, every node/.style={transform shape}]
+    \begin{tikzpicture}[thick,scale=1.3, every node/.style={transform shape}]
     \node[xor gate US, minimum size = 28pt, draw] at (1.5,0.5) (NAND) {};
 	\node[label={[above] left:$A$}] at ([xshift=-0.6cm]NAND.input 1) (A) {};
 	\node[label={[below] left:$B$}] at ([xshift=-0.6cm]NAND.input 2) (B) {};
@@ -635,7 +637,7 @@ Simbolul utilizat în diagramele circuitelor este prezentat prin Figura \ref{Fig
  \centering
  \caption{Simbolul porții logice NAND}
  \label{Figura:9}
-    \begin{tikzpicture}[thick,scale=2.0, every node/.style={transform shape}]
+    \begin{tikzpicture}[thick,scale=1.3, every node/.style={transform shape}]
     \node[nand gate US, minimum size = 28pt, draw] at (1.5,0.5) (NAND) {};
 	\node[label={[above] left:$A$}] at ([xshift=-0.6cm]NAND.input 1) (A) {};
 	\node[label={[below] left:$B$}] at ([xshift=-0.6cm]NAND.input 2) (B) {};
@@ -662,6 +664,7 @@ Figura \ref{Figura:24} arată modul de reprezentare grafic al unui multiplexor c
  \end{figure}
  
 
+\newpage
  \subsection{ABSTRACTIA ARHITECTURALĂ}
 Arhitectura face legătura dintre microarhitectura sistemului și programatorul care dorește să-l utilizeze. Acest nivel de abstracție are rolul de a oferi un ghid asupra interacțiunii cu interfața definită de standardul RISC-V. Prin urmare, vor analiza detalile arhitecturii, printre care se numără structura organizațională a registrelor, tipurile de instrucțiuni cât si modul în care octeții sunt organizați la nivelul acestora. Ne vom limita însă la extensia de bază RISC-V care include doar instrucțiunile fundamentale asupra numerelor întregi.
 
@@ -990,7 +993,7 @@ De asemenea, semnul diferenței este mereu diferit de semnul descăzutului, în 
  
 \newpage
 
-Prin urmare, îmbinând toate elementele modelate anterior, rezultă schema digitală a unității aritmetice și logice din Figura \ref{Figura:21}. în Figura \ref{Figura:29} se poate observa codul entității și al arhitecturii VHDL aferent acestei componente.
+Prin urmare, îmbinând toate elementele modelate anterior, rezultă schema digitală a unității aritmetice și logice, vizibilă în Figura \ref{Figura:21}. Figura \ref{Figura:29} prezintă codul entității și al arhitecturii VHDL aferent acestei componente.
 \begin{figure}[h!]
  \centering
  \caption{Unitatea aritmetică și logică}
@@ -1005,7 +1008,145 @@ Prin urmare, îmbinând toate elementele modelate anterior, rezultă schema digi
  \label{Figura:29}
  \includegraphics[width=0.9\textwidth]{aluVHDL.png}
  \end{figure}
+ 
+ \subsubsection{DISPOZITIVE DE MEMORARE}
+ 	Pentru a-și putea executa instrucțiunile într-un mod autonom, dar și pentru a putea stoca informații, procesorul va avea nevoie de dispozitive de memorare. Acestea dispozitive vin în mai multe forme, cel mai bine distingându-se memoriile volatile și nevolatile.
+ 	
+ 	 Diferența principală dintre aceste două memorii este faptul că memoria volatilă are nevoie de o constantă reactualizare a datelor, aceasta fiind construită pe baza unei matrici de capacitoare și tranzistoare. Prin urmare, pentru a simplifica design-ul hardware al procesorului, dar și pentru a reduce nivelul de abstracție, se vor utiliza memorii nevolatile.
+ 	 
+ 	 Memoria nevolatilă implementată în această lucrare se bazează pe celule de bistabile active pe front crescător. Datorită utilizării bistabilelor, latența de acces a datelor stocate în memorie este mică, principalul dezavantaj fiind implementarea practică, pricină costurilor ridicate ale unei astfel de memorii, utilizându-se mult mai multe tranzistoare decât în alternativa volatilă.
+ 	 
+ 	 Memoria din care se vor incărca instrucțiunile executate de procesor va purta numele de \textit{Memoria de instrucțiuni} iar, memoria generală distinată stocării datelor va purta numele de \textit{Memoria de date}.
+ 	 
+	Accesul la nivelul ambelor memorii se va face la nivel de octet, fiecare cuvânt regasindu-se astfel la o adresă multiplu de 4. Pentru a acomoda încărcarea instrucțiuniilor din memorie, \textit{program counter-ul} va incrementa mereu la adresa instrucțiunii curente 4, obținându-se astfel adresa următoarei instrucțiuni de executat.
+	
+	Figura \ref{Figura:30} prezintă diagrama memoriei de instrucțiuni, așa cum aceasta este generată prin intermediul sintezei hardware oferite de Vivado.
+	
+\begin{figure}[h!]
+ \centering
+ \caption{Memoria de Instrucțiuni}
+ \label{Figura:30}
+ \includegraphics[width=0.9\textwidth]{instmem.png}
+ \end{figure}
+ 
+ Codul entității VHDL al acestei memorii poate fi consultat în Figura \ref{Figura:31}. Este notabil modul în care ultimii 2 biți ai adresei instrucținii de executat sunt ignorați, cu ajutorul secvenței de cod \textit{address(7 downto 2)}.
+ 
+\newpage
+\begin{figure}[h!]
+ \centering
+ \caption{Memoria de Instrucțiuni ca entitate VHDL}
+ \label{Figura:31}
+ \includegraphics[width=0.9\textwidth]{instmemcode.png}
+ \end{figure}
+ 
 
+În Figura \ref{Figura:31} putem observa design-ul hardware generat de sinteza automată pentru memoria de date. Se remarcă multiplexorul \textit{RTL} \textit{MUX}, rolul acestuia fiind de a lega la masă datele care ies din memorie, în cazul în care se dorește scrierea în aceasta, semnalul selector fiind reprezentat de \textit{write enable(we)}.
+ 
+\begin{figure}[h!]
+ \centering
+ \caption{Memoria de Instrucțiuni ca entitate VHDL}
+ \label{Figura:32}
+ \includegraphics[width=0.9\textwidth]{datamem.png}
+ \end{figure}
+  
+ Codul entității VHDL al acestei memorii poate fi consultat în Figura \ref{Figura:33}. La fel ca în cazul memoriei de instrucțiuni, ultimii 2 biți ai adresei de intrare sunt ignorați, asigurând un comportament adresabil pe octeți.
+ 
+ \begin{figure}[h!]
+ \centering
+ \caption{Memoria de Instrucțiuni ca entitate VHDL}
+ \label{Figura:33}
+ \includegraphics[width=0.9\textwidth]{datamemcode.png}
+ \end{figure}
+
+ \subsubsection{FIȘIERUL DE REGISTRE}
+ 
+ Precum s-a prezentata anterior, fișierul de registre al procesorului nostru acomodează 32 de registre cu funcții diverse, fiecare având o capacitate de stocare egală cu un cuvânt. Memorile implementate anterior sunt practic identice cu fișierul de registre, din punct de vedere al sintezeix automate,  datorită arhitecturii de tipologie nevolatilă.
+ 
+ Pe lângă ciclul de tact și write enable, fișierul de registre are 4 intrări relevante,  \textit{rs1, rs2, rs3, wrs3} și 2 ieșiri \textit{rd1, rd2}. Rs1, rs2 și rs3 conțin adresele registrelor al căror acces îl dorim, wrs3 conținând cuvântul de scris în registrul indicat prin rs3. Implicit, rd1 și rd2 vor trimite în exterior cuvintele regăsite în registrele indicate de rs1 și rs2.
+ 
+  Cea mai importantă caracteristică a acestui element de design este faptul că se poate realiza citirea datelor în parelel cu scrierea lor, astfel fiind posibilă executarea instrucțiunilor consecutive de efectuare a operaților cu datele din registre. Dintre toate cele 32 de adrese posibile, este intersiză scrierea datelor în registrul 0, acesta fiind legat la masă, facilitând efectuarea operaților cu 0, reducând astfel numărul de instrucțiuni necesare execuției unui program.
+  
+
+  \newpage  
+  Figura \ref{Figura:34} conține diagrama generată de sinteza automată a fișierului de registre. Se observă modul de multiplexare a ieșirilor, acestea fiind mereu 0 în cazul accesului registrului 0.
+ 
+  \begin{figure}[h!]
+ \centering
+ \caption{Fișierul de registre}
+ \label{Figura:34}
+ \includegraphics[width=0.9\textwidth]{regfile.png}
+ \end{figure}
+ 
+Codul entității VHDL al acestui component se poate vedea în Figura \ref{Figura:35}.
+
+  \begin{figure}[h!]
+ \centering
+ \caption{Fișierul de registre ca entitate VHDL}
+ \label{Figura:35}
+ \includegraphics[width=0.9\textwidth]{regfilecode.png}
+ \end{figure}
+ 
+\subsubsection{EXECUȚIA SINCRONIZATĂ ȘI PROGRAM COUNTER-UL}
+
+Pentru a executa sincron și secvențial instrucțiunile din memorie, avem nevoie de un modul care să realizeze incrementarea periodică a adresei instrucțiunii curente.
+
+Entitatea destinată acestui scop poartă numele de \textit{program counter} și este formată dintr-un sumator, un modul generator de ciclu de tact și un bistabil pentru a transmite periodic indicele adresei de executat. Acestă implementare este suplimentată de un multiplexor 2:1, a cărui rol va fi selecția sursei instrucțiunii stocate în bistabil, în cazul în care se execută operația de  \textit{branch}.
+
+Diagrama logică a acestui component poate fi observată în Figura \ref{Figura:36}.
+
+
+ \begin{figure}[h!]
+ \centering
+ \caption{Program counter-ul și elementele constituente}
+ \label{Figura:36}
+ \includegraphics[width=0.9\textwidth]{programcounter.png}
+ \end{figure}
+ 
+ Datorită abstractizării și modularizării implementării componentelor digitale definite până acum, program counter-ul nu necesită altceva decât definirea entității sale și a bistabilului constituent. Sumatorul și multiplexorul sunt definite în prealabil, fiind folosite de unitatea aritmetică și logică.
+ 
+Figura  \ref{Figura:37} conține codul ce definește un bistabil sincron pe front crescător. Semnalul de reset are o importanță deosebită, initializând contorul și începând astfel execuția instrucțiunilor.
+  \begin{figure}[h!]
+ \centering
+ \caption{Bistabilul sincron ca entitate VHDL}
+ \label{Figura:37}
+ \includegraphics[width=0.4\textwidth]{bistabilcode.png}
+ \end{figure}
+
+ \newpage
+Codul aferent întregii entități VHDL a program counter-ului se regăsește în Figura \ref{Figura:38}.
+ \begin{figure}[h!]
+ \centering
+ \caption{Bistabilul sincron ca entitate VHDL}
+ \label{Figura:38}
+ \includegraphics[width=0.5\textwidth]{programcountercode.png}
+ \end{figure}
+ 
+ Program counter-ul nu are o utilitate de sine stătătoare, fiind nimic mai mult decât un sumator ciclic cu semnalul de tact. Acesta dobândește semnificație funcțională în momentul în care este legat la memoria de instrucțiuni, căreia ii va furniza indexul următoarei secvente de executat.
+ 
+ Figura  \ref{Figura:39} prezintă o astfel de construcție logică, aceasta fiind practic entitatea de incărcare a instrucțiunilor în unitatea de control a procesorului.
+ 
+  \begin{figure}[h!]
+ \centering
+ \caption{Construcția program counter - memoria instrucțiunilor}
+ \label{Figura:39}
+ \includegraphics[width=1.0\textwidth]{pcinstmem2.png}
+ \end{figure}
+ 
+ Cum se poate observa, program counter-ul este practic un feedback loop a cărei execuție începe la acționarea semnalului de reset al procesorului, acesta oprindu-se, din punct de vedere funcțional, la întâlnirea instrucțiunii nule, instrucțiune care semnifică finalitatea programului de executat.
+ 
+\newpage
+\subsubsection{DECODORUL DE INSTRUCȚIUNI}
+ În lipsa unei entități care să interpreteze cuvântul de comandă transmis de memoria de instrucțiuni, procesorul nu are posibilitatea de a executa cod. Decodorul de instrucțiuni este elementul care va îndeplini un astfel de rol, trimițând biții de comanda mai departe elementelor digitale de execuție.
+ 
+ Decodorul va fi modelat după instrucțiunile pe care procesorul le va implementa. Pentru a asigura o capabilitate computațională cât mai funcțională, păstrând gradul de complexitate în limite adecvate, se vor implementa decodificările unui subset de instrucțiuni din setul de bază aritmetic RISC-V. Subsetul implementat va asigura decodarea pentru o instrucțiune din fiecare familie aparținând setului RISC-V, permițând astfel o eventuală extensie a hardware-ului pentru a suporta mai multe operații. Printe instrucțiunile implementate și decodate se numără următoarele:
+ 
+ \begin{itemize}
+\item Instrucțiunile aritmetice din familia R, asigurând calculul cu valorile din fisierul de registre. În acest set se vor regăsi comenzile \textit{add}, \textit{sub}, \textit{or}, \textit{and}.
+\item Instrucțiunile din familia S, acestea asigurând încărcarea valorilor din registrul  \textit{rs2} în memoria de date la adresa calculată ca valoarea din  \textit{rs1} adunată la valoarea imediată furnizată. Comanda regăsită în acest set este \textit{sw (store word)}.
+\item Instrucțiunile din familia I, acestea asigurând încărcarea valorilor îm registrul \textit{rs1} dintr-o adresă din memoria de date calculată ca suma unui offset furnizat ca valoare imediată și valoarea din registrul \textit{rs2}. Comanda \textit{lw(load word)} este instrucțiunea din acestă familie pe care decodorul o va implementa.
+\item Instrucțiunile din familia B, acestea asigurând încărcarea valorilor îm registrul \textit{rs1} dintr-o adresă din memoria de date calculată ca suma unui offset furnizat ca valoare imediată și valoarea din registrul \textit{rs2}.
+\end{itemize}
+ 
 \newpage 
 \section{\centering BIBLIOGRAFIE}
 \begin{thebibliography}{0}
