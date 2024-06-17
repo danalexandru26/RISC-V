@@ -730,7 +730,7 @@ Instrucțiunile de acest format adresează 3 registre, 2 dintre ele fiind sursa 
  \centering
  \caption{Instrucțiunea R și câmpurile de date}
  \label{Figura:10}
- \includegraphics[width=0.5\textwidth]{rtype.drawio.png}
+ \includegraphics[width=0.6\textwidth]{rtype.drawio.png}
  \end{figure}
 
  Campurile acestei instrucțiuni au următoarele semnificații:
@@ -748,7 +748,7 @@ Un exemplu practic al acestei instrucțiuni se poate vedea în Figura \ref{Figur
  \centering
  \caption{Exemplu de utilizare al instrucțiunii R}
  \label{Figura:11}
- \includegraphics[width=0.5\textwidth]{rtypeexample.png}
+ \includegraphics[width=0.6\textwidth]{rtypeexample.png}
  \end{figure}
 
 \subsubsection{INSTRUCȚIUNEA S}
@@ -757,7 +757,7 @@ Rolul instrucțiunilor de acest format este stocarea datelor. Pentru a facilita 
  \centering
  \caption{Instrucțiunea R și câmpurile de date}
  \label{Figura:12}
- \includegraphics[width=0.5\textwidth]{stype.png}
+ \includegraphics[width=0.6\textwidth]{stype.png}
  \end{figure}
  
 Semnificația câmpurilor este următoarea:
@@ -776,7 +776,7 @@ Un exemplu practic al acestei instrucțiuni se poate vedea în Figura \ref{Figur
  \centering
  \caption{Exemplu de utilizare al instrucțiunii R}
  \label{Figura:13}
- \includegraphics[width=0.5\textwidth]{stypeexample.png}
+ \includegraphics[width=0.6\textwidth]{stypeexample.png}
  \end{figure}
  
  \subsubsection{INSTRUCȚIUNEA I}
@@ -786,7 +786,7 @@ Un exemplu practic al acestei instrucțiuni se poate vedea în Figura \ref{Figur
  \centering
  \caption{Instrucțiunea I și câmpurile de date}
  \label{Figura:14}
- \includegraphics[width=0.5\textwidth]{itype.png}
+ \includegraphics[width=0.6\textwidth]{itype.png}
  \end{figure}
 
  Fie o valoare imediată egală cu \textit{5}, se dorește însumarea sa cu valoare din registrul \textit{1}, rezultatul operației fiind trimis registrului \textit{3}. Un astfel de exemplu se poate vedea în Figura \ref{Figura:15}
@@ -795,7 +795,7 @@ Un exemplu practic al acestei instrucțiuni se poate vedea în Figura \ref{Figur
  \centering
  \caption{Instrucțiunea I și câmpurile de date}
  \label{Figura:15}
- \includegraphics[width=0.5\textwidth]{itype.png}
+ \includegraphics[width=0.6\textwidth]{itype.png}
  \end{figure}
  
  \subsubsection{INSTRUCȚIUNEA U}
@@ -804,7 +804,7 @@ Un exemplu practic al acestei instrucțiuni se poate vedea în Figura \ref{Figur
  \centering
  \caption{Instrucțiunea U și câmpurile de date}
  \label{Figura:22}
- \includegraphics[width=0.5\textwidth]{utype.png}
+ \includegraphics[width=0.6\textwidth]{utype.png}
  \end{figure}
 
 Figura \ref{Figura:23} prezintă un exemplu de utilizare, în registrul 5 fiind încărcată valoarea imediată 0X51AA3.
@@ -813,7 +813,7 @@ Figura \ref{Figura:23} prezintă un exemplu de utilizare, în registrul 5 fiind 
  \centering
  \caption{Exemplu de utilizare al instrucțiunii U}
  \label{Figura:23}
- \includegraphics[width=0.5\textwidth]{utypeexample.png}
+ \includegraphics[width=0.6\textwidth]{utypeexample.png}
  \end{figure}
 
 \subsubsection{MEMORIA CACHE}
@@ -828,7 +828,7 @@ Fie secvența de instrucțiuni RISC-V de acces a datelor din memoria principală
  \centering
  \caption{Accesul la memorie și latența în cazul operației lw}
  \label{Figura:40}
- \includegraphics[width=0.9\textwidth]{cachememoryacces.pdf}
+ \includegraphics[width=1.0\textwidth]{cachememoryacces.pdf}
  \end{figure}
  
 Timpul total pe care procesorul îl are de așteptat este egal cu suma timpilor de acces al memoriei principale dintr-un interval de timp discret \textit{t} în care sunt executate astfel de operații. Expresia matematică care se regăsește în Formula 2 prezintă un astfel de calcul al latenței totale, \textit{Lt}, dintr-un interval de timp $\ [1, t] $.
@@ -854,7 +854,7 @@ Cea mai importantă caracteristică a unei astfel de memorii este mărimea sa c�
  \centering
  \caption{Arhitectura memoriei de date a cache-ului}
  \label{Figura:41}
- \includegraphics[width=0.9\textwidth]{cache.pdf}
+ \includegraphics[width=0.7\textwidth]{cache.pdf}
  \end{figure}
  
 Memoria principală este relaționată ca și mărime a cuvântului utilizat direct cache-ului. Prin urmare, plecând de la o memoria cache cu un cuvânt de 8 biți, prezentată în Figura \ref{Figura:41}, memoria de date va avea mărimea unei adrese egală cu un octet și o mărime totală complet arbitrară, fie aceasta 1KB. Cache-ul luat ca exemplu, acoperă prin urmare un bloc de 4 adrese. Figura \ref{Figura:42} prezintă organizarea memoriei principale descrise anterior. Adresa  memoriei va avea  $\  log_2 1024 = 10$ biți.
@@ -1293,11 +1293,14 @@ Codul aferent acestui decodor se poate consulta în Figura \ref{Figura:47}.
  \includegraphics[width=1.05\textwidth]{decodercode.png}
  \end{figure}
  
+ 
+ Sinteza automată înlocuiește logica combinațională cu memoria ROM, datele necesare fiind stocate la adresele acestei memorii. În funcție de cuvântul instrucțiunii, multiplexorul intern al acestei memorii comută semnalul de ieșire, trimitând astfel componentelor subordonate semnalele de control corecte.
+ 
   \begin{figure}[h!]
  \centering
  \caption{Entitatea VHDL a decodorului principal}
  \label{Figura:45}
- \includegraphics[width=1.05\textwidth]{decoder.png}
+ \includegraphics[width=0.9\textwidth]{decoder.png}
  \end{figure}
 
 Decodorul aritmetic are rolul de a semnala unității de execuție ce tip de operație este cerută de instrucțiune. Tabela \ref{Tabela:17} prezintă modul său de funcționare. ALUControl este semnalul de ieșire al acestei componente spre unitatea aritmetică și logică, specificând multiplexorului acesteia operația cerută.
