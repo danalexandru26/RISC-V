@@ -918,13 +918,14 @@ No write allocate nu extrage blocul din memoria principală, acesta fiind tras �
 
 
 \newpage
+\section{\centering IMPLEMENTARE}
 \bigbreak
 \subsection{ABSTRACȚIA MICROARHITECTURALĂ}
 Microarhitectura reprezintă organizarea ierarhică și modulară a componentelor digitale prin care se realizează implementarea practică a unui microprocesor. Precum parcurgem acest nivel de abstracție, vor fi prezentate toate componentele de bază pe care un microprocesor le necesită pentru a funcționa la cel mai de bază nivel. Odată ce toate astfel de componente sunt definite, este posibilă organizarea lor conform arhitecturii RISC-V, rezultând astfel într-un procesor funcțional.
 
 Componentele vor fi prezentate atât în format grafic, prin diagrame digitale, cât și prin codul aferent entității VHDL. Testarea entităților se va face printr-un \textit{testbench} VHDL, fiind prezentate formele de undă caracteristice.
 
- \subsubsection{SUMATORUL ȘI ARITMETICA NUMERELOR}
+ \subsection{SUMATORUL ȘI ARITMETICA NUMERELOR}
  Cea mai necesară operație pe care un sistem de calcul digital o poate executa este adunarea. Pe baza circuitului sumator se vor constitui alte componente digitale, precum \textit{program counter-ul}. Din cauza utilizării extensive a circuitelor sumatoare, acestea sunt adesea ținta unei multitudini de optimizări, rezultând astfel circuite de o complexitate digitală mai ridicată, dar cu o amprentă temporală redusă.
  
 Sumatorul implementat în această lucrare este de tipul ripple adder, carry-ul propagându-se de la un full adder la altul. Avantajul acestei implementări este ușurința modelării hardware, dezavantajul fiind lipsa de optimizare temporală și spațială a operației.
@@ -1012,7 +1013,7 @@ Entitatea VHDL e unității aritmetice este redată prin codul prezentat în Fig
  \label{Figura:60}
  \end{figure} 
  
- \subsubsection{OPERAȚII LOGICE ȘI UNITATEA LOGIC}
+ \subsection{OPERAȚII LOGICE ȘI UNITATEA LOGIC}
  
  Pe lângă operațile aritmetice, un procesor de asemenea are posibilitatea de executare a operaților logice pe biți. Microprocesorul nostru va avea implementarea hardware a funcțiilor SAU, ȘI, XOR. Toate entitățile necesare efectuării acestor operații vor fi comasate într-un element hardware denumit unitatea logică.
  
@@ -1027,14 +1028,14 @@ Figura \ref{Figura:20} conține schema digitală a motorului logic cât și a el
 Spre deosebire de calculul aritmetic, operațile logice sunt o trivialitate, lucru redat nu doar prin diagrama digitală, dar și prin codul asociat unității logice, prezent în Figura \ref{Figura:27}.
 
  \begin{figure}[h!]
- \includegraphics[width=0.72\textwidth]{logicengineVHDL.png}
+ \includegraphics[width=0.62\textwidth]{logicengineVHDL.png}
  \centering
  \caption{Entitatea și arhitectura VHDL a unității logice}
  \label{Figura:27}
  \end{figure}
  
 \newpage
-\subsubsection{UNITATEA ARITMETICĂ ȘI LOGICĂ}
+\subsection{UNITATEA ARITMETICĂ ȘI LOGICĂ}
 
 Unitatea aritmetică și logică este prima entitate ierarhică superioară pe care o vom reprezenta. Aceasta este formată din entitățile logice definite în prealabil, precum unitatea logică și cea aritmetică, dar conține de asemenea elementul pentru detecție de \textit{overflow}.
 
@@ -1056,7 +1057,7 @@ Precum se poate vedea în Tabela \ref{Tabela:14}, intervalul alocat numerelor pe
  \hline
   $\ A \ge 0$ & $\ B \le 0$ & $\ 0 \le A-B \le 2^{32} - 2$ &  Overflow posibil\\
  \hline
-  $\ A \le 0$ & $\ B \le 0$ & $\ -2^{33} \le A-B \le 0$ &   Overflow posibil\\
+  $\ A \le 0$ & $\ B \ge 0$ & $\ -2^{33} \le A-B \le 0$ &   Overflow posibil\\
  
   \hline  
 \end{tabular}
@@ -1110,7 +1111,7 @@ Prin urmare, îmbinând toate elementele modelate anterior, rezultă schema digi
  \label{Figura:29}
  \end{figure}
  
- \subsubsection{DISPOZITIVE DE MEMORARE}
+ \subsection{DISPOZITIVE DE MEMORARE}
  	Pentru a-și putea executa instrucțiunile într-un mod autonom, dar și pentru a putea stoca informații, procesorul va avea nevoie de dispozitive de memorare. Acestea dispozitive vin în mai multe forme, cel mai bine distingându-se memoriile volatile și nevolatile.
  	
  	 Diferența principală dintre aceste două memorii este faptul că memoria volatilă are nevoie de o constantă reactualizare a datelor, aceasta fiind construită pe baza unei matrici de capacitoare și tranzistoare. Prin urmare, pentru a simplifica design-ul hardware al procesorului, dar și pentru a reduce nivelul de abstracție, se vor utiliza memorii nevolatile.
@@ -1124,7 +1125,7 @@ Prin urmare, îmbinând toate elementele modelate anterior, rezultă schema digi
 	Figura \ref{Figura:30} prezintă diagrama memoriei de instrucțiuni, așa cum aceasta este generată prin intermediul sintezei hardware oferite de Vivado.
 	
 \begin{figure}[h!]
- \includegraphics[width=0.9\textwidth]{instmem.png}
+ \includegraphics[width=0.95\textwidth]{instmem.png}
  \centering
  \caption{Memoria de instrucțiuni}
  \label{Figura:30}
@@ -1159,7 +1160,7 @@ Prin urmare, îmbinând toate elementele modelate anterior, rezultă schema digi
  \label{Figura:33}
  \end{figure}
 
- \subsubsection{FIȘIERUL DE REGISTRE}
+ \subsection{FIȘIERUL DE REGISTRE}
  
  Precum s-a prezentata anterior, fișierul de registre al procesorului nostru acomodează 32 de registre cu funcții diverse, fiecare având o capacitate de stocare egală cu un cuvânt. Memorile implementate anterior sunt practic identice cu fișierul de registre, din punct de vedere al sintezeix automate,  datorită arhitecturii de tipologie nevolatilă.
  
@@ -1187,7 +1188,7 @@ Codul entității VHDL al acestui component se poate vedea în Figura \ref{Figur
  \label{Figura:35}
  \end{figure}
  
-\subsubsection{EXECUȚIA SINCRONIZATĂ ȘI PROGRAM COUNTER-UL}
+\subsection{EXECUȚIA SINCRONIZATĂ ȘI PROGRAM COUNTER-UL}
 
 Pentru a executa sincron și secvențial instrucțiunile din memorie, avem nevoie de un modul care să realizeze incrementarea periodică a adresei instrucțiunii curente.
 
@@ -1235,7 +1236,7 @@ Codul aferent întregii entități VHDL a program counter-ului se regăsește î
  
  Cum se poate observa, program counter-ul este practic un feedback loop a cărei execuție începe la acționarea semnalului de reset al procesorului, acesta oprindu-se, din punct de vedere funcțional, la întâlnirea instrucțiunii nule, instrucțiune care semnifică finalitatea programului de executat.
  
-\subsubsection{DECODORUL DE INSTRUCȚIUNI}
+\subsection{DECODORUL DE INSTRUCȚIUNI}
  În lipsa unei entități care să interpreteze cuvântul de comandă transmis de memoria de instrucțiuni, procesorul nu are posibilitatea de a executa cod. Decodorul de instrucțiuni este elementul care va îndeplini un astfel de rol, trimițând biții de comanda mai departe elementelor digitale de execuție.
  
  Decodorul va fi modelat după instrucțiunile pe care procesorul le va implementa. Pentru a asigura o capabilitate computațională cât mai funcțională, păstrând gradul de complexitate în limite adecvate, se vor implementa decodificările unui subset de instrucțiuni din setul de bază aritmetic RISC-V. Subsetul implementat va asigura decodarea unei instrucțiuni din fiecare familie aparținând setului RISC-V, permițând astfel o eventuală extensie a hardware-ului pentru a suporta mai multe operații. Printe instrucțiunile implementate și decodate se numără următoarele:
@@ -1375,7 +1376,7 @@ Circuitul digital generat de sinteză este nimic mai mult decât o interconectar
  \label{Figura:49}
  \end{figure}
  
-\subsubsection{UNITATEA DE EXECUȚIE} 
+\subsection{UNITATEA DE EXECUȚIE} 
 
 Unitatea de execuție reprezintă entitatea nucleului procesorului care gestionează calculul aritmetic și logic, dar și calcularea adreselor urmatoarelor instrucțiuni de executat, în funcție de anumite restricții impuse. Restricțiile impuse alegerii subiectului umrătorului ciclu de execuție vin în general sub forma instrucțiunilor de tip branch. 
  
@@ -1420,8 +1421,8 @@ Se pot observa clar legăturile dintre componente și rolul operațiilor de mult
  Semnalele de ieșire sunt reprezentate de datele calculate de ALU, datele provenite din registrul specificat cât și următoarea adresă a instrucțiunii ce urmează a fi executată. Datele provenite din unitatea aritmetică și logică au pentru majoritatea comenzilor un rol intern destinat stocării în registre, dar în cazul instrucțiunilor de tipul \textit{sw(store word)} și \textit{lw(load word)}, acestea au o semnificație externă, indicând adresa de acces la nivelul memoriei de date.
  
 \newpage
-\subsubsection{NUCLEUL RISC-V} 
-Odata cu modelarea unității de execuție toate componentele microprocesorului sunt finalizate. Prin combinarea unității de control cu cea de execuție rezultă un nucleu RISC-V single-cycle. Termeul de single-cycle provine din faptul că procesorul nostru execută o operație numerică sau de transport a datelor într-o perioadă aproximativ egală cu cea a unui ciclu de tact.
+\subsection{NUCLEUL RISC-V} 
+Odata cu modelarea unității de execuție toate componentele microprocesorului sunt finalizate. Prin combinarea unității de control cu cea de execuție rezultă un nucleu RISC-V single-cycle. Termeul de single-cycle provine din faptul că procesorul nostru execută o operație numerică sau de transport a datelor într-o perioadă aproximativ egală cu cea a unui ciclu de tact. Teoretic vorbind, perioada acestui ciclu are ca specificație acoperirea duratei celui mai lung timp de execuție acoperit de una dintre instrucțiunile procesorului. 
 
 
 Este important de menționat că dispozitivele de memorare nu fac parte din nucleul propriu-zis, memoria fiind considerată o entitate modulară și mutabilă. Figura \ref{Figura:52} prezintă nucleul RISC-V generat de sinteza automată. Alături de cele 2 unități structurale se poate observa prezența memoriei de date și a celei de instrucțiuni.
@@ -1429,33 +1430,109 @@ Este important de menționat că dispozitivele de memorare nu fac parte din nucl
  \begin{figure}[h!]
  \includegraphics[width=1.0\textwidth]{core.png}
  \centering
- \caption{Unitatea de execuție}
+ \caption{Nucleul RISC-V RV32I}
  \label{Figura:52}
  \end{figure}
 
- Dezavantajul însa, al unui astfel de procesor este faptul că suntem limitați din punct de vedere al operațiilor pe care le putem execute. Comenzi complexe asupa numerelor precum înmulțirea și împărțirea nu sunt astfel fezabile, alternativa reprezentării acestora fiind adunări, scăderi și aproximări repetate. 
+
+Entitatea VHDL a nucleului este formată în jururul tuturor entităților superioare implementate. Semnalele de comunicare între componentele microprocesorului sunt de o importanță deosebită, acestea fiind practic impulsurile care asigură funcționarea corectă a tuturor modulelor odată cu execuția unei instrucțiuni. O legare inadecvată implică activarea unei suite de module hardware greșite, rezultatul calculelor fiind astfel irelevant și incorect.
  
- 
+De asemenea, semnalele trebuie inițializate prevenind astfel intrarea pe ramuri de execuție încă nedefinite. Spre exemplu, o valoare inițială alta decât 0 poate activa dispozitivele de memorare, scriind astfel date aleatorii la adrese nedestinate scrierii.
+
+Codul sursă VHDL aferent nucleului se regăsește la nivelul Figurii \ref{Figura:53}.
 \newpage
   \begin{figure}[h!]
  \includegraphics[width=1.0\textwidth]{riscvcore.png}
  \centering
- \caption{Nucleul RISC-V}
- \label{Figura:52}
+ \caption{Nucleul RISC-V ca entitate VHDL}
+ \label{Figura:53}
+ \end{figure}
+ 
+ 
+Procesorul single-cycle are ca mare avantaj relativa simplitate a implementării digitale.  Dezavantajul unui astfel de procesor este faptul că suntem limitați din punct de vedere al operațiilor pe care le putem executa. Comenzi complexe asupa numerelor precum înmulțirea și împărțirea nu sunt astfel fezabile, alternativa reprezentării acestora fiind adunări, scăderi și aproximări repetate.
+
+ În ciuda acestor probleme, procesorul single-cycle este o implementare cu un caracter didactic valoros, existând posibilitatea extinderii sale într-o unitate de execuție multi-cycle cu vaste capabilități și aplicații.
+ 
+\newpage
+\subsection{MEMORIA CACHE}
+
+În cazul în care dorim utilizarea unei memorii de date cu latență ridicată a accesului la date, utilizarea unei memorii cache intermediare devine obligatorie în creșterea metricilor de execuție. Astfel, ca posibilă soluție de implementare, se va prezenta procesul de design al unei memorii cache pe decursul acestui capitol. Ca mențiune, cache-ul este de-a dreptul opțional pentru buna funcționare a nucleului singe-cycle, acesta fiind dezvoltat în jurul unor memorii de date și instrucțiuni construite pe baza matricilor de registre.
+ 
+Precum dictează intuiția, sunt 2 utilizări spre care ne putem îndrepta când vine vorba de folosirea cache-ului în cardul unui sistem de calcul. Primul drum este marcat de utilizarea clasică care implică extragerea blocurilor de date din memoria principală, eliminând latența de acces. A doua cale este marcată de utilizarea cache-ului cu scop în minimizarea latenței de transmitere a instrucțiunilor ce urmează rulate.
+
+Aceste 2 metodologii nu trebuie însă tratate ca fiind mutual exclusive, ambele fiind implementate la nivelul unui procesor, reprezentând un mare salt făcut spre maximizarea randamentului computațional.
+
+Design-ul unui cache începe cu memoriile \textit{CACHE SRAM} și \textit{TAG SRAM}, urmând ca schimbul acestora cu memoria inferioară să fie orchestrat de un \textit{cache controler}.
+
+Pentru simplificarea ilustrării conceptelor de design, se va lua în considerare că procesorul, pentru care implementăm acest nivel de cache, are o arhitectura pe 8 biți și un spațiu de adresare al memoriei egal cu $\ 2^{16}$ adrese byte-addresable. Practic, cuvântul de lucru al microprocesorului de 1 octet este congruent cu octetul dintr-o adresa.
+
+Pentru a determina modul în care biții din adresă sunt împărțiti este nevoie prima dată de definirea mărimii memoriei cache cât și a blocurilor care o compun. Pentru simplificarea calculelor, cache-ul va fi compus din 8 blocuri, fiecare bloc având un număr de 4 octeți. 
+
+Prin urmare, câmpului de offset îi vor fi alocați $\  log_2 4 = 2 $ biți, urmând ca câmpul index sa fie compus din$\  log_2 8 = 3 $ biți. Restul de 11 biți vor fi reprezentați de identificatorul unic asociat unei serii de 8 seturi, și anume tag-ul. în Figura \ref{Figura:54} se poate vedea clar acest aranjament.
+
+ \begin{figure}[h!]
+ \includegraphics[width=0.8\textwidth]{cache16bit.pdf}
+ \centering
+ \caption{Câmpurile din adresa memoriei}
+ \label{Figura:54}
  \end{figure}
 
+Memoria cache SRAM are ca structura diagrama digitală din Figura \ref{Figura:55}. Se pot distinge cele 8 registre cu o mărime de 32 de biți care sunt ulterior trecute printr-o serie de 8 buffere urmând ca semnalul de ieșire sa fie ales de multiplexor conform semnalului de selecție controlat de index-ul blocului relevant.
 
+ \newpage
+ \begin{figure}[h!]
+ \includegraphics[width=0.82\textwidth]{cachesram.png}
+ \centering
+ \caption{Structura memorie cache SRAM}
+ \label{Figura:55}
+ \end{figure}
+ 
+ Codul din spatele acestei generări este prezentat în Figura  \ref{Figura:56}.
+  \begin{figure}[h!]
+ \includegraphics[width=0.6\textwidth]{cachesramcode.png}
+ \centering
+ \caption{Codul VHDL aferent memorie cache SRAM}
+ \label{Figura:56}
+ \end{figure}
+
+În ceea ce privește tag-ul, acesta va fi stocat în memoria tag SRAM a cărei structură este similara cu cea a cache SRAM-ului. Pe lânge câmpul de 10 biți ce reprezintă tag-ul, se mai folosește un bit de validitate, acesta fiind pus pe 1 odată cu aducerea unui bloc in cache. Semnalele de intrare ale acestei componente sunt reprezenta de comanda de citire, prin semnalul \textit{read tag} și de comanda de scriere, prin \textit{write tag}.
+
+Structura memoriei tag SRAM este relatată la nivel digital în Figura \ref{Figura:57}.
+
+  \begin{figure}[h!]
+ \includegraphics[angle=-90,width=0.71\textwidth]{tagsram.png}
+ \centering
+ \caption{Diagrama digitală a memoriei tag SRAM}
+ \label{Figura:57}
+ \end{figure}
+ 
+Prima jumătate a structurii este similară cu cea a cache SRAM-ului, fiind compusă din registre si elemente de buffer pentru procedura de multiplexare după index. Diferența vine sub forma circuitului de selecție al semnalului de ieșire, acesta fiind condiționat de cele 2 intrări. Prin urmare, semnalul de ieșire este reprezentat de tag-ul de interes. Prezența unui tag valid semnifică existența unui bloc de cache din memoria principală, lipsa tag-ului arată viceversa. Codul acestei implementări se regăsește la nivelul Figurii \ref{Figura:58}.
+
+  \begin{figure}[h!]
+ \includegraphics[width=0.9\textwidth]{tagsramvhdl.png}
+ \centering
+ \caption{Diagrama digitală a memoriei tag SRAM}
+ \label{Figura:58}
+ \end{figure}
+  
 \newpage 
 \section{\centering BIBLIOGRAFIE}
 \begin{thebibliography}{0}
+
 \bibitem{riscv}
 Sarah Harris, David Harris (Octombrie, 2021), Digital Design and Computer Architecture, RISC-V Edition: RISC-V Edition, Morgan Kaufmann.
 \bibitem{code}
 Charles Petzold (Octombrie, 2000), Code: The Hidden Language of Computer Hardware and Software, Microsoft Press.
 \bibitem{roscv_petterson}
 David A. Patterson, John L. Hennessy (Aprilie, 2017), omputer Organization and Design RISC-V Edition: The Hardware Software Interface, Morgan Kaufmann.
+
 \end{thebibliography}
 \end{document}
+
+
+
+
+
 
 La nivelul fișierului de registre nu se efectuează nimic altceva decât citirea datelor din registrele \textit{rs1, rs2}, urmând ca informația din \textit{rs1} să fie transmisă memoriei pentru scriere. Datele din registrul \textit{rs2} sunt folosite pentru calculul adresei cu un offset livrat prin câmpul imediat al instrucțiuni, acesta fiind în prealabil extins la 4 octeți.
 
