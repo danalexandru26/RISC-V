@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.16)  20 JUN 2024 19:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.16)  21 JUN 2024 19:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1650,16 +1650,13 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 File: tagsramvhdl.png Graphic file (type png)
 <use tagsramvhdl.png>
 Package pdftex.def Info: tagsramvhdl.png  used on input line 1512.
-(pdftex.def)             Requested size: 435.32422pt x 608.30795pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+(pdftex.def)             Requested size: 386.95897pt x 540.73155pt.
 File: Picture1.jpg Graphic file (type jpg)
 <use Picture1.jpg>
 Package pdftex.def Info: Picture1.jpg  used on input line 1518.
 (pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
 
+
 Package fancyhdr Warning: \headheight is too small (28.45274pt): 
 (fancyhdr)                Make it at least 62.35004pt, for example:
 (fancyhdr)                \setlength{\headheight}{62.35004pt}.
@@ -1667,10 +1664,15 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
 
-[50]
+[50 <./tagsramvhdl.png>]
+<ram64kb.png, id=365, 559.33969pt x 1012.5328pt>
+File: ram64kb.png Graphic file (type png)
+<use ram64kb.png>
+Package pdftex.def Info: ram64kb.png  used on input line 1522.
+(pdftex.def)             Requested size: 309.56569pt x 560.40192pt.
 File: Picture1.jpg Graphic file (type jpg)
 <use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 1524.
+Package pdftex.def Info: Picture1.jpg  used on input line 1529.
 (pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
 
 
@@ -1681,10 +1683,10 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
 
-[51 <./tagsramvhdl.png>]
+[51 <./ram64kb.png>]
 File: Picture1.jpg Graphic file (type jpg)
 <use Picture1.jpg>
-Package pdftex.def Info: Picture1.jpg  used on input line 1530.
+Package pdftex.def Info: Picture1.jpg  used on input line 1548.
 (pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
 
 
@@ -1695,7 +1697,158 @@ Package fancyhdr Warning: \headheight is too small (28.45274pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
 
-[52] (./licetna.aux)
+[52]
+<cachefsm_0.pdf, id=373, 1244.65pt x 635.37375pt>
+File: cachefsm_0.pdf Graphic file (type pdf)
+<use cachefsm_0.pdf>
+Package pdftex.def Info: cachefsm_0.pdf  used on input line 1550.
+(pdftex.def)             Requested size: 532.0695pt x 271.6154pt.
+
+Overfull \hbox (34.71544pt too wide) in paragraph at lines 1550--1552
+ []| [] 
+ []
+
+<cachel1.png, id=374, 2197.45969pt x 1124.70187pt>
+File: cachel1.png Graphic file (type png)
+<use cachel1.png>
+Package pdftex.def Info: cachel1.png  used on input line 1559.
+(pdftex.def)             Requested size: 532.0695pt x 272.31941pt.
+
+Overfull \hbox (31.30081pt too wide) in paragraph at lines 1559--1561
+ []| [] 
+ []
+
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 1569.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[53 <./cachefsm_0.pdf> <./cachel1.png>]
+Overfull \hbox (3.08896pt too wide) in paragraph at lines 1571--1572
+[]\T1/cmr/m/n/12 Se vor ilus-tra instruc[]iunile sw(store word), lw(load word) 
+cât []i una din-tre instruc[]iunile
+ []
+
+<swtype.png, id=387, 515.67656pt x 208.52907pt>
+File: swtype.png Graphic file (type png)
+<use swtype.png>
+Package pdftex.def Info: swtype.png  used on input line 1574.
+(pdftex.def)             Requested size: 348.26233pt x 140.83377pt.
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 1586.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[54 <./swtype.png>]
+<swexample.png, id=393, 1003.49907pt x 977.90344pt>
+File: swexample.png Graphic file (type png)
+<use swexample.png>
+Package pdftex.def Info: swexample.png  used on input line 1589.
+(pdftex.def)             Requested size: 483.69687pt x 471.35797pt.
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 1599.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[55 <./swexample.png>]
+<lwtype.png, id=399, 514.92375pt x 249.93375pt>
+File: lwtype.png Graphic file (type png)
+<use lwtype.png>
+Package pdftex.def Info: lwtype.png  used on input line 1601.
+(pdftex.def)             Requested size: 348.26233pt x 169.04123pt.
+<lwexample.png, id=400, 1104.37593pt x 965.10562pt>
+File: lwexample.png Graphic file (type png)
+<use lwexample.png>
+Package pdftex.def Info: lwexample.png  used on input line 1610.
+(pdftex.def)             Requested size: 452.25539pt x 395.22462pt.
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 1617.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[56 <./lwtype.png> <./lwexample.png>]
+<rtype.png, id=406, 522.45187pt x 224.33812pt>
+File: rtype.png Graphic file (type png)
+<use rtype.png>
+Package pdftex.def Info: rtype.png  used on input line 1621.
+(pdftex.def)             Requested size: 348.26233pt x 149.5424pt.
+<addexample.png, id=407, 1441.63594pt x 987.69pt>
+File: addexample.png Graphic file (type png)
+<use addexample.png>
+Package pdftex.def Info: addexample.png  used on input line 1628.
+(pdftex.def)             Requested size: 435.32422pt x 298.23836pt.
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 1635.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[57 <./rtype.png> <./addexample.png>]
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 1637.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[58]
+File: Picture1.jpg Graphic file (type jpg)
+<use Picture1.jpg>
+Package pdftex.def Info: Picture1.jpg  used on input line 1649.
+(pdftex.def)             Requested size: 141.5284pt x 51.94392pt.
+
+
+Package fancyhdr Warning: \headheight is too small (28.45274pt): 
+(fancyhdr)                Make it at least 62.35004pt, for example:
+(fancyhdr)                \setlength{\headheight}{62.35004pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-33.8973pt}.
+
+[59] (./licetna.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-04-11>
@@ -1706,11 +1859,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 19932 strings out of 474050
- 414942 string characters out of 5746298
+ 20013 strings out of 474050
+ 416360 string characters out of 5746298
  1960754 words of memory out of 5000000
- 42010 multiletter control sequences out of 15000+600000
- 579388 words of font info for 92 fonts, out of 8000000 for 9000
+ 42089 multiletter control sequences out of 15000+600000
+ 581710 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,17n,111p,1038b,1084s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/tex
@@ -1721,18 +1874,19 @@ pe1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx0600.p
 fb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx0700.pfb><c:/tex
-live/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2024/
-texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2024/texmf-dist
-/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2024/texmf-dist/fonts/typ
-e1/public/cm-super/sfbx2074.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/
-cm-super/sfrm0600.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/s
-frm1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pf
-b><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti0600.pfb><c:/texl
-ive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on licetna.pdf (52 pages, 2210113 bytes).
+live/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2024/
+texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2024/texmf-dist
+/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2024/texmf-dist/fonts/typ
+e1/public/cm-super/sfbx1728.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/
+cm-super/sfbx2074.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/s
+frm0600.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pf
+b><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><c:/texl
+ive/2024/texmf-dist/fonts/type1/public/cm-super/sfti0600.pfb><c:/texlive/2024/t
+exmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on licetna.pdf (59 pages, 2646008 bytes).
 PDF statistics:
- 453 PDF objects out of 1000 (max. 8388607)
- 238 compressed objects within 3 object streams
+ 505 PDF objects out of 1000 (max. 8388607)
+ 262 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 278 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 323 words of extra memory for PDF output out of 10000 (max. 10000000)
 

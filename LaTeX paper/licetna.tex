@@ -1147,7 +1147,7 @@ Prin urmare, îmbinând toate elementele modelate anterior, rezultă schema digi
 \begin{figure}[h!]
  \includegraphics[width=0.9\textwidth]{datamem.png}
  \centering
- \caption{Memoria de Instrucțiuni ca entitate VHDL}
+ \caption{Memoria de date ca entitate VHDL}
  \label{Figura:32}
  \end{figure}
   
@@ -1509,12 +1509,131 @@ Structura memoriei tag SRAM este relatată la nivel digital în Figura \ref{Figu
 Prima jumătate a structurii este similară cu cea a cache SRAM-ului, fiind compusă din registre si elemente de buffer pentru procedura de multiplexare după index. Diferența vine sub forma circuitului de selecție al semnalului de ieșire, acesta fiind condiționat de cele 2 intrări. Prin urmare, semnalul de ieșire este reprezentat de tag-ul de interes. Prezența unui tag valid semnifică existența unui bloc de cache din memoria principală, lipsa tag-ului arată viceversa. Codul acestei implementări se regăsește la nivelul Figurii \ref{Figura:58}.
 
   \begin{figure}[h!]
- \includegraphics[width=0.9\textwidth]{tagsramvhdl.png}
+ \includegraphics[width=0.8\textwidth]{tagsramvhdl.png}
  \centering
  \caption{Diagrama digitală a memoriei tag SRAM}
  \label{Figura:58}
  \end{figure}
   
+\newpage
+Memoria RAM principală va avea rolul de a gestiona trimiterea blocurilor de 4 octeți spre unitatea de control a cache-ului. Prim urmare, în ciuda caracterului byte-addresable, cuvântul transmis în exterior va fi de 4 octeți. Fiecare combinație unică de tag și index va determina accesarea unui astfel de cuvânt. Scrierea pe de altă parte se va face la nivel de byte. Arhitectrura generată de sinteza automată este simimilară cu cea prezentată în \ref{Figura:32}. Codul VHDL al acestei entități este prezentat în Figura \ref{Figura:59}.
+
+  \begin{figure}[h!]
+ \includegraphics[width=0.64\textwidth]{ram64kb.png}
+ \centering
+ \caption{Entitatea VHDL a memoriei RAM}
+ \label{Figura:59}
+ \end{figure}
+
+Unitatea de control a cache-ului va fi modelată ca un automat cu stări finite, astfel ilustrând în cel mai mare detaliu modul acesteia de funcționare. Odată cu implementarea controlerului, trebuie să decidem asupra modului în care cache-ul nostru va gestiona cererile de scriere și citire.
+
+ Pentru a ilutra conceptul și a reduce complexitatea procedeului de stocare, memoria cache va implementa, prin intermediul controlerului, politicile write through și no write allocate.
+
+Starea inițială este reprezentată de \textit{idle}. De asemenea, în urma îndeplinirii cererii procesorului, automatul memoriei cache se va întoarce tot în această stare.
+
+În funcție de operați cerută, fie acesta de citire sau de scriere, se poate intra în starea \textit{read prepare} respectiv \textit{write prepare}. Cele 2 stări pregătitoare au rolul de a seta semnalele de acces la nivelul tag SRAM-ului. Accesul la nivelul componentelor necesită pregătire în prealabil, astfel mitigând întârzierea semnalului din pricina propagării la nivelul bistabilelor.
+
+Odată ce tag-ul a fost citit, se analizează structura acestuia. Dacă tag-ul este valid și inițializat, se continuă pe ramurile de \textit{read hit}, respectiv \textit{write hit}. Dacă tag-ul rezultat este invalid, controlerul intră pe ramurile \textit{read miss} sau \textit{write miss}, în funcție de cererea microprocesorului.
+
+Tranziția în starea \textit{write miss} conduce la resetarea semnalelor de acces la nivelul modulelor inferioare și trecerea controlerului în starea inițială \textit{idle}.
+
+ În cazul unui \textit{read miss}, cache-ul nostru extrage blocul relevant din memoria principală, trecând pe rând în stările \textit{upate data read, finish update} și într-un final întorcându-se în \textit{idle}. Starea \textit{update data read} are rolul de a comunica cu memoria, primind de la aceasta bocul de 4 octeți. Tot la nivelul acestei stări sunt scrise în tag SRAM și cache SRAM datele cerute. Starea intermediară \textit{finish update} are rol de reinițializare a semnalelor de interfață cu memoriile cache-ului.
+ 
+După tratarea cererii de \textit{write miss}, dacă microprocesorul dorește accesul la o adresă de memorie identificată cu acelasi tag și index găsit la nivelul unei adrese extrase anterior, se va continua în starea \textit{get cache data} a ramurii \textit{read hit}. La nivelul acestei stări se va trimite spre procesor octetul cerut, prin extragerea sa din blocul de cache accesat. În urma transmiterii datelor, se va trece din nou în starea de \textit{idle}.
+ 
+Cererea de scriere într-un bloc care este prezent în cache implică prima dată scrierea datelor în memoria principală, la nivelul stării \textit{write hit}. Odată ce memoria a semnalat incheierea ciclului de scriere, se va trece în starea \textit{get memory data}, blocul cu datele acum modificate fiind transmis memoriei cache SRAM. La fel ca în cazul ramurii de \textit{read miss}, ciclul de scriere va continua cu starea \textit{finish update}, dupa resetarea semnalelor de acces, urmând tranziția în starea inițială.
+
+Stările enumerate și anterior explicate, precum și semnalele care determină tranziția lor, se pot găsi la nivelul diagramei automatului cu stări finite din Figura \ref{Figura:63}.
+ 
+\newpage
+  \begin{figure}[h!]
+ \hspace*{-0.48cm}\includegraphics[width=1.1\textwidth]{cachefsm_0.pdf}
+ \centering
+ \caption{Diagrama de stări a cache controlerului}
+ \label{Figura:63}
+ \end{figure}
+ 
+Prin comasarea celor 3 entități descrise, tag SRAM, cache SRAM și nu în ultimul rând cache controler, rezultă memoria cache L1, a cărei diagramă digitală poate fi consultată în Figura \ref{Figura:64}. Se poate observa și prezența memoriei inferioare la nivelul acestei entități, însă, acesata nu trebuie considerată ca facând parte din cache, fiind doar un dispozitiv de memorare terț.
+
+  \begin{figure}[h!]
+ \hspace*{-0.6cm}\includegraphics[width=1.1\textwidth]{cachel1.png}
+ \centering
+ \caption{Diagrama de stări a cache controlerului}
+ \label{Figura:64}
+ \end{figure}
+
+
+\section{\centering TESTAREA ȘI VALIDAREA ENTITĂȚILOR} 
+Pentru a exemplifica buna funcționare a entităților modelate, se vor implementa entități de testare VHDL, numite \textit{testbench}. În cadrul acestor entități de test se vor analiza doar dispozitivele finale, și anume nucleul single-cycle RISC-V și memoria cache L1. 
+La nivelul testbench-urilor ce urmează prezentate se vor evidenția cazuri de utilizare cheie care ilustrează scenarii de execuție comun întâlnite în practică.
+
+\subsection{TESTAREA NUCLEULUI RISC-V}
+Se vor ilustra instrucțiunile sw(store word), lw(load word) cât și una dintre instrucțiunile de calcul aritmetico-logic, precum add, sub și and. Exemplificarea tuturor instrucțiunilor aritmetice este exagerată, acestea funcționând într-un mod similar, cu excepția cuvântului de comandă transmis unității aritmetice și logice. Prima instrucțiune pe care o vom testa este store word. Cuvântul de comanda utilizat este prezentat în Figura \ref{Figura:65}.
+
+  \begin{figure}[h!]
+ \hspace*{-0.1cm}\includegraphics[width=0.72\textwidth]{swtype.png}
+ \centering
+ \caption{Exemplu de utilizare al instrucțiunii store word}
+ \label{Figura:65}
+ \end{figure}
+ 
+Conform acestui cuvânt, se va stoca informația din cadrul registrului x6 într-o adresă de memorie egală cu valoarea imediată 5 însumată la valorea din registrul x5. Execuția instrucțiunii va începe în momentul în care se acționează semnalul de reset asupra microprocesorului. Odată cu această tranziție, progam counter-ul începe numărătoarea ciclică care determină execuția secvențială a instrucțiuniilor.
+
+Prima comandă fiind cea prezentată anterior, decodorul de instrucțiuni semnalează nevoie de scriere a datelor la nivelul memoriei inferioare, astfel fiind setat semnalul \textit{MemWrite}. În paralel sunt extrase datele din registrele x5 și x6. Cuvântul registrului x5 va intra împreuna cu valoarea imediată rezultată extinderii de semn în unitatea aritmetică și logică pentru efectuarea calculului adresei. Valorea din registrul x6 va fi preluată de pinul de scriere a datelor la nivelul memoriei principale. 
+Odată cu începerea următoarei perioade a ciclului de tact, datele din registru vor fi scrise în adresa cerută de rezultatul însumării efectuate de ALU.
+ 
+În Figura \ref{Figura:66} se poate observa forma de undă generată de acest exemplu. Se pot, de asemenea, distinge semnalele intermediare de decodare atât ale decodorului principal cât și al decodorului secundar.
+\newpage
+
+  \begin{figure}[h!]
+ \hspace*{-0.1cm}\includegraphics[width=1\textwidth]{swexample.png}
+ \centering
+ \caption{Forma de undă a testbench-ului instrucțiunii sw}
+ \label{Figura:66}
+ \end{figure}
+ 
+ Cuvântul 0x4 din registrul x6 este scris la nivelul adresei de memorie 0x08. De menționat faptul că acestă adresă se referă la al treilea spațiu de adresare din memorie de date, aceasta fiind byte-adressable. Foarte importantă este faptul că scrierea propriu zisă se efectuează doar în momentul în care se ajunge pe frontul crescător al următorului ciclu de tact.
+ 
+A doua instrucțiune pe care o vom analiza este cea de accesare a cuvintelor din memoria de date, și anume, lw(load word). Aceasta este similară cu instrucțiunea prezentată anterior, datele provenite dintr-o adresă a memoriei, adresă calculată ca suma unui cuvânt din registrul comandat cu o valoare imediată furnizată, sunt stocate în cel de al doilea registru extras din câmpurile instrucțiunii. Formatul unei astfel de comenzi poate fi analizat în Figura  \ref{Figura:67}.
+
+\newpage
+  \begin{figure}[h!]
+ \hspace*{-0.1cm}\includegraphics[width=0.72\textwidth]{lwtype.png}
+ \centering
+ \caption{Exemplu de utilizare al instrucțiunii sw(store word)}
+ \label{Figura:67}
+ \end{figure}
+
+Acest cuvânt de comandă dorește stocarea informației din adresa de memorie calculată ca valoarea imediată 0x8 adunată la valoarea registrului x10 în registrul x3. Forma de undă a testbench-ului care prezintă efectuarea corectă a acestei insteucțiuni se poate consulta în Figura \ref{Figura:68}.
+
+   \begin{figure}[h!]
+ \hspace*{-0.1cm}\includegraphics[width=0.935\textwidth]{lwexample.png}
+ \centering
+ \caption{Forma de undă a testbench-ului instrucțiunii sw}
+ \label{Figura:68}
+ \end{figure}
+ 
+ Se poate observa marea notă de similaritate cu instrucțiunea lw(load word) anterior prezentată. La nivel funcționat, acestea două sunt similare, singura diferență fiind polaritatea de acces a memoriei, o instrucțiune realizând scrierea, cealaltă efectuând citirea și încărcarea în registre.
+ 
+Ultimul exemplu de utilizare al instrucțiunilor va fi comanda de însumare a conținutului din 2 registre și plasarea rezultatului într-unul de al treilea. Toate instrucțiunile care efectuează calcule asupra numerelor cu datele din interiorul registrelor se comportă identic, singura diferență fiind cuvântul pe care decodorul aritmetic îl trimite unității aritmetice și logice, conform operației de executat. Instrucțiunea care urmează a fi executată este prezentă în Figura \ref{Figura:69}. Forma de undă și modul în care execuția decurge este prezentat în Figura \ref{Figura:70}.
+
+   \begin{figure}[h!]
+ \hspace*{-0.1cm}\includegraphics[width=0.72\textwidth]{rtype.png}
+ \centering
+ \caption{Exemplu de utilizare al instrucțiunii add}
+ \label{Figura:69}
+ \end{figure}
+
+ \begin{figure}[h!]
+ \hspace*{-0.1cm}\includegraphics[width=0.9\textwidth]{addexample.png}
+ \centering
+ \caption{Forma de undă a testbench-ului instrucțiunii add}
+ \label{Figura:70}
+ \end{figure}
+
+Cum se poate vedea, valorile din registrele x6 și x5 sunt extrase și trimite unității aritmetice și logice pentru a efectua operația de adunare. În urma însumării, rezultatul este încărcat în registrul x7. Sunt notabile semnalele produse de decodorul aritmetic, acesta fiind cea mai relevantă componentă de diferențiere a operațiilor, în cazul de execuție al comenzilor aritmetice.
+
+ \subsection{TESTAREA MEMORIEI CACHE}
 \newpage 
 \section{\centering BIBLIOGRAFIE}
 \begin{thebibliography}{0}
