@@ -1,0 +1,52 @@
+\babel@toc {romanian}{}\relax 
+\contentsline {section}{\numberline {1}\centering INTRODUCERE}{3}{}%
+\contentsline {subsection}{\numberline {1.1}SCOPUL ȘI MOTIVAȚIA LUCRĂRII}{3}{}%
+\contentsline {section}{\numberline {2}\centering STUDIU BIBLIOGRAFIC}{4}{}%
+\contentsline {subsection}{\numberline {2.1}ARHITECTURA RISC}{4}{}%
+\contentsline {subsection}{\numberline {2.2}FAMILIA SETURILOR DE INSTRUCȚIUNI ARM}{4}{}%
+\contentsline {subsection}{\numberline {2.3}SETUL DE INSTRUCȚIUNI RISC-V}{4}{}%
+\contentsline {subsection}{\numberline {2.4}IMPLEMENTĂRI RISC-V}{5}{}%
+\contentsline {section}{\numberline {3}\centering FUNDAMENTARE TEORETICĂ}{6}{}%
+\contentsline {subsection}{\numberline {3.1}GESTIONAREA COMPLEXITĂȚII}{6}{}%
+\contentsline {subsubsection}{\numberline {3.1.1}ABSTRACTIZARE}{6}{}%
+\contentsline {subsubsection}{\numberline {3.1.2}MODULARITATE}{6}{}%
+\contentsline {subsubsection}{\numberline {3.1.3}IERARHIZARE}{6}{}%
+\contentsline {subsection}{\numberline {3.2}ABSTRACȚIA NUMERICĂ}{7}{}%
+\contentsline {subsubsection}{\numberline {3.2.1}NUMERELE BINARE}{7}{}%
+\contentsline {subsubsection}{\numberline {3.2.2}BAZA HEXADECIMALĂ}{8}{}%
+\contentsline {subsubsection}{\numberline {3.2.3}OPERAȚIILE MATEMATICE ȘI NUMERELE BINARE}{9}{}%
+\contentsline {subsubsection}{\numberline {3.2.4}REPREZENTAREA NUMERELOR NEGATIVE}{10}{}%
+\contentsline {subsection}{\numberline {3.3}ABSTRACȚIA LOGICĂ}{12}{}%
+\contentsline {subsubsection}{\numberline {3.3.1}POARTA BUFFER}{12}{}%
+\contentsline {subsubsection}{\numberline {3.3.2}POARTA NOT}{13}{}%
+\contentsline {subsubsection}{\numberline {3.3.3}POARTA SAU}{13}{}%
+\contentsline {subsubsection}{\numberline {3.3.4}POARTA ȘI}{13}{}%
+\contentsline {subsubsection}{\numberline {3.3.5}POARTA XOR}{14}{}%
+\contentsline {subsubsection}{\numberline {3.3.6}POARTA NAND}{15}{}%
+\contentsline {subsubsection}{\numberline {3.3.7}MULTIPLEXARE}{15}{}%
+\contentsline {subsection}{\numberline {3.4}ABSTRACTIA ARHITECTURALĂ}{16}{}%
+\contentsline {subsubsection}{\numberline {3.4.1}FIȘIERUL DE REGISTRE}{16}{}%
+\contentsline {subsubsection}{\numberline {3.4.2}INSTRUCȚIUNILE DE BAZĂ RISC-V}{16}{}%
+\contentsline {subsubsection}{\numberline {3.4.3}INSTRUCȚIUNEA R}{17}{}%
+\contentsline {subsubsection}{\numberline {3.4.4}INSTRUCȚIUNEA S}{18}{}%
+\contentsline {subsubsection}{\numberline {3.4.5}INSTRUCȚIUNEA I}{19}{}%
+\contentsline {subsubsection}{\numberline {3.4.6}INSTRUCȚIUNEA U}{19}{}%
+\contentsline {subsubsection}{\numberline {3.4.7}MEMORIA CACHE}{20}{}%
+\contentsline {section}{\numberline {4}\centering IMPLEMENTARE}{25}{}%
+\contentsline {subsection}{\numberline {4.1}ABSTRACȚIA MICROARHITECTURALĂ}{25}{}%
+\contentsline {subsection}{\numberline {4.2}SUMATORUL ȘI ARITMETICA NUMERELOR}{25}{}%
+\contentsline {subsection}{\numberline {4.3}OPERAȚII LOGICE ȘI UNITATEA LOGICĂ}{29}{}%
+\contentsline {subsection}{\numberline {4.4}UNITATEA ARITMETICĂ ȘI LOGICĂ}{30}{}%
+\contentsline {subsection}{\numberline {4.5}DISPOZITIVE DE MEMORARE}{32}{}%
+\contentsline {subsection}{\numberline {4.6}FIȘIERUL DE REGISTRE}{34}{}%
+\contentsline {subsection}{\numberline {4.7}EXECUȚIA SINCRONIZATĂ ȘI PROGRAM COUNTER-UL}{36}{}%
+\contentsline {subsection}{\numberline {4.8}DECODIFICATORUL DE INSTRUCȚIUNI}{38}{}%
+\contentsline {subsection}{\numberline {4.9}UNITATEA DE EXECUȚIE}{43}{}%
+\contentsline {subsection}{\numberline {4.10}NUCLEUL RISC-V}{46}{}%
+\contentsline {subsection}{\numberline {4.11}MEMORIA CACHE}{48}{}%
+\contentsline {section}{\numberline {5}\centering TESTAREA ȘI VALIDAREA ENTITĂȚILOR}{55}{}%
+\contentsline {subsection}{\numberline {5.1}TESTAREA NUCLEULUI RISC-V}{55}{}%
+\contentsline {subsection}{\numberline {5.2}TESTAREA MEMORIEI CACHE}{59}{}%
+\contentsline {section}{\numberline {6}\centering CONCLUZII}{61}{}%
+\contentsline {subsection}{\numberline {6.1}CONCLUZII}{61}{}%
+\contentsline {subsection}{\numberline {6.2}PERSPECTIVE DE DEZVOLTARE}{61}{}%

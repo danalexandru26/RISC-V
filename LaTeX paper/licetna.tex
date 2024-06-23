@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+\renewcommand{\contentsname}{\centering CUPRINS}
 \usepackage[T1]{fontenc}
 \usepackage{indentfirst}
 \usepackage{anyfontsize}
@@ -18,10 +19,14 @@
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{etoolbox}
 \patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
-
 \usepackage{titling}
 \renewcommand\maketitlehooka{\null\mbox{}\vfill}
 \renewcommand\maketitlehookd{\vfill\null}
+\usepackage{tocloft}
+
+%% center Contents title
+\renewcommand{\cfttoctitlefont}{\hfill\Huge\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
 \usepackage{geometry}
  \geometry{
  a4paper,
@@ -32,7 +37,6 @@
  bottom=20mm,
  headheight = 10mm,
  }
-\setlength\parindent{15mm}
 
 \pagestyle{fancy}
 %... then configure it.
@@ -44,62 +48,41 @@
 \fancyfoot[CE,CO]{\thepage}
 \fancyhead[LE, LO]{
 
-Departamentul de Ingineria Sistemelor
+Automatică și Informatică Aplicată
 
-2020-2024
+2023-2024
 
 Bulzan Dan-Alexandru
 
-Microprocesorul RISC-V}
+Microprocesorul RISC-V
+}
 
 \fancyhead[RE, RO]{
 \includegraphics{Picture1.jpg}
 }
 
 \begin{document}
-
-\fontsize{20pt}{18pt}\selectfont
-\title{\textbf{MICROPROCESORUL RISC-V}}
-
-\date{}
-\begin{titlingpage}
-\maketitle
-
-
-\begingroup
-    \fontsize{14pt}{12pt}\selectfont
-	\textbf{Canditat: Dan-Alexandru Bulzan}
-	\bigbreak
-	\textbf{Coordonator științific: Ș.l.dr.ing Eugen-Horațiu Gurban}
-\endgroup
-
-
-\vspace*{\fill}
-\begin{center}
-\fontsize{14pt}{12pt}\selectfont
-Sesiune: Iunie 2024
-\end{center}
-\end{titlingpage}
-
+\tableofcontents
 \newpage
+\setlength\parindent{15mm}
 \section{\centering INTRODUCERE}
 \bigbreak
 \subsection{SCOPUL ȘI MOTIVAȚIA LUCRĂRII}
 \setstretch{1.2}
 
-Implementarea personală a setului de instrucțiuni RISC-V, s-a născut din dorința de a realiza ceea ce poate fi considerat nimic mai puțin decât un apogeu al metodelor științifice din ultimul secol, și anume, procesorul.
+Această implementare a unui microprocesor, bazat pe setul instrucțiuni RISC-V, s-a născut din dorința de a pune în aplicare conceptele digitale și electronice studiate. Un procesor se află la intersecția acestor ramuri de studiu, fiind astfel un bun exemplu practic.
 
 Aceste dispozitive electronice reprezintă fundamentul tuturor științelor informatice, grație capacității computaționale intrinsece. Procesoarele, indiferent de gradul lor de specializare, au fost și rămân nucleul unei revoluții tehnologice pe care nici din pură ignoranță nu o putem omite, aceasta fiind prezentă până și în cele mai mundane aspecte ale vieții cotidiene.
+
 Scopul acestei lucrări este de a traversa universul digital, începând din rădăcinile sale analogice, ajungând într-un final la organizarea ierarhică a numeroaselor entități digitale în a căror întregime se constituie un sistem de calcul complet funcțional.
 
-Adesea este ușor sa ne pierdem în complexitățiile ascunse printre miile de porți logice, un veritabil microcosm digital, însă prin mijloacele abstractizării și modularizării, proiectarea unui procesor devine nimic mai mult decât o modelare regulată a unui sistem descriptibil de operațiile algebrei Booleane. Pe parcursul lucrării, se va prezenta de asemenea o simplă implementare didactică a modulului de memorie cache, un component digital de o importanță deosebită, precum si problematica care cere o astfel de soluție.
+Adesea este ușor sa ne pierdem în complicitățile ascunse printre miile de porți logice, un veritabil microcosm digital, însă prin mijloacele abstractizării și modularizării, proiectarea unui procesor devine nimic mai mult decât o modelare regulată a unui sistem descriptibil de operațiile algebrei Booleane. Pe parcursul lucrării, se va prezenta de asemenea o simplă implementare didactică a modulului de memorie cache, un component digital de o importanță deosebită, precum si problematica care cere o astfel de soluție.
 
-Implementarea va fi realizată în limbajul de descriere hardware VHDL, entitățile urmând să fie simulate prin intermediul Vivado, soluție de design și sinteză hardware oferită de Advanced Micro Devices.
+Memoria cache cât și Microprocesorul vor fi realizate în limbajul de descriere hardware VHDL, acesta fiind considerat cunoscut în prealabil, entitățile urmând să fie simulate prin intermediul Vivado, soluție de design și sinteză hardware oferită de Advanced Micro Devices.
 
-\begin{center}
-\vspace*{40mm}
-DE CONTINUAT
-\end{center}
+Procesorul implementat prin această lucrare nu va viza integral toate instrucțiunile setului oferit de specificația RISC-V, acesta fiind limitat la anumite instrucțiuni de calcul aritmetic de acces la nivelul memoriei inferioare. Însă, în ciuda acestor limitări, sistemul conceput este complet funcționat, existând posibilitatea extinderii capabilităților sale.
+
+Implementarea memoriei cache prezintă o provocare, aceasta fiind factorul principal din cadrul unui microprocesor cu rol de optimizare a randamentului computațional. Prin design-ul memoriei cache avem posibilitatea de a ne familiariza în primul rând cu lacunele de performanță a procesorului. În al doilea rând, vom face contact direct cu modul de design al acesteia și conceptul de automat cu stări finite, cu ajutorul căreia se va minimiza dificultatea design-ului entităților și arhitecturilor VHDL complexe.
 
 \newpage
 \section{\centering STUDIU BIBLIOGRAFIC}
@@ -109,32 +92,40 @@ DE CONTINUAT
 
 Acronimul RISC, face referință la \textit{reduced instruction set computer} sau calculator cu set de instrucțiuni reduse. Un microprocesor care implementează o astfel de filozofie, utilizează un set de instrucțiuni compact și puternic optimizat, garantând execuția rapidă a fiecărei instrucțiuni. Prin urmare, o caracteristică a acestei abordări, este faptul că microprocesorul va fi nevoit să execute un număr mai ridicat de instrucțiuni pentru a realiza aceleași operații efectuate de un calculator cu set de instrucțiuni complex, cunoscut și sub acronimul de \textit{CISC}, printr-un număr observabil mai redus de instrucțiuni.
 
-De-a lungul timpului, începând cu întemeierea arhitecturii RISC, au fost conceput mai multe seturi de instrucțiuni relevante, printre acestea enumerându-se următoarele: MIPS, ARM cât și setul care va reprezenta arhitectura procesorului implementat pe decursul acestei lucrări, RISC-V.
+De-a lungul timpului, începând cu întemeierea arhitecturii RISC, au fost conceput mai multe seturi de instrucțiuni relevante, printre acestea enumerându-se următoarele: MIPS, ARM cât și setul care va reprezenta arhitectura procesorului implementat pe decursul acestei lucrări, RISC-V [1].
 
 \subsection{FAMILIA SETURILOR DE INSTRUCȚIUNI ARM}
 Seturile de instrucțiuni care aparțin familiei ARM sunt fără echivoc cele mai de succes dintre toate seturile aferente arhitecturii RISC. Acest succes este în mare parte datorat costurilor reduse de producție cât și eficienței computaționale ridicate. Dispozitivele dezvoltate în jurul microprocesoarelor ARM au un grade de utilitate ridicat, prezența acestora făcând-se simțită într-o vastă gamă de domenii. Cele mai evidente utilizări sunt reprezentate de telefoanele mobile și computerele personale, însă arhitectura ARM a reușit să se etaleze până și în domeniul computerelor de înaltă performanță, prin intermediul super computerului Fugaku.
 
-Arhitectura ARM s-a bucurat de decenii întregi de dezvoltare și prin urmare de vaste îmbunătățiri, ajungând la un grad înalt de maturitate, lucru care-i definește utilitate contemporană.
+Arhitectura ARM s-a bucurat de decenii întregi de dezvoltare și prin urmare de vaste îmbunătățiri, ajungând la un grad înalt de maturitate, lucru care-i definește utilitate contemporană [1].
 
 \subsection{SETUL DE INSTRUCȚIUNI RISC-V}
-Setul de instrucțiuni RISC-V reprezintă una dintre cele mai noi adiții aduse mulțimii familiilor arhitecturii RISC. Acest ISA nu funcționează pe baza unei licențe de utilizare, fiind un standard deschis, este permisă folosirea sa tuturor entităților legale sau persoanelor care doresc implementarea unui microprocesor sau a unui sistem integrat bazându-se pe acest set.
+Setul de instrucțiuni RISC-V reprezintă una dintre cele mai noi adiții aduse mulțimii familiilor arhitecturii RISC. Acest ISA nu funcționează pe baza unei licențe de utilizare, fiind un standard deschis, este permisă folosirea sa tuturor entităților legale sau persoanelor care doresc implementarea unui microprocesor sau a unui sistem integrat bazându-se pe acest set. Caracteristica acestui set de instrucțiuni este modul de acces la memoria de date cât și la nivelul registrelor. Operațiile matematice se efectuează direct doar asupra datelor din registrele dorite spre acces.
+
+De asemenea, setul de instrucțiuni este divizat în mai multe extensii. Pentru ca un microprocesor să fie considerat de tipologie RISC-V, acesta trebuie să respecte modul de funcționare al instrucțiunilor aritmetice de bază, precum sunt definite acestea de specificație.
+Instrucțiuni aritmetice complexe, precum înmulțirea și împărțirea numerelor, fac parte din extensia operaților asupra numerelor cu virgulă flotantă. Tot din altă extensie fac parte instrucțiunile de manipulare a biților, precum deplasările aritmetice la stânga sau dreapta.
+
+Dacă se dorește execuția unui sistem de operare, este necesară implementarea instrucțiunilor din extensia Zicsr, aceasta acoperind registrele de control și status [1].
 
 \subsection{IMPLEMENTĂRI  RISC-V}
-Datorită proliferării lipsite de licență cât și împărțirii setului în extensii, se poate observa un constant flux de implementări, variind de la simple exemple didactice la sisteme cu module multicip complexe. Numeroase programe de studii care au ca scop dezvoltarea cunoștințelor despre organizarea calculatoarelor, obișnuiesc să prezinte ca suport didactic implementări succinte ale unui nucleu RISC-V. Fiecare asemeni implementare prezintă ușoare diferențe arhitectural-organizatorice față de omologi săi. Aceste diferențe sunt produsul faptului că arhitectura RISC-V nu îngrădește utilizatorii săi într-o specifică topologie de organizare a modulelor care constituie în întregimea lor un microprocesor. Fiecare utilizator are astfel liber arbitru în definirea propriei organizări, atât timp cât respectă setul de instrucțiuni.
+Datorită proliferării lipsite de licență cât și împărțirii setului în extensii, se poate observa un constant flux de implementări, variind de la simple exemple didactice la sisteme cu module multicip complexe. 
 
-Se disting astfel două mari tipuri de microprocesoare RISC-V, ale căror implementări sunt disponibile spre analiză. Prima și cea mai comună este reprezentată de microprocesorul RISC-V SCP sau \textit{single cycle processor}, cea de a doua purtând numele de \textit{multi-cycle processor} sau pe scurt, MCP.
+Numeroase programe de studii care au ca scop dezvoltarea cunoștințelor despre organizarea calculatoarelor, obișnuiesc să prezinte ca suport didactic implementări succinte ale unui nucleu RISC-V [1].
 
+ Fiecare asemeni implementare prezintă ușoare diferențe arhitectural-organizatorice față de omologi săi. Aceste diferențe sunt produsul faptului că arhitectura RISC-V nu îngrădește utilizatorii săi într-o specifică topologie de organizare a modulelor care constituie în întregimea lor un microprocesor. Fiecare utilizator are astfel liber arbitru în definirea propriei organizări, atât timp cât respectă setul de instrucțiuni.
 
-\begin{center}
-\vspace*{60mm}
-DE CONTINUAT
-\end{center}
+Se disting astfel două mari tipuri de microprocesoare RISC-V, ale căror implementări sunt disponibile spre analiză. Prima și cea mai comună este reprezentată de microprocesorul RISC-V SCP sau \textit{single cycle processor}, cea de a doua purtând numele de \textit{multi-cycle processor} sau pe scurt, MCP [1].
+
+Procesorul single-cycle are un caracter preponderent didactic, utilizarea acestuia fiind mai puțin fezabilă în practică. În ciuda acestui fapt, acesta prezintă capabilități de calcul complete și are o oarecare utilitate computațională.
+
+Pe de altă parte, un procesor multi-cycle se apropie mai mult de arhitectura de design a procesoarelor moderne, având un pipeline complex  de execuție și implementând astfel un set mult mai vast de instrucțiuni. De asemenea, acest tip de procesor poate fi extins în ceea ce privește numărul său de nuclee.
+Un exemplu de procesor single-cycle, dar și unul multi-cycle simplificat sunt analizate de S. Harris, D. Harris [1]. Autorii prezintă capabilitatea limitată de execuție a unui nucleu single-cycle, dezvoltând din acesta procesorul multi-cycle. Din punct de vedere funcțional acestea sunt însă similare. Diferența apare în momentul în care se dorește execuția unor instrucțiuni care depășesc durata unei perioade a ciclului de tact.
 
 \newpage
 \section{\centering FUNDAMENTARE TEORETICĂ}
 \bigbreak
 \subsection{GESTIONAREA COMPLEXITĂȚII}
-Cand vine vorba de modelara unui sistem computațional de o complexitate ridicată, este de preferat să avem anumite fundamente în implementare, pe care să ne putem baza fără echivoc. În lipsa acestor principii este adesea usor să ne pierdem în complexitatea sistemului, rezultând astfel posibile erori care-și vor face simțită prezența în produsul final.
+Cand vine vorba de modelara unui sistem computațional de o complexitate ridicată, este de preferat să avem anumite fundamente în implementare, pe care să ne putem baza fără echivoc. În lipsa acestor principii este adesea usor să ne pierdem în complexitatea sistemului, rezultând astfel posibile erori care-și vor face simțită prezența în produsul final [1].
 
 \subsubsection{ABSTRACTIZARE}
 Abstractizarea este opusul specificității. Din punct de vedere conceptual, actul de abstractizare, indiferent de suportul teoretic asupra căruia este aplicat, ajută la simplificarea unei probleme a cărei complexități ar fi de altfel prea greu de tratat. Prin abstractizare, detaliile de la un anumit nivel logic al unui sistem, sunt redate sumar și considerate ca atare de către nivelele logice superioare.
@@ -161,8 +152,7 @@ Cea mai reprezentativă caracteristică a unui sistem de numerație este număru
 
 \begin{table}[h]
 \centering
-\caption{Intervalul de simboluri posibile, raportate la baza numerică }
-\label{Tabela:1}
+
 \begin{tabular}{ ||c|c|c|| }
  \hline
  Radix & Valori & Exemplu \\ 
@@ -175,10 +165,11 @@ Cea mai reprezentativă caracteristică a unui sistem de numerație este număru
  \hline 
  Hexadecimal & $\ [0, 9] \cup [A, F]$ & B4\\ 
  \hline
-\end{tabular}
+\end{tabular} \caption{Intervalul de simboluri posibile, raportate la baza numerică }
+ \label{Tabela:1}
 \end{table}
 
-Un alt aspect important, strâns legat de radix, este numărul de simboluri \textit{s} necesare pentru a reprezenta un număr oarecare \textit{n} în baza \textit{r}. Relația matematică care definește acest aspect este redată prin formula \ref{Formula:1}.
+Un alt aspect important, strâns legat de radix, este numărul de simboluri \textit{s} necesare pentru a reprezenta un număr oarecare \textit{n} în baza \textit{r}. Relația matematică care definește acest aspect este redată prin formula \ref{Formula:1} [2].
 
 \begin{equation}
 \label{Formula:1}
@@ -189,7 +180,7 @@ s = log_r n
 \subsubsection{NUMERELE BINARE}
 Modul de funcționare a dispozitivelor digitale  este constituit pe oscilațiile rapide ale semnalelor electrice, semnale a căror valori se identifică cu unul dintre membri faimosului cuplu binar, \textit{0 și 1}. Prin urmare, datele vor avea o reprezentare care utilizează radixul binar. 
 
-Fiecare simbol dintr-un număr binar poarte numele de bit, un amalgam de 4 biți se numește nibble, iar o înșiruire de 2 nibble, echivalentă cu 8 biți, poartă numele de octet. Bit-ul care corespunde celui mai mare exponent de 2 poartă numele de \textit{msb}, iar bit-ul care corespunde celui mai mic exponent are denumirea de \textit{lsb}.
+Fiecare simbol dintr-un număr binar poarte numele de bit, un amalgam de 4 biți se numește nibble, iar o înșiruire de 2 nibble, echivalentă cu 8 biți, poartă numele de octet. Bit-ul care corespunde celui mai mare exponent de 2 poartă numele de \textit{msb}, iar bit-ul care corespunde celui mai mic exponent are denumirea de \textit{lsb} [2].
 
 Conceptul de împărțire a unui număr binar în octeți ajuta reprezentarea acestora într-o bază numerică superioară, în special cea hexazecimală. Figura \ref{Figura:1} prezintă clar pârțile constituente a unui octet și relația dintre acestea.
 
@@ -207,8 +198,6 @@ Tabelul \ref{Tabela:2} prezintă relația dintre magnitudinea binară (numărul 
 
 \begin{table}[h]
 \centering
-\caption{Plaja de valori asumând numere strict pozitive, de magnitudini binare diverse }
-\label{Tabela:2}
 \begin{tabular}{ ||c|c|c|| }
  \hline
  Biți de date & Numărul datelor & Interval valori \\ 
@@ -222,6 +211,8 @@ Tabelul \ref{Tabela:2} prezintă relația dintre magnitudinea binară (numărul 
  64 & $\ 2^{64}$ & $\ 0 \le n \le 2^{64} -1$ \\
  \hline
 \end{tabular}
+\caption{Plaja de valori asumând numere strict pozitive, de magnitudini binare diverse }
+\label{Tabela:2}
 \end{table}
 
 \subsubsection{BAZA HEXADECIMALĂ}
@@ -229,8 +220,6 @@ Datorită clarificării reprezentării datelor în radixul binar, înțelegerea 
 
 \begin{table}[h]
 \centering
-\caption{Echivalența nibble - simbol hexazecimal }
-\label{Tabela:3}
 \begin{tabular}{ ||c|c|c|| }
  \hline
  Nibble & Simbol & Decimal\\ 
@@ -268,6 +257,8 @@ Datorită clarificării reprezentării datelor în radixul binar, înțelegerea 
  1111 & F & 15\\
  \hline
 \end{tabular}
+\caption{Echivalența nibble - simbol hexazecimal }
+\label{Tabela:3}
 \end{table}
 
 \subsubsection{OPERAȚIILE MATEMATICE ȘI NUMERELE BINARE}
@@ -275,12 +266,10 @@ Pentru a utiliza în mod corect reprezentările în această bază, modul în ca
 
 Datele nu sunt folositoare doar prin existența lor. Pentru a dobândi utilitate, acestea sunt supuse aparatului matematic, prin care se calculează diverse valori, asumând un algoritm corect, care ne oferă informații despre problema pe care dorim să o rezolvăm.
 
-Cea mai elementară operație matematică care poate fi aplicată unui număr este adunarea. Însumarea numerelor este cu atât mai facilă cu cât numărul de simboluri folosite în reprezentarea acestora scade. Spre norocul lumii digitale, radixul utilizat permite efectuarea operațiilor matematice în cele mai simple metode. Există doar $\ 4$ operații fundamentale posibile, acestea fiind prezentate în Tabela \ref{Tabela:3}.
+Cea mai elementară operație matematică care poate fi aplicată unui număr este adunarea.Însumarea numerelor este cu atât mai facilă cu cât numărul de simboluri folosite în reprezentarea acestora scade [2]. Spre norocul lumii digitale, radixul utilizat permite efectuarea operațiilor matematice în cele mai simple metode. Există doar $\ 4$ operații fundamentale posibile, acestea fiind prezentate în Tabela \ref{Tabela:4}.
 
 \begin{table}[h]
 \centering
-\caption{Operațiile fundamentale de însumare a numerelor binare }
-\label{Tabela:4}
 \begin{tabular}{ ||c|c|c|| }
  \hline
  Operație & Sumă & Carry \\ 
@@ -294,6 +283,8 @@ Cea mai elementară operație matematică care poate fi aplicată unui număr es
  1 + 1 & 0 & 1 \\
  \hline
 \end{tabular}
+\caption{Operațiile fundamentale de însumare a numerelor binare }
+\label{Tabela:4}
 \end{table}
 Dintre toate aceste operații, cea căreia îi vom oferi o importanță ridicată este $\ 1 + 1 = 0$ \textit{carry} 1. Aceasta  ne obligă să adunăm o unitate biților de pe poziții superioare. Practic, această sumă, odată ce este generalizată, ne spune că $\ 2^n + 2^n = 2 \cdot 2^n = 2^{n+1}$, o trivialitate matematică. Diverse exemple de adunare ale numerelor binare pot fi consultate în Figura \ref{Figura:2}.
 
@@ -306,17 +297,15 @@ Dintre toate aceste operații, cea căreia îi vom oferi o importanță ridicat�
 
 \subsubsection{REPREZENTAREA NUMERELOR NEGATIVE}
 Modul în care numerele pozitive sunt adunate fiind acum clarificat, următoarea operație matematică tratată este scăderea. Aceasta poate fi vizualizată ca adunarea unui numar \textit{a} la inversul aditiv al altui număr \textit{b}.
-Această operație cere prin urmare un mod de reprezentare al numerelor binare negative, soluție care vine prin trei metode.
+Această operație cere prin urmare un mod de reprezentare al numerelor binare negative, soluție care vine prin trei metode [1].
 
-Primul mod de reprezentare este cel prin semn-magnitudine. Acesta este intuitiv, fiind similar cu reprezentarea numerelor decimale cu semn. Bit-ul cel mai semnificativ devine acum bit-ul de semn, 1 reprezentând un număr negativă, iar 0 unul pozitiv. Tabelul \ref{Tabela:4} prezintă aplicarea acestei reprezentări asupra numerelor pe 8 biți.
+Primul mod de reprezentare este cel prin semn mărime. Acesta este intuitiv, fiind similar cu reprezentarea numerelor decimale cu semn. Bit-ul cel mai semnificativ devine acum bit-ul de semn, 1 reprezentând un număr negativă, iar 0 unul pozitiv. Tabelul \ref{Tabela:5} prezintă aplicarea acestei reprezentări asupra numerelor pe 8 biți.
 
 \begin{table}[h]
 \centering
-\caption{Reprezentarea prin semn-magnitudine }
-\label{Tabela:5}
 \begin{tabular}{ ||c|c|c|| }
  \hline
- Valoare binară & Semn magnitudine &  Fără semn\\ 
+ Valoare binară & Semn mărime &  Fără semn\\ 
  \hline  \hline
  00000000 & 0 & 0\\
  \hline
@@ -345,21 +334,21 @@ Primul mod de reprezentare este cel prin semn-magnitudine. Acesta este intuitiv,
  11111111 & -127 & 255 \\
  \hline
 \end{tabular}
+\caption{Reprezentarea prin semn mărime }
+\label{Tabela:5}
 \end{table}
 Se pot astfel distinge următoarele lucruri:
 \begin{itemize}
 \item Există două reprezentări posibile pentru 0, și anume $\ \pm 0$.
-\item Deși se acoperă tot 255 de valori numerice posibile (256 cu cel de al doilea 0), plaja de valori \textit{signed} s-a distribuit egal numerelor negative și celor pozitive. Astfel, numerele \textit{unsigned} semn-magnitudine  sunt cuprinse în intervalul $\ [-2^{n-1}+1, 2^{n-1}-1]$ unde $\ n > 0$ 
+\item Deși se acoperă tot 255 de valori numerice posibile (256 cu cel de al doilea 0), plaja de valori \textit{signed} s-a distribuit egal numerelor negative și celor pozitive. Astfel, numerele \textit{unsigned} semn mărime sunt cuprinse în intervalul $\ [-2^{n-1}+1, 2^{n-1}-1]$ unde $\ n > 0$ 
 \end{itemize}
 
-O altă medotă de reprezentare este prin complementul de 1. Conform acesteia, se inversează biții numărului binar pozitiv (biții cu valoarea 1 vor deveni 0 și viceversa) rezultând astfel inversul său aditiv. Spre exemplu, $\ 00000001' = 11111110;$ $\ 01010101' = 10101010$ iar, în cazul lui 0, $\ 00000000' = 11111111$. Tabela \ref{Tabela:5} conține reprezentările numerelor de 8 biți.
+O altă medotă de reprezentare este prin complementul de 1. Conform acesteia, se inversează biții numărului binar pozitiv (biții cu valoarea 1 vor deveni 0 și viceversa) rezultând astfel inversul său aditiv. Spre exemplu, $\ 00000001' = 11111110;$ $\ 01010101' = 10101010$ iar, în cazul lui 0, $\ 00000000' = 11111111$. Tabela \ref{Tabela:6} conține reprezentările numerelor de 8 biți.
 \begin{table}[h]
 \centering
-\caption{Reprezentarea prin complement de 1 }
-\label{Tabela:6}
 \begin{tabular}{ ||c|c|c|| }
  \hline
- Valoare binară & Semn magnitudine &  Fără semn\\ 
+ Valoare binară & Semn mărime &  Fără semn\\ 
  \hline  \hline
  00000000 & 0 & 0\\
  \hline
@@ -384,11 +373,13 @@ O altă medotă de reprezentare este prin complementul de 1. Conform acesteia, s
  11111111 & -0 & 255 \\
  \hline
 \end{tabular}
+\caption{Reprezentarea prin complement de 1 }
+\label{Tabela:6}
 \end{table}
 
-La fel ca în cazul reprezentării prin semn-magnitudine, 0 dorește să respecte principiul superpoziției, diferența principală însă, precum se distinge din compararea Tabelei \ref{Tabela:5} cu  Tabela \ref{Tabela:4}, este faptul ca valorile negative sunt eșalonate invers.
+La fel ca în cazul reprezentării prin semn mărime, 0 dorește să respecte principiul superpoziției, diferența principală însă, precum se distinge din compararea Tabelei \ref{Tabela:5} cu  Tabela \ref{Tabela:4}, este faptul ca valorile negative sunt eșalonate invers.
 
-Problema acestor reprezentări este cu atât mai vizibilă când se efectuează adunarea a două numere binare, rezultatul fiind mereu $\ 111..1..111$, unda dintre reprezentările posibile ale lui 0. Soluția vine prin complementul de 2, complement format prin adăugarea unei unități reprezentării complementare de 1. Efectul însumării unitare este cel mai bine explicitat de Figura \ref{Figura:3}.
+Problema acestor reprezentări este cu atât mai vizibilă când se efectuează adunarea a două numere binare, rezultatul fiind mereu $\ 111..1..111$, unda dintre reprezentările posibile ale lui 0. Soluția vine prin complementul de 2, complement format prin adăugarea unei unități reprezentării complementare de 1 [1]. Efectul însumării unitare este cel mai bine explicitat de Figura \ref{Figura:3}.
  
  \begin{figure}[h!]
  \[\begin{tikzcd}[cramped,column sep=tiny,row sep=scriptsize]
@@ -431,14 +422,14 @@ Odată cu clarificarea reprezentării numerelor binare negative, operațiile mat
 
 \subsection{ABSTRACȚIA LOGICĂ} 
 
-Porțile logice sunt acele dispozitive care fac legătura dintre operațiile matematice abstracte definite anterior și implementarea propriu zisă a sistemului practic de calcul. În spatele unei porți logice se găsesc tranzistoarele, mici întrerupătoare electrice ale căror mărime a ajuns în zilele noastre să atingă ordinul nanometric (\textit{$\ 10^{-9}$ metri}). Subtilitățile de  funcționare ale unui tranzistor sunt dincolo de scopul acestei lucrări, acesta fiind considerat cutia neagră de la baza implementării entităților digitale.
+Porțile logice sunt acele dispozitive care fac legătura dintre operațiile matematice abstracte definite anterior și implementarea propriu zisă a sistemului practic de calcul. În spatele unei porți logice se găsesc tranzistoarele, mici întrerupătoare electrice ale căror mărime a ajuns în zilele noastre să atingă ordinul nanometric (\textit{$\ 10^{-9}$ metri}) [3]. Subtilitățile de  funcționare ale unui tranzistor sunt dincolo de scopul acestei lucrări, acesta fiind considerat cutia neagră de la baza implementării entităților digitale.
 
 O poartă logică are rolul de a implementa o funcție matematică a algebrei Booleane. Comportamentul acestora este considerat ideal, întârzierile de propagare a impulsului astfel neglijabile. Pentru analiza funcției algebrice descrise se vor utiliza  tabele logice, a căror rol este de a relaționa în format tabelar semnalele de intrare cu rezultatul produs.
 
-Un amalgam de porți logice cumulat după operația definită de o funcție algebrică formează un sistem logic de o complexitate variată. Printre acestea se număra dispozitivele de memorare, de la \textit{flip-flop-uri} și \textit{bistabile} la \textit{RAM} și \textit{ROM}, dar și cele aritmetice precum \textit{ALU} (unitatea aritmetică logică) și \textit{FPU} (coprocesorul pentru numere cu virgulă flotantă).
+Un amalgam de porți logice cumulat după operația definită de o funcție algebrică formează un sistem logic de o complexitate variată. Printre acestea se număra dispozitivele de memorare, de la \textit{flip-flop-uri} și \textit{bistabile} la \textit{RAM} și \textit{ROM}, dar și cele aritmetice precum \textit{ALU} (unitatea aritmetică logică) și \textit{FPU} (coprocesorul pentru numere cu virgulă flotantă) [3].
 
 
-\subsubsection{BUFFER}
+\subsubsection{POARTA BUFFER}
 Un buffer reprezintă cea mai simplă poartă logică. Rolul acesteia este de a transmite exact semnalul pe care-l primește ca intrare, adăugând însă o întârziere de propagare. Simbolul porții logice este prezentat de Figura \ref{Figura:4}.
 
  \begin{figure}[h!]
@@ -456,14 +447,12 @@ Un buffer reprezintă cea mai simplă poartă logică. Rolul acesteia este de a 
  
  Utilitatea acesteia se poate observa în special la nivelul procesoarelor  multi-cycle, buffer-ul având un rol important în organizarea modului de execuție a instrucțiunilor complexe care necesită multiple cicluri de tact. 
  
-\subsubsection{NOT}
+\subsubsection{POARTA NOT}
 De asemenea cunoscut sub numele de \textit{inversor}, rolul acestei porți logice este 
 de a schimba polaritatea semnalului primit.
  
  \begin{table}[h]
 \centering
-\caption{Funcția logică NOT}
-\label{Tabela:7}
 \begin{tabular}{ ||c|c|| }
  \hline
  A & Q\\ 
@@ -473,6 +462,8 @@ de a schimba polaritatea semnalului primit.
  0 & 1 \\
  \hline
 \end{tabular}
+\caption{Funcția logică NOT}
+\label{Tabela:7}
 \end{table}
 
 Tabela \ref{Tabela:7} prezintă funcționalitatea acestei porți. Simbolul utilizat în diagramele circuitelor este prezentat prin Figura \ref{Figura:5}. Ecuația matematică a inversorului este $\ Q = \overline{A}$.
@@ -491,12 +482,10 @@ Tabela \ref{Tabela:7} prezintă funcționalitatea acestei porți. Simbolul utili
  \label{Figura:5}
 \end{figure}
  
-\subsubsection{SAU}
-Poarta logică \textit{sau} reprezintă implementarea operației de disjuncție matematică, a cărei rezultat este 0 doar atunci când ambele intrări logice sunt 0. Tabela \ref{Tabela:8} prezintă valorile operației raportate la intrările logice. Expresia matematică a operației \textit{sau} este $\ Q = A+B$.
+\subsubsection{POARTA SAU}
+Poarta logică \textit{sau} reprezintă implementarea operației de disjuncție matematică [2], a cărei rezultat este 0 doar atunci când ambele intrări logice sunt 0. Tabela \ref{Tabela:8} prezintă valorile operației raportate la intrările logice. Expresia matematică a operației \textit{sau} este $\ Q = A+B$.
  \begin{table}[h]
 \centering
-\caption{Funcția logică SAU}
-\label{Tabela:8}
 \begin{tabular}{ ||c|c|c|| }
  \hline
  A & B & Q\\ 
@@ -510,6 +499,8 @@ Poarta logică \textit{sau} reprezintă implementarea operației de disjuncție 
  0 & 0 & 0 \\
  \hline
 \end{tabular}
+\caption{Funcția logică SAU}
+\label{Tabela:8}
 \end{table}
 
 Simbolul utilizat în diagramele circuitelor este prezentat prin Figura \ref{Figura:6}.
@@ -529,12 +520,10 @@ Simbolul utilizat în diagramele circuitelor este prezentat prin Figura \ref{Fig
  \label{Figura:6}
  \end{figure}
  
-\subsubsection{ȘI}
-Poarta logică \textit{și} reprezintă implementarea operației de conjuncție matematică, a cărei rezultat este 1 doar atunci când ambele intrări logice sunt 1. Tabela \ref{Tabela:9} prezintă valorile operației raportate la intrările logice. Expresia matematică a operației \textit{și} este $\ Q = A \cdot B$.
+\subsubsection{POARTA ȘI}
+Poarta logică \textit{și} reprezintă implementarea operației de conjuncție matematică [2], a cărei rezultat este 1 doar atunci când ambele intrări logice sunt 1. Tabela \ref{Tabela:9} prezintă valorile operației raportate la intrările logice. Expresia matematică a operației \textit{și} este $\ Q = A \cdot B$.
  \begin{table}[h]
 \centering
-\caption{Funcția logică ȘI}
-\label{Tabela:9}
 \begin{tabular}{ ||c|c|c|| }
  \hline
  A & B & Q\\ 
@@ -548,6 +537,8 @@ Poarta logică \textit{și} reprezintă implementarea operației de conjuncție 
  0 & 0 & 0 \\
  \hline
 \end{tabular}
+\caption{Funcția logică ȘI}
+\label{Tabela:9}
 \end{table}
 
 \newpage
@@ -568,12 +559,10 @@ Simbolul utilizat în diagramele circuitelor este prezentat prin Figura \ref{Fig
  \label{Figura:7}
  \end{figure}
 
-\subsubsection{XOR}
+\subsubsection{POARTA XOR}
 Poarta logică \textit{xor}, de asemenea cunoscută ca \textit{SAU exclusiv} setează semnalul de output pe 1 logic doar în cazul în care cel mult una dintre intrări este activă. Comportamentul acesteia este cel mai bine reprezentat de Tabela \ref{Tabela:10}. Expresia matematică care descrie această poartă este $\ Q = A \oplus B$.
 \begin{table}[h]
 \centering
-\caption{Funcția logică XOR}
-\label{Tabela:10}
 \begin{tabular}{ ||c|c|c|| }
  \hline
  A & B & Q\\ 
@@ -587,6 +576,8 @@ Poarta logică \textit{xor}, de asemenea cunoscută ca \textit{SAU exclusiv} set
  0 & 0 & 0 \\
  \hline
 \end{tabular}
+\caption{Funcția logică XOR}
+\label{Tabela:10}
 \end{table}
 
 
@@ -607,14 +598,12 @@ Această operație logică implică practic excluderea mutuală a semnalelor de 
  \end{figure}
 
 \newpage
-\subsubsection{NAND}
-Ca o regulă generala, totalitatea porților logice la ale căror denumire se atașează prefixul \textit{N-} sunt varianta negată a porții logice originale, din această cauză doar poarte NAND va fi studiată, aceasta având o importanță deosebită. Poarta NAND este de asemenea cunoscută ca și poarta logică fundamentală. Această denumire reiese din operațiile algebrei Booleane.
+\subsubsection{POARTA NAND}
+Ca o regulă generala, totalitatea porților logice la ale căror denumire se atașează prefixul \textit{N-} sunt varianta negată a porții logice originale, din această cauză doar poarte NAND va fi studiată, aceasta având o importanță deosebită. Poarta NAND este de asemenea cunoscută ca și poarta logică fundamentală [2]. Această denumire reiese din operațiile algebrei Booleane.
 
  În mod firesc, semnalul de ieșire al acestei porți va fi complementarul operației \textit{and}. La nivelul Tabelei \ref{Tabela:11} se poate observa acest lucru. Expresia matematică a acestei operații este  $\ Q = \overline{A \cdot B}$.
  \begin{table}[h]
 \centering
-\caption{Funcția logică NAND}
-\label{Tabela:11}
 \begin{tabular}{ ||c|c|c|| }
  \hline
  A & B & Q\\ 
@@ -628,6 +617,8 @@ Ca o regulă generala, totalitatea porților logice la ale căror denumire se at
  0 & 0 & 1 \\
  \hline
 \end{tabular}
+\caption{Funcția logică NAND}
+\label{Tabela:11}
 \end{table}
 
 Simbolul utilizat în diagramele circuitelor este prezentat prin Figura \ref{Figura:9}.
@@ -651,9 +642,9 @@ Pe lângă circuitele clasice reprezentate de porțile logice, un alt component 
 
 Multiplexara de asemenea are o operație opusă, aceasta purtând numele de demultiplexare. Dintr-o listă de \textit{n} ieșiri posibile, se va alege conform semnalului selector drumul pe care-l va lua un semnal de intrare.
 
-Atunci când se dorește utilizarea unui dispozitiv multiplexor, cel mai important parametru este reprezentat de numărul de intrări specificate de cazul de utilizare. Conform acestor \textit{n} intrări, se va calcula utilizând expresia $\log_2{n}$ biții necesari semnalului de selecție.
+Atunci când se dorește utilizarea unui dispozitiv multiplexor, cel mai important parametru este reprezentat de numărul de intrări specificate de cazul de utilizare. Conform acestor \textit{n} intrări, se va calcula utilizând expresia $\log_2{n}$ biții necesari semnalului de selecție [2].
 
-Figura \ref{Figura:24} arată modul de reprezentare grafic al unui multiplexor cu 4 intrări pe 32 de biți și un semnal de selecție de 2 biți.
+Figura \ref{Figura:24} arată modul de reprezentare grafic al unui multiplexor cu 4 intrări pe 32 de biți și un semnal de selecție de 2 biți. Demultiplexorul este reprezentat tot prin acestă figura, însă, rotită cu 180 de grade, intrările devenind semnalele de ieșire și viceversa.
  \begin{figure}[h]
  \includegraphics[width=0.5\textwidth]{mux41.png}
  \centering
@@ -671,12 +662,10 @@ Arhitectura face legătura dintre micro arhitectura sistemului și programatorul
   
    Standardul impune un fișier de 32 de registre în cazul setului RV32I și 32 sau 64 de registre, în funcție de mărimea spațiului de adresare, pentru un procesor RV64I. Denumirea acestor registre, conform convenției, indică modul destinat de utilizare dar, nu există constrângeri la doar astfel de utilizări.
    
-Tabela \ref{Tabela:12} ne ajută să identificăm registrele procesorului RV32I cât și utilizarea acestora. Coloana \textit{Denumire Simbolică} prezintă modul de adresarea ale acestor registre la nivelul limbajului de asamblare.
+Tabela \ref{Tabela:12} ne ajută să identificăm registrele procesorului RV32I cât și utilizarea acestora. Coloana \textit{Denumire Simbolică} prezintă modul de adresarea ale acestor registre la nivelul limbajului de asamblare [4].
 
 \begin{table}[h]
 \centering
-\caption{Fișierul de registre RV32I}
-\label{Tabela:12}
 \begin{tabular}{ ||c|c|c|| }
  \hline
  Registru & Denumire simbolică & Descriere\\ 
@@ -706,11 +695,13 @@ Tabela \ref{Tabela:12} ne ajută să identificăm registrele procesorului RV32I 
  x28-31 & t3-6 & Valori temporare \\
   \hline  
 \end{tabular}
+\caption{Fișierul de registre RV32I}
+\label{Tabela:12}
 \end{table}
 
 \subsubsection{INSTRUCȚIUNILE DE BAZĂ RISC-V}
 
-Operațile de bază executate de un procesor RV32I sunt transcrise în instrucțiuni având o mărime de 4 octeți. Aceste instrucțiuni pot fi de următoarele tipuri:
+Operațile de bază executate de un procesor RV32I sunt transcrise în instrucțiuni având o mărime de 4 octeți. Aceste instrucțiuni pot fi de următoarele tipuri [4]:
 
 \begin{itemize}
 \item Instrucțiuni R, \textit{Register-Register}, pentru operațiile de la registru la registru.
@@ -719,10 +710,10 @@ Operațile de bază executate de un procesor RV32I sunt transcrise în instrucț
 \item Instrucțiuni U, \textit{Upper Immediate}, cu rol de încărcare imediată a octeților cei mai semnificativi în registre.
 \end{itemize}
 
-În cazul instrucțiunilor care utilizează valori imediate este importat să se țină cont de lățimea acestor valori. Familia de instrucțiuni U permite o lățime mai ridicată acestor tip de valori decât lățimea permisă de familia I.
+În cazul instrucțiunilor care utilizează valori imediate este importat să se țină cont de lățimea acestor valori. Familia de instrucțiuni U permite o lățime mai ridicată acestor tip de valori decât lățimea permisă de familia I [4].
 
 \subsubsection{INSTRUCȚIUNEA R}
-Instrucțiunile de acest format adresează 3 registre, 2 dintre ele fiind sursa datelor, cel de al 3-lea reprezentând destinația. Acestea sunt în general utilizate în operațile aritmetice, precum adunarea și scăderea numerelor. Figura \ref{Figura:10} prezintă formatul acestei instrucțiuni cât și câmpurile de date constituente.
+Instrucțiunile de acest format adresează 3 registre, 2 dintre ele fiind sursa datelor, cel de al 3-lea reprezentând destinația. Acestea sunt în general utilizate în operațile aritmetice, precum adunarea și scăderea numerelor [4]. Figura \ref{Figura:10} prezintă formatul acestei instrucțiuni cât și câmpurile de date constituente.
 
 
 
@@ -733,7 +724,7 @@ Instrucțiunile de acest format adresează 3 registre, 2 dintre ele fiind sursa 
  \label{Figura:10}
  \end{figure}
 
- Campurile acestei instrucțiuni au următoarele semnificații:
+ Campurile acestei instrucțiuni au următoarele semnificații [4]:
  \begin{itemize}
 \item Câmpul \textit{opcode} indică tipul instrucțiunii care va fi executată de ALU.
 \item Câmpul \textit{rd} conține adresa registrului unde va fi stocat rezultatul operației.
@@ -752,7 +743,7 @@ Un exemplu practic al acestei instrucțiuni se poate vedea în Figura \ref{Figur
  \end{figure}
 
 \subsubsection{INSTRUCȚIUNEA S}
-Rolul instrucțiunilor de acest format este stocarea datelor. Pentru a facilita acest lucru, formatul instrucțiunii include 2 registre și câmpul imediat. Un registru este utilizat în calculul adresei de memorie, alături de un offset reprezentat de datele imediate, cel doilea conținând datele care se doresc stocate. Figura \ref{Figura:12} arată structura unei astfel de instrucțiuni.
+Rolul instrucțiunilor de acest format este stocarea datelor. Pentru a facilita acest lucru, formatul instrucțiunii include 2 registre și câmpul imediat. Un registru este utilizat în calculul adresei de memorie, alături de un offset reprezentat de datele imediate, cel doilea conținând datele care se doresc stocate [4]. Figura \ref{Figura:12} arată structura unei astfel de instrucțiuni.
  \begin{figure}[h!]
  \includegraphics[width=0.6\textwidth]{stype.png}
  \centering
@@ -780,7 +771,7 @@ Un exemplu practic al acestei instrucțiuni se poate vedea în Figura \ref{Figur
  \end{figure}
  
  \subsubsection{INSTRUCȚIUNEA I}
- Instrucțiunea I are rol în execuția operaților aritmetice cu valori imediate. Aceste valori sunt extinse la 32 de biti, ele ocupând doar 12 biți din lățimea instrucțiunii. În urma extensiei de semn, se efectuează operația aritmetică specificată prin câmpul \textit{funct3} cu registrul \textit{rs1}, rezultatul fiind stocat în registrul \textit{rd}. Figura \ref{Figura:14} prezintă structura instrucțiunii și câmpurile relevante.
+ Instrucțiunea I are rol în execuția operaților aritmetice cu valori imediate. Aceste valori sunt extinse la 32 de biti, ele ocupând doar 12 biți din lățimea instrucțiunii. În urma extensiei de semn, se efectuează operația aritmetică specificată prin câmpul \textit{funct3} cu registrul \textit{rs1}, rezultatul fiind stocat în registrul \textit{rd} [4]. Figura \ref{Figura:14} prezintă structura instrucțiunii și câmpurile relevante.
 
  \begin{figure}[h!]
  \includegraphics[width=0.6\textwidth]{itype.png}
@@ -789,17 +780,17 @@ Un exemplu practic al acestei instrucțiuni se poate vedea în Figura \ref{Figur
  \label{Figura:14}
  \end{figure}
 
- Fie o valoare imediată egală cu \textit{5}, se dorește însumarea sa cu valoare din registrul \textit{1}, rezultatul operației fiind trimis registrului \textit{3}. Un astfel de exemplu se poate vedea în Figura \ref{Figura:15}.
+ Fie o valoare imediată egală cu \textit{5}, se dorește însumarea sa cu valoare din registrul \textit{2}, rezultatul operației fiind trimis registrului \textit{3}. Un astfel de exemplu se poate vedea în Figura \ref{Figura:15}.
 
  \begin{figure}[h!]
- \includegraphics[width=0.6\textwidth]{itype.png}
+ \includegraphics[width=0.6\textwidth]{itypeexample.png}
  \centering
  \caption{Exemplu de utilizare al instrucțiunii I}
  \label{Figura:15}
  \end{figure}
  
  \subsubsection{INSTRUCȚIUNEA U}
- Această instrucțiune este folositoare atunci când se dorește de către programator încărcarea unei valori imediate într-un registru, vizată ulterior unor calcule. Formatul instrucțiunii are în compoziția sa câmpul datelor imediate, întins pe 20 de biți, registrul destinație și codul identificator al operației de executat.
+ Această instrucțiune este folositoare atunci când se dorește de către programator încărcarea unei valori imediate într-un registru, vizată ulterior unor calcule. Formatul instrucțiunii are în compoziția sa câmpul datelor imediate, întins pe 20 de biți, registrul destinație și codul identificator al operației de executat [4].
  
   Cei 20 de biți sunt cei mai semnificativi ai numărului imediat, urmând ca acesta să fie extins la 32 de biți. Aranjamentul anterior descris poate fi observat în Figura \ref{Figura:22}.
  \begin{figure}[h!]
@@ -823,7 +814,7 @@ Figura \ref{Figura:23} prezintă un exemplu de utilizare, în registrul 5 fiind 
 
 Procesoarele prezintă o mare ineficiență când vine vorba de execuția instrucțiunilor care lucrează cu datele din memoria principală. Această ineficiență provine din diferența dintre timpul de execuție operațional al procesorului și timpul de acces din memoria principală la datele necesare calculului. Diferența dintre aceste două metrici temporale poartă numele de \textit{latență}. Într-adevăr, avansurile tehnologice aduse componentelor digitale de-a lungul deceniilor au ajutat minimizarea aceste latențe, însă nu destul încât să o elimine din procesul de optimizare a pipeline-ului de execuție.
 
-Astfel, prezența latenței ne conduce la analizarea a două mari problematici în modul de lucru cu date, și anume, problemele localizării temporale și a localizării spațiale. Localitatea spațială a datelor indică faptul ca există o mare posibilitate ca procesorul să dorească accesul unor adrese de memorie apropiate, de exemplu în cazul unei structuri de date vectoriale sau matriciale. Localizarea temporală pe de altă parte exemplifică posibilitatea accesului aceleiași adrese de memorie într-un interval de timp \textit{t}.
+Astfel, prezența latenței ne conduce la analizarea a două mari problematici în modul de lucru cu date, și anume, problemele localizării temporale și a localizării spațiale. Localitatea spațială a datelor indică faptul ca există o mare posibilitate ca procesorul să dorească accesul unor adrese de memorie apropiate, de exemplu în cazul unei structuri de date vectoriale sau matriciale. Localizarea temporală pe de altă parte exemplifică posibilitatea accesului aceleiași adrese de memorie într-un interval de timp \textit{t} [3].
 
 Fie secvența de instrucțiuni RISC-V de acces a datelor din memoria principală prezentată în Figura 19. Se poate observa faptul că procesorul dorește accesul a mai multe spații de adresare consecutive. De fiecare dată când se extrag datele din aceste adrese, unitatea de execuție este obligată să aștepte conform unui timp \textit{$\ {\Delta}$t} egal cu latența de acces a memoriei principale.
 
@@ -843,9 +834,9 @@ Lt = \sum_{n=1}^{t} \Delta n
 
 Latența de acces, în cazul unui procesor simplificat, implică ca urmare un timp de așteptare în care execuția procesorului este practic blocată, micșorând drastic eficiența. Însă, din acest exemplu, se pot de asemenea observa principiile localității anterior menționate. Procesorul accesează iterativ 3 zone de memorie alăturate, ultima fiind accesată de 2 ori, conformându-se principiului temporal.
 
-Soluția micșorării acestei latențe vine sub forma unei memorii secundare bazate pe registre, aceasta purtând numele de \textit{memorie cache}. Din cauza costurilor ridicate de implementare, dar și a amprentei ridicate asupra spațiului ocupat pe suprafața litografiată a procesorului, memoria cache are ca regulă generală o mărime limitată.
+Soluția micșorării acestei latențe vine sub forma unei memorii secundare bazate pe registre, aceasta purtând numele de \textit{memorie cache}. Din cauza costurilor ridicate de implementare, dar și a amprentei ridicate asupra spațiului ocupat pe suprafața litografiată a procesorului, memoria cache are ca regulă generală o mărime limitată [5].
 
-Există mai multe arhitecturi de implementare ale unei astfel de memorii, complexitatea digitală variind drastic. Diferența arhitecturală reiese din modul de asociere a adreselor din memoria principală cu spațiul de adresare a memoriei cache. Astfel, se disting memorii cache asociative direct, asociative pe seturi și nu în ultimul rând, asociative totale.
+Există mai multe arhitecturi de implementare ale unei astfel de memorii, complexitatea digitală variind drastic. Diferența arhitecturală reiese din modul de asociere a adreselor din memoria principală cu spațiul de adresare a memoriei cache. Astfel, se disting memorii cache asociative direct, asociative pe seturi și nu în ultimul rând, asociative totale [5].
 
 Metoda de asociere prezentată și implementată în această lucrare este cea asociativă directă, fiind de complexitatea cea mai redusă, prin comparație cu alternativele anterior menționate. Nu trebuie însă trecută cu vederea similaritatea cu celălalte tipuri de asocieri, hardware-ul fiind similar, tot similare fiind și metodele de calcul care vor fundamenta implementarea.
 
@@ -877,30 +868,30 @@ Pentru a reține datele eficient în cache, avem nevoie de un câmp de date din 
  \begin{figure}[h!]
  \includegraphics[width=0.7\textwidth]{memdivision.pdf}
  \centering
- \caption{Organizarea memoriei principale}
+ \caption{Câmpurile adresei de acces a memoriei principale}
  \label{Figura:44}
  \end{figure}
  
-Combinația de tag și index reprezintă practic identificatorul unic al unui bloc din memoria principală, precum este acesta relaționat la nivelul cache-ului. Datorită importanței pe care o posedă câmpul tag, acesta va fi stocat într-o memorie SRAM a cărei număr de coloane este egal cu numărul de blocuri din cache. Prezența unui anumit tag la index-ul \textit{i} din această memorie SRAM, denumită \textit{TAG SRAM}, indică existența în cache a blocului identificat prin indexul și tag-ul respectiv și a tuturor celor 4 octeți din acesta. Figura \ref{Figura:43} arată arhitectura memoriei TAG SRAM.
+Combinația de tag și index reprezintă practic identificatorul unic al unui bloc din memoria principală, precum este acesta relaționat la nivelul cache-ului. Datorită importanței pe care o posedă câmpul tag, acesta va fi stocat într-o memorie SRAM a cărei număr de coloane este egal cu numărul de blocuri din cache [5]. Prezența unui anumit tag la index-ul \textit{i} din această memorie SRAM, denumită \textit{TAG SRAM}, indică existența în cache a blocului identificat prin indexul și tag-ul respectiv și a tuturor celor 4 octeți din acesta. Figura \ref{Figura:43} arată arhitectura memoriei TAG SRAM.
 
  \begin{figure}[h!]
  \includegraphics[width=0.65\textwidth]{tagsram.pdf}
  \centering
- \caption{Organizarea memoriei principale}
+ \caption{Organizarea TAG SRAM-ului}
  \label{Figura:43}
  \end{figure}
  
  Se poate observa faptul că liniile corespondente indecșilor 0 și 6 au același tag stocat, același lucru este sesizabil și în cazul indecșilor 1 și 4. În cazul identității a doi sau mai mulți indecși, în memoria cache vor fi stocate blocuri care aparțin aceluiași tag, însă care cu un câmp \textit{index} diferit.
 
-Modul în care aceste două componente, cache SRAM și TAG SRAM comunică și stochează date, este arbitrat de o de-a treia entitate care poartă numele de  \textit{cache controller}. Pe lângă arbitrare, elementul de control are rolul de a interfata cu memoria, preluând date de la aceasta, conform adresei de acces cerute de procesor. De asemenea, răspunsul oferit înapoi procesorului este de o relevanță semnificativă.
+Modul în care aceste două componente, cache SRAM și TAG SRAM comunică și stochează date, este arbitrat de o de-a treia entitate care poartă numele de  \textit{cache controller} [5]. Pe lângă arbitrare, unitatea de comandă are rolul de a interfata cu memoria, preluând date de la aceasta, conform adresei de acces cerute de procesor. De asemenea, răspunsul oferit înapoi procesorului este de o relevanță semnificativă.
 
- Elementul de control are 2 stări de răspuns posibile,  \textit{cache hit} și  \textit{cache miss}. Cache hit semnifică prezența datelor cerute pentru scriere sau citire de către procesor. Cache miss, pe de altă parte, indică lipsa acestor date din memoria cache.
+ Unitatea de comandă are 2 stări de răspuns posibile,  \textit{cache hit} și  \textit{cache miss}. Cache hit semnifică prezența datelor cerute pentru scriere sau citire de către procesor. Cache miss, pe de altă parte, indică lipsa acestor date din memoria cache.
  
  Stările cache hit și cache miss determină acțiuni diferite la nivelul controlerului în funcție de tipul cererii procesorului, de citire sau de scriere.
  
-La nivelul cache-ului predomină cererile de citire. Acestea sunt în general îndeplinite prin extragerea unui bloc din memorie, dacă acesta nu există, semnalându-se un cache miss. Daca blocul a fost deja pre-încărcat, se omite cererea de extragere din memoria principală, semnalându-se un cache hit, datele din adresa cerută fiind trimis de controler către procesor.
+La nivelul cache-ului predomină cererile de citire [5]. Acestea sunt în general îndeplinite prin extragerea unui bloc din memorie, dacă acesta nu există, semnalându-se un cache miss. Daca blocul a fost deja pre-încărcat, se omite cererea de extragere din memoria principală, semnalându-se un cache hit, datele din adresa cerută fiind trimis de unitatea de comandă către procesor.
 
-În cazul unei cereri de scriere în cache, lucrurile sunt puțin mai complexe. Există 2 mari strategi de îndeplinire a cereri de scriere, în cazul în care informațiile se găsesc deja în cache (cache hit), și anume \textit{write through} și \textit{write back}.
+În cazul unei cereri de scriere în cache, lucrurile sunt puțin mai complexe. Există 2 mari strategi de îndeplinire a cereri de scriere, în cazul în care informațiile se găsesc deja în cache (cache hit), și anume \textit{write through} și \textit{write back} [5].
 
 Write through implică actualizarea datelor atât la nivelul cache-ului cât și la nivelul memoriei principale, simultan.
 
@@ -919,10 +910,10 @@ No write allocate nu extrage blocul din memoria principală, acesta fiind tras �
 \subsection{ABSTRACȚIA MICROARHITECTURALĂ}
 Microarhitectura reprezintă organizarea ierarhică și modulară a componentelor digitale prin care se realizează implementarea practică a unui microprocesor. Precum parcurgem acest nivel de abstracție, vor fi prezentate toate componentele de bază pe care un microprocesor le necesită pentru a funcționa la cel mai de bază nivel. Odată ce toate astfel de componente sunt definite, este posibilă organizarea lor conform arhitecturii RISC-V, rezultând astfel într-un procesor funcțional.
 
-Componentele vor fi prezentate atât în format grafic, prin diagrame digitale, cât și prin codul aferent entității VHDL. Testarea entităților se va face printr-un \textit{testbench} VHDL, fiind prezentate formele de undă caracteristice.
+Componentele vor fi prezentate atât în format grafic, prin diagrame digitale, cât și prin codul aferent entității VHDL. Testarea entităților se va face printr-un \textit{testbench} VHDL [6], fiind prezentate formele de undă caracteristice.
 
  \subsection{SUMATORUL ȘI ARITMETICA NUMERELOR}
- Cea mai necesară operație pe care un sistem de calcul digital o poate executa este adunarea. Pe baza circuitului sumator se vor constitui alte componente digitale, precum \textit{program counter-ul}. Din cauza utilizării extensive a circuitelor sumatoare, acestea sunt adesea ținta unei multitudini de optimizări, rezultând astfel circuite de o complexitate digitală mai ridicată, dar cu o amprentă temporală redusă.
+ Cea mai necesară operație pe care un sistem de calcul digital o poate executa este adunarea. Pe baza circuitului sumator se vor constitui alte componente digitale, precum \textit{program counter-ul}. Din cauza utilizării extensive a circuitelor sumatoare, acestea sunt adesea ținta unei multitudini de optimizări, rezultând astfel circuite de o complexitate digitală mai ridicată, dar cu o amprentă temporală redusă [7].
  
 Sumatorul implementat în această lucrare este de tipul ripple adder, carry-ul propagându-se de la un full adder la altul. Avantajul acestei implementări este ușurința modelării hardware, dezavantajul fiind lipsa de optimizare temporală și spațială a operației.
 
@@ -931,7 +922,7 @@ Schema digitală a unui sumator full adder poate fi observată în Figura \ref{F
  \begin{figure}[h!]
  \includegraphics[width=1.03\textwidth]{fulladderVHDL.png}
  \centering
- \caption{Sumator integral și structura sa internă}
+ \caption{Sumator pe 2 biți}
  \label{Figura:16}
  \end{figure}
 
@@ -940,7 +931,7 @@ Implementarea VHDL a entității cât și a arhitecturii sumatorului integral es
  \begin{figure}[h!]
  \includegraphics[width=0.9\textwidth]{fulladder.png}
  \centering
- \caption{Entitatea și arhitectura VHDL a sumatorului integral}
+ \caption{Implementare VHDL a sumatorului pe 4 biți}
  \label{Figura:25}
  \end{figure}
 
@@ -957,7 +948,7 @@ Implementarea VHDL a structurii digitale prezentată mai sus se poate vedea în 
  \begin{figure}[h!]
  \includegraphics[width=1.0\textwidth]{byteadderVHDL.png}
  \centering
- \caption{Entitatea și arhitectura VHDL a sumatorului de octeți}
+ \caption{Implementare VHDL a sumatorului a sumatorului de octeți}
  \label{Figura:26}
  \end{figure}
  
@@ -975,8 +966,6 @@ Pentru a efectua operația de scădere, sunt necesare mai multe lucruri. În pri
 \newpage
 \begin{table}[h]
 \centering
-\caption{Efectuarea operaților în funcție de selecția multiplexorului}
-\label{Tabela:13}
 \begin{tabular}{ ||c|c|c|c|c|| }
  \hline
  A & B & Carry & Sel & Operație\\ 
@@ -987,6 +976,8 @@ Pentru a efectua operația de scădere, sunt necesare mai multe lucruri. În pri
  
   \hline  
 \end{tabular}
+\caption{Efectuarea operaților în funcție de selecția multiplexorului}
+\label{Tabela:13}
 \end{table}
 
 Se poate observa faptul că semnalul de \textit{carry} este setat pe 1 în cazul scăderii. Acest lucru formează practic complementul de 2 necesar scăderii, numărul fiind doar inversat în prealabil, rezultând un complement de 1.
@@ -1005,13 +996,13 @@ Entitatea VHDL e unității aritmetice este redată prin codul prezentat în Fig
  \begin{figure}[h!]
  \includegraphics[width=0.8\textwidth]{arithmeticengineVHDL.png}
  \centering
- \caption{Entitatea și arhitectura VHDL a unității aritmetice}
+ \caption{Implementare VHDL a unității aritmetice}
  \label{Figura:60}
  \end{figure} 
  
- \subsection{OPERAȚII LOGICE ȘI UNITATEA LOGIC}
+ \subsection{OPERAȚII LOGICE ȘI UNITATEA LOGICĂ}
  
- Pe lângă operațiile aritmetice, un procesor de asemenea are posibilitatea de executare a operaților logice pe biți. Microprocesorul nostru va avea implementarea hardware a funcțiilor SAU, ȘI, XOR. Toate entitățile necesare efectuării acestor operații vor fi comasate într-un element hardware denumit unitatea logică.
+ Pe lângă operațiile aritmetice, un procesor de asemenea are posibilitatea de executare a operaților logice pe biți. Microprocesorul nostru va avea implementarea hardware a funcțiilor SAU, ȘI, XOR. Toate entitățile necesare efectuării acestor operații vor fi comasate într-un element hardware denumit unitatea logică [1].
  
 Figura \ref{Figura:20} conține schema digitală a motorului logic cât și a elementelor care-l definesc, cele 3 porți logice pe 32 de biți ȘI, SAU, XOR.
   \begin{figure}[h!]
@@ -1026,23 +1017,21 @@ Spre deosebire de calculul aritmetic, operațiile logice sunt o trivialitate, lu
  \begin{figure}[h!]
  \includegraphics[width=0.62\textwidth]{logicengineVHDL.png}
  \centering
- \caption{Entitatea și arhitectura VHDL a unității logice}
+ \caption{Implementare VHDL a unității logice}
  \label{Figura:27}
  \end{figure}
  
 \newpage
 \subsection{UNITATEA ARITMETICĂ ȘI LOGICĂ}
 
-Unitatea aritmetică și logică este prima entitate ierarhică superioară pe care o vom reprezenta. Aceasta este formată din entitățile logice definite în prealabil, precum unitatea logică și cea aritmetică, dar conține de asemenea elementul pentru detecție de \textit{overflow}.
+Unitatea aritmetică și logică este prima entitate ierarhică superioară pe care o vom reprezenta. Aceasta este formată din entitățile logice definite în prealabil, precum unitatea logică și cea aritmetică, dar conține de asemenea elementul pentru detecție de \textit{overflow} [1].
 
-Utilitatea detectării unui posibil \textit{overflow} reiese în momentul în care dorim să executăm instrucțiunea \textit{less than}. În cazul a două numere, a și b, se va execut operația de scădere, semnul rezultant acestei operații determinând care dintre cele 2 numere este mai mare. O magnitudine negativă indică faptul ca primul număr, a, este mai mic, în schimb, semnul pozitiv indică spre b fiind numărul mai mic.
+Utilitatea detectării unui posibil \textit{overflow} reiese în momentul în care dorim să executăm instrucțiunea \textit{less than} [1]. În cazul a două numere, a și b, se va execut operația de scădere, semnul rezultant acestei operații determinând care dintre cele 2 numere este mai mare. O magnitudine negativă indică faptul ca primul număr, a, este mai mic, în schimb, semnul pozitiv indică spre b fiind numărul mai mic.
 
 Precum se poate vedea în Tabela \ref{Tabela:14}, intervalul alocat numerelor pe 32 de biți este depășit doar în cazul scăderii a două valori de semn opus.
 
 \begin{table}[h]
 \centering
-\caption{Rezultatele posibile în cazul scâderii a 2 numere binare pe 32 de biți}
-\label{Tabela:14}
 \begin{tabular}{ ||c|c|c|c|| }
  \hline
  A & B & A-B & Overflow\\ 
@@ -1057,14 +1046,14 @@ Precum se poate vedea în Tabela \ref{Tabela:14}, intervalul alocat numerelor pe
  
   \hline  
 \end{tabular}
+\caption{Rezultatele posibile în cazul scâderii a 2 numere binare pe 32 de biți}
+\label{Tabela:14}
 \end{table}
 
 De asemenea, semnul diferenței este mereu diferit de semnul descăzutului, în cazul unui overflow. Astfel, acesta poate fi detectat prin verificarea bit-ului de semn al diferenței în cazul în care operanzii sunt de magnitudini opuse. Tabela \ref{Tabela:15} prezintă cazurile în care se poate detecta overflow-ul, raportat la bitul de semn al operanzilor.
 
 \begin{table}[h]
 \centering
-\caption{Valorile logice în cazul scăderii a 2 numere binare}
-\label{Tabela:15}
 \begin{tabular}{ ||c|c|c|c|| }
  \hline
  Bit de Semn A &  Bit de Semn B &  Bit de Semn A-B & Overflow\\ 
@@ -1078,6 +1067,8 @@ De asemenea, semnul diferenței este mereu diferit de semnul descăzutului, în 
  0 &1& 1 &  Overflow \\
   \hline  
 \end{tabular}
+\caption{Valorile logice în cazul scăderii a 2 numere binare}
+\label{Tabela:15}
 \end{table}
 
 În Figura \ref{Figura:28} se poate vedea diagrama logică a circuitului de detecție al overflow-ului, acesta fiind construit conform ecuației logice deduse anterior.
@@ -1103,18 +1094,18 @@ Prin urmare, îmbinând toate elementele modelate anterior, rezultă schema digi
 \begin{figure}[h!]
  \includegraphics[width=0.9\textwidth]{aluVHDL.png}
  \centering
- \caption{Unitatea aritmetică și logică ca entitate VHDL}
+ \caption{Implementare VHDL a unității aritmetice și logice}
  \label{Figura:29}
  \end{figure}
  
  \subsection{DISPOZITIVE DE MEMORARE}
  	Pentru a-și putea executa instrucțiunile într-un mod autonom, dar și pentru a putea stoca informații, procesorul va avea nevoie de dispozitive de memorare. Acestea dispozitive vin în mai multe forme, cel mai bine distingându-se memoriile volatile și nevolatile.
  	
- 	 Diferența principală dintre aceste două memorii este faptul că memoria volatilă are nevoie de o constantă reactualizare a datelor, aceasta fiind construită pe baza unei matrici de capacitoare și tranzistoare. Prin urmare, pentru a simplifica design-ul hardware al procesorului, dar și pentru a reduce nivelul de abstracție, se vor utiliza memorii nevolatile.
+ 	 Diferența principală dintre aceste două memorii este faptul că memoria volatilă are nevoie de o constantă reactualizare a datelor, aceasta fiind construită pe baza unei matrici de condensatoare și tranzistoare. Prin urmare, pentru a simplifica design-ul hardware al procesorului, dar și pentru a reduce nivelul de abstracție, se vor utiliza memorii nevolatile.
  	 
  	 Memoria nevolatilă implementată în această lucrare se bazează pe celule de bistabile active pe front crescător. Datorită utilizării bistabilelor, latența de acces a datelor stocate în memorie este mică, principalul dezavantaj fiind implementarea practică, pricină costurilor ridicate ale unei astfel de memorii, utilizându-se mult mai multe tranzistoare decât în alternativa volatilă.
  	 
- 	 Memoria din care se vor încărca instrucțiunile executate de procesor va purta numele de \textit{Memoria de instrucțiuni} iar, memoria generală destinată stocării datelor va purta numele de \textit{Memoria de date}.
+ 	 Memoria din care se vor încărca instrucțiunile executate de procesor va purta numele de \textit{Memoria de instrucțiuni} iar, memoria generală destinată stocării datelor va purta numele de \textit{Memoria de date} [1].
  	 
 	Accesul la nivelul ambelor memorii se va face la nivel de octet, fiecare cuvânt regăsindu-se astfel la o adresă multiplu de 4. Pentru a acomoda încărcarea instrucțiunilor din memorie, \textit{program counter-ul} va incrementa mereu la adresa instrucțiunii curente 4, obținându-se astfel adresa următoarei instrucțiuni de executat.
 	
@@ -1133,7 +1124,7 @@ Prin urmare, îmbinând toate elementele modelate anterior, rezultă schema digi
 \begin{figure}[h!]
  \includegraphics[width=0.9\textwidth]{instmemcode.png}
  \centering
- \caption{Memoria de Instrucțiuni ca entitate VHDL}
+ \caption{Implementare VHDL a memoriei de instrucțiuni}
  \label{Figura:31}
  \end{figure}
  
@@ -1152,7 +1143,7 @@ Prin urmare, îmbinând toate elementele modelate anterior, rezultă schema digi
  \begin{figure}[h!]
  \includegraphics[width=0.9\textwidth]{datamemcode.png}
  \centering
- \caption{Memoria de Instrucțiuni ca entitate VHDL}
+ \caption{Implementare VHDL a memoriei de date}
  \label{Figura:33}
  \end{figure}
 
@@ -1160,7 +1151,7 @@ Prin urmare, îmbinând toate elementele modelate anterior, rezultă schema digi
  
  Precum s-a prezentata anterior, fișierul de registre al procesorului nostru acomodează 32 de registre cu funcții diverse, fiecare având o capacitate de stocare egală cu un cuvânt. Memoriile implementate anterior sunt practic identice cu fișierul de registre, din punct de vedere al sintezei automate,  datorită arhitecturii de tipologie nevolatilă.
  
- Pe lângă ciclul de tact și write enable, fișierul de registre are 4 intrări relevante,  \textit{rs1, rs2, rs3, wrs3} și 2 ieșiri \textit{rd1, rd2}. Rs1, rs2 și rs3 conțin adresele registrelor al căror acces îl dorim, wrs3 conținând cuvântul de scris în registrul indicat prin rs3. Implicit, rd1 și rd2 vor trimite în exterior cuvintele regăsite în registrele indicate de rs1 și rs2.
+ Pe lângă ciclul de tact și write enable, fișierul de registre are 4 intrări relevante,  \textit{rs1, rs2, rs3, wrs3} și 2 ieșiri \textit{rd1, rd2}. Rs1, rs2 și rs3 conțin adresele registrelor al căror acces îl dorim, wrs3 conținând cuvântul de scris în registrul indicat prin rs3. Implicit, rd1 și rd2 vor trimite în exterior cuvintele regăsite în registrele indicate de rs1 și rs2 [4].
  
   Cea mai importantă caracteristică a acestui element de design este faptul că se poate realiza citirea datelor în paralel cu scrierea lor, astfel fiind posibilă executarea instrucțiunilor consecutive de efectuare a operaților cu datele din registre. Dintre toate cele 32 de adrese posibile, este interzisă scrierea datelor în registrul 0, acesta fiind legat la masă, facilitând efectuarea operaților cu 0, reducând astfel numărul de instrucțiuni necesare execuției unui program.
   
@@ -1180,7 +1171,7 @@ Codul entității VHDL al acestui component se poate vedea în Figura \ref{Figur
   \begin{figure}[h!]
  \includegraphics[width=0.8\textwidth]{regfilecode.png}
  \centering
- \caption{Fișierul de registre ca entitate VHDL}
+ \caption{Implementare VHDL a fișierului de registre}
  \label{Figura:35}
  \end{figure}
  
@@ -1189,7 +1180,7 @@ Codul entității VHDL al acestui component se poate vedea în Figura \ref{Figur
 
 Pentru a executa sincron și secvențial instrucțiunile din memorie, avem nevoie de un modul care să realizeze incrementarea periodică a adresei instrucțiunii curente.
 
-Entitatea destinată acestui scop poartă numele de \textit{program counter} și este formată dintr-un sumator, un modul generator de ciclu de tact și un bistabil pentru a transmite periodic indicele adresei de executat. Această implementare este suplimentată de un multiplexor 2:1, a cărui rol va fi selecția sursei instrucțiunii stocate în bistabil, în cazul în care se execută operația de  \textit{branch}.
+Entitatea destinată acestui scop poartă numele de \textit{program counter} și este formată dintr-un sumator, un modul generator de ciclu de tact și un bistabil pentru a transmite periodic indicele adresei de executat. Această implementare este suplimentată de un multiplexor 2:1, a cărui rol va fi selecția sursei instrucțiunii stocate în bistabil, în cazul în care se execută operația de  \textit{branch} [1].
 
 Diagrama logică a acestui component poate fi observată în Figura \ref{Figura:36}.
 
@@ -1206,7 +1197,7 @@ Figura  \ref{Figura:37} conține codul ce definește un bistabil sincron pe fron
   \begin{figure}[h!]
  \includegraphics[width=0.55\textwidth]{bistabilcode.png}
  \centering
- \caption{Bistabilul sincron ca entitate VHDL}
+ \caption{Implementare VHDL a bistabilului sincron}
  \label{Figura:37}
  \end{figure}
 
@@ -1215,13 +1206,13 @@ Codul aferent întregii entități VHDL a program counter-ului se regăsește î
  \begin{figure}[h!]
  \includegraphics[width=0.815\textwidth]{programcountercode.png}
  \centering
- \caption{Program counter-ul ca entitate VHDL}
+ \caption{Implementare VHDL a program counter-ului}
  \label{Figura:38}
  \end{figure}
  
  Program counter-ul nu are o utilitate de sine stătătoare, fiind nimic mai mult decât un sumator ciclic cu semnalul de tact. Acesta dobândește semnificație funcțională în momentul în care este legat la memoria de instrucțiuni, căreia ii va furniza indexul următoarei secvențe de executat.
  
- Figura  \ref{Figura:39} prezintă o astfel de construcție logică, aceasta fiind practic entitatea de încărcare a instrucțiunilor în unitatea de control a procesorului.
+ Figura  \ref{Figura:39} prezintă o astfel de construcție logică, aceasta fiind practic entitatea de încărcare a instrucțiunilor în unitatea de comandă a procesorului.
  
   \begin{figure}[h!]
  \includegraphics[width=1.0\textwidth]{pcinstmem2.png}
@@ -1232,26 +1223,24 @@ Codul aferent întregii entități VHDL a program counter-ului se regăsește î
  
  Cum se poate observa, program counter-ul este practic un feedback loop a cărei execuție începe la acționarea semnalului de reset al procesorului, acesta oprindu-se, din punct de vedere funcțional, la întâlnirea instrucțiunii nule, instrucțiune care semnifică finalitatea programului de executat.
  
-\subsection{DECODORUL DE INSTRUCȚIUNI}
- În lipsa unei entități care să interpreteze cuvântul de comandă transmis de memoria de instrucțiuni, procesorul nu are posibilitatea de a executa cod. Decodorul de instrucțiuni este elementul care va îndeplini un astfel de rol, trimițând biții de comanda mai departe elementelor digitale de execuție.
+\subsection{DECODIFICATORUL DE INSTRUCȚIUNI}
+ În lipsa unei entități care să interpreteze cuvântul de comandă transmis de memoria de instrucțiuni, procesorul nu are posibilitatea de a executa cod. Decodificatorul de instrucțiuni este elementul care va îndeplini un astfel de rol, trimițând biții de comanda mai departe elementelor digitale de execuție [2].
  
- Decodorul va fi modelat după instrucțiunile pe care procesorul le va implementa. Pentru a asigura o capabilitate computațională cât mai funcțională, păstrând gradul de complexitate în limite adecvate, se vor implementa decodificările unui subset de instrucțiuni din setul de bază aritmetic RISC-V. Subsetul implementat va asigura decodarea unei instrucțiuni din fiecare familie aparținând setului RISC-V, permițând astfel o eventuală extensie a hardware-ului pentru a suporta mai multe operații. Printe instrucțiunile implementate și decodate se numără următoarele:
+ Decodificatorul va fi modelat după instrucțiunile pe care procesorul le va implementa. Pentru a asigura o capabilitate computațională cât mai funcțională, păstrând gradul de complexitate în limite adecvate, se vor implementa decodificările unui subset de instrucțiuni din setul de bază aritmetic RISC-V. Subsetul implementat va asigura decodarea unei instrucțiuni din fiecare familie aparținând setului RISC-V, permițând astfel o eventuală extensie a hardware-ului pentru a suporta mai multe operații. Printe instrucțiunile implementate și decodate se numără următoarele:
  
  \begin{itemize}
 \item Instrucțiunile aritmetice din familia R, asigurând calculul cu valorile din fisierul de registre. În acest set se vor regăsi comenzile \textit{add}, \textit{sub}, \textit{or}, \textit{and}.
 \item Instrucțiunile din familia S, acestea asigurând încărcarea valorilor din registrul  \textit{rs2} în memoria de date la adresa calculată ca valoarea din  \textit{rs1} adunată la valoarea imediată furnizată. Comanda regăsită în acest set este \textit{sw (store word)}.
-\item Instrucțiunile din familia I, acestea asigurând încărcarea valorilor în registrul \textit{rs1} dintr-o adresă din memoria de date calculată ca suma unui offset furnizat ca valoare imediată și valoarea din registrul \textit{rs2}. Comanda \textit{lw(load word)} este instrucțiunea din această familie pe care decodorul o va implementa.
+\item Instrucțiunile din familia I, acestea asigurând încărcarea valorilor în registrul \textit{rs1} dintr-o adresă din memoria de date calculată ca suma unui offset furnizat ca valoare imediată și valoarea din registrul \textit{rs2}. Comanda \textit{lw(load word)} este instrucțiunea din această familie pe care decodificatorul o va implementa.
 \item Instrucțiunile din familia B, acestea asigură posibilitatea execuției condiționate. Se testează egalitatea valorilor din registrele  \textit{rs1} și  \textit{rs2}. În caz de egalitate, program counter-ul sare la instrucțiunea egală cu adresa curentă adunată la valoarea imediate furnizată. Instrucțiunea de acest tip pe care o vom implementa este  \textit{beq}.
 \end{itemize}
 
-Din moment ce dorim o modularitate cât mai mare a hardware-ului, decodorul urmează să fie împărțit în două componente cu rol de decodificare. Primul component este practic decodorul principal, semnalând componentelor inferioare operațiile care sunt pe cale de a fi executate. Decodorul secundar poartă numele de decodor aritmetic și are rolul de a orchestra modul de funcționare al unității aritmetice și logice. În mod practic, decodorul aritmetic va primi un cuvânt de comandă de la entitatea superioară, urmând ca  acel cuvânt să fie interpretat, comenzile aritmetice fiind trimise unității de calcul.
+Din moment ce dorim o modularitate cât mai mare a hardware-ului,decodificatorul urmează să fie împărțit în două componente cu rol de decodificare. Primul component este practic decodificatorul principal, semnalând componentelor inferioare operațiile care sunt pe cale de a fi executate. Decodificatorul secundar poartă numele de decodificatorul aritmetic și are rolul de a orchestra modul de funcționare al unității aritmetice și logice [1]. În mod practic, decodificatorul aritmetic va primi un cuvânt de comandă de la entitatea superioară, urmând ca  acel cuvânt să fie interpretat, comenzile aritmetice fiind trimise unității de calcul.
 
-Modul de funcționare al decodorului principal este prezentat în Tabela \ref{Tabela:16}. Câmpul \textit{Instr} reprezintă instrucțiunea pe care dorim să o executăm iar \textit{Op} reprezintă codul operațional al acesteia.
+Modul de funcționare al decodificatorul principal este prezentat în Tabela \ref{Tabela:16}. Câmpul \textit{Instr} reprezintă instrucțiunea pe care dorim să o executăm iar \textit{Op} reprezintă codul operațional al acesteia.
 
  \begin{table}[h]
 \centering
-\caption{Decorodul principal}
-\label{Tabela:16}
 \begin{tabular}{ ||c|c|c|c|c|c|c|c|c|| }
  \hline
  Instr & Op & ALUOp & Reg Write & ImmSrc & ALUSrc & MemWrite & ResultSrc & Branch \\ 
@@ -1269,12 +1258,14 @@ Modul de funcționare al decodorului principal este prezentat în Tabela \ref{Ta
   beq & 1100011 & 01 & 0 & 10 & 0 & 0 & - & 1 \\
  \hline
 \end{tabular}
+\caption{Decorodul principal}
+\label{Tabela:16}
 \end{table}
 
-Câmpurile trimite de către decodor spre componentele inferioare au următoarele semnificații:
+Câmpurile trimite de către decodificatorul spre componentele inferioare au următoarele semnificații:
 
 \begin{itemize}
-\item \textit{ALUOp} este cuvântul de comandă trimis decodorului aritmetic, acesta va indica în concordanță cu câmpul funct3 și funct7 operație pe care unitatea aritmetică și logică o va executa.
+\item \textit{ALUOp} este cuvântul de comandă trimis decodificatorul aritmetic, acesta va indica în concordanță cu câmpul funct3 și funct7 operație pe care unitatea aritmetică și logică o va executa.
 \item \textit{Reg Write} este bit-ul care indică fișierului de registre dacă se va realiza o scriere la nivelul său.
 \item \textit{ImmSrc} va indica unității de extindere a semnului modul în care această operație trebuie realizată. Acest câmp reprezintă o necesitate din moment ce valorile imediate vin în mărimi diferite în funcție de tipul instrucțiunii executate.
 \item \textit{ALUSrc} comută între semnalul primit de al doilea operand al unității aritmetice și logice. Dacă ALUSrc are valoarea 1, sursa celui de al doilea operand va fi furnizată de extensorul de semn, daca acest bit este resetat, sursa va proveni din fișierul de registre. 
@@ -1284,14 +1275,14 @@ Câmpurile trimite de către decodor spre componentele inferioare au următoarel
 \item \textit{Branch} semnifică că urmează să se execute operație de branch, facându-se astfel un salt de la adresa actualei instrucțiuni la alta, rezultată din adunarea valori curente din program counter la o valoare imediată oferită de instrucțiune.
 \end{itemize}
 
-Codul aferent acestui decodor se poate consulta în Figura \ref{Figura:47}.
+Codul aferent acestui decodificatorul se poate consulta în Figura \ref{Figura:47}.
 
 \newpage
 
  \begin{figure}[h!]
  \includegraphics[width=0.94\textwidth]{decodercode.png}
  \centering
- \caption{Diagrama digitală a decodorului principal}
+ \caption{Implementare VHDL a decodificatorul principal}
  \label{Figura:47}
  \end{figure}
  
@@ -1301,17 +1292,15 @@ Codul aferent acestui decodor se poate consulta în Figura \ref{Figura:47}.
   \begin{figure}[h!]
  \includegraphics[width=0.94\textwidth]{decoder.png}
  \centering
- \caption{Entitatea VHDL a decodorului principal}
+ \caption{Entitatea VHDL a decodificatorul principal}
  \label{Figura:45}
  \end{figure}
 
-Decodorul aritmetic pe de altă parte, are rolul de a semnala unității de execuție ce tip de operație este cerută de instrucțiune. Tabela \ref{Tabela:17} prezintă modul său de funcționare. ALUControl este semnalul de ieșire al acestei componente spre unitatea aritmetică și logică, specificând multiplexorului acesteia operația cerută.
+Decodificatorul aritmetic pe de altă parte, are rolul de a semnala unității de execuție ce tip de operație este cerută de instrucțiune. Tabela \ref{Tabela:17} prezintă modul său de funcționare. ALUControl este semnalul de ieșire al acestei componente spre unitatea aritmetică și logică, specificând multiplexorului acesteia operația cerută.
 
 \newpage
  \begin{table}[h]
 \centering
-\caption{Decorodul aritmetic}
-\label{Tabela:17}
 \begin{tabular}{ ||c|c|c|c|c|| }
  \hline
  ALUOp & funct3 & {op(5), funct7} & ALUControl & Instrucțiune\\ 
@@ -1331,36 +1320,38 @@ Decodorul aritmetic pe de altă parte, are rolul de a semnala unității de exec
  10 & 111 & -- & 010(și) & and\\
  \hline
 \end{tabular}
+\caption{Decodificatorul aritmetic}
+\label{Tabela:17}
 \end{table}
 
-Pe lângă datele provenite de la unitatea superioară, decodorul aritmetic extrage din cuvântul instrucțiunii datele \textit{funct3, op din bitul al 5-lea, funct7}, acestea având rol în specificarea detaliată a operației. Combinația op(5), funct7 selectează între adunare în cazul instrucțiunilor aritmetice R, funct3 fiind, tot pentru această familie de instrucțiuni, selectorul operaților logice.
+Pe lângă datele provenite de la unitatea superioară, decodificatorul aritmetic extrage din cuvântul instrucțiunii datele \textit{funct3, op din bitul al 5-lea, funct7}, acestea având rol în specificarea detaliată a operației. Combinația op(5), funct7 selectează între adunare în cazul instrucțiunilor aritmetice R, funct3 fiind, tot pentru această familie de instrucțiuni, selectorul operaților logice.
 
-Codul VHDL al decodorului aritmetic este prezentat în Figura  \ref{Figura:46}.
+Codul VHDL al decodificatorul aritmetic este prezentat în Figura  \ref{Figura:46}.
 
   \begin{figure}[h!]
  \includegraphics[width=0.72\textwidth]{aludecodercode.png}
  \centering
- \caption{Entitatea VHDL a decodorului aritmetic}
+ \caption{Implementare VHDL a decodificatorului aritmetic}
  \label{Figura:46}
  \end{figure}
 
 \newpage
 
-Entitatea logică generată de sinteza VHDL pentru decodorul aritmetic se poate vedea în Figura \ref{Figura:47}. Acesta este practic format prin legarea în cascadă a 3 multiplexoare, fiecare comutând după un semnal de intrare diferit.
+Entitatea logică generată de sinteza VHDL pentru decodificatorul aritmetic se poate vedea în Figura \ref{Figura:47}. Acesta este practic format prin legarea în cascadă a 3 multiplexoare, fiecare comutând după un semnal de intrare diferit.
  
   \begin{figure}[h!]
  \includegraphics[width=1.0\textwidth]{aludecoder2.png}
  \centering
- \caption{Entitatea VHDL a decodorului aritmetic}
+ \caption{Entitatea VHDL a decodificatorului aritmetic}
  \label{Figura:47}
  \end{figure}
  
-Prin conectarea celor două decodoare, cel aritmetic și cel logic, rezultă unitatea de decodificare centrală a procesorului. Această entitatea digitală poartă de asemenea numele de unitate de control în cadrul literaturii de specialitate. Figura \ref{Figura:48} prezintă entitatea VHDL aferentă acestei componente.
+Prin conectarea celor două decodoare, cel aritmetic și cel logic, rezultă unitatea de decodificare centrală a procesorului. Această entitatea digitală poartă de asemenea numele de unitate de comandă în cadrul literaturii de specialitate. Figura \ref{Figura:48} prezintă entitatea VHDL aferentă acestei componente.
 
   \begin{figure}[h!]
  \includegraphics[width=0.8\textwidth]{controllervhdl.png}
  \centering
- \caption{Codul VHDL al entității unității de control}
+ \caption{Implementare VHDL a unității de comandă}
  \label{Figura:48}
  \end{figure}
  
@@ -1368,19 +1359,19 @@ Circuitul digital generat de sinteză este nimic mai mult decât o interconectar
  
  \begin{figure}[h!]
  \includegraphics[width=1.05\textwidth]{controller.png}\centering
- \caption{Schema digitală a unității de control}
+ \caption{Schema digitală a unității de comandă}
  \label{Figura:49}
  \end{figure}
  
 \subsection{UNITATEA DE EXECUȚIE} 
 
-Unitatea de execuție reprezintă entitatea nucleului procesorului care gestionează calculul aritmetic și logic, dar și calcularea adreselor următoarelor instrucțiuni de executat, în funcție de anumite restricții impuse. Restricțiile impuse alegerii subiectului următorului ciclu de execuție vin în general sub forma instrucțiunilor de tip branch. 
+Unitatea de execuție reprezintă entitatea nucleului procesorului care gestionează calculul aritmetic și logic, dar și calcularea adreselor următoarelor instrucțiuni de executat, în funcție de anumite restricții impuse. Restricțiile impuse alegerii subiectului următorului ciclu de execuție vin în general sub forma instrucțiunilor de tip branch [1]. 
  
-Modelarea acestei componente implică conectarea tuturor entităților anterior definite, cu excepția unității de control. Un considerent important este faptul că dispozitivele de memorare, mai specific memoriile de instrucțiuni și de date, nu vor fi luate considerate în design-ul unității de control, acestea fiind tratate sub umbrela dispozitivelor externe. Această decizie este luată pentru a crește gradul de modularitate al procesorului, astfel înlăturând limitarea impusă de micile dimensiuni ale unei memorii specifice, existând mereu posibilitatea sporirii mărimi acesteia prin înlocuirea componentei. Mărimea memoriei este unul dintre principalii factori limitatori ai procesoarelor moderne, procesoare care se îndreaptă ușor spre un platou al creșterii vitezei ciclurilor de tact, soluția compensatoare fiind reprezentată de mărimea cache-ului și modificarea arhitecturii interconexiunii cu dispozitivele de memorare către una care eficientizează viteza de acces.
+Modelarea acestei componente implică conectarea tuturor entităților anterior definite, cu excepția unității de comandă. Un considerent important este faptul că dispozitivele de memorare, mai specific memoriile de instrucțiuni și de date, nu vor fi luate considerate în design-ul unității de comandă, acestea fiind tratate sub umbrela dispozitivelor externe. Această decizie este luată pentru a crește gradul de modularitate al procesorului, astfel înlăturând limitarea impusă de micile dimensiuni ale unei memorii specifice, existând mereu posibilitatea sporirii mărimi acesteia prin înlocuirea componentei. Mărimea memoriei este unul dintre principalii factori limitatori ai procesoarelor moderne, procesoare care se îndreaptă ușor spre un platou al creșterii vitezei ciclurilor de tact, soluția compensatoare fiind reprezentată de mărimea cache-ului și modificarea arhitecturii interconexiunii cu dispozitivele de memorare către una care eficientizează viteza de acces.
 
 Înainte de a interconecta subcomponentele acestei unități, trebuie definit modul de organizare al execuției, și anume drumul parcurs de datele prevenite din memoria de instrucțiuni, de la operația cerută prin cuvântul de control la calcularea și stocarea rezultatului.
 
-Cea mai vitală conexiune pentru buna funcționare a procesorului este reprezentată de legătura dintre memoria externă de instrucțiuni și program counter-ul. La fiecare ciclu de tact, mai specific pe secvența crescătoare a acestuia, program counter-ul livrează memorii de instrucțiuni index-ul adresei de memorie a căror date sunt destinate procesării.
+Cea mai vitală conexiune pentru buna funcționare a procesorului este reprezentată de legătura dintre memoria externă de instrucțiuni și program counter-ul [1]. La fiecare ciclu de tact, mai specific pe secvența crescătoare a acestuia, program counter-ul livrează memorii de instrucțiuni index-ul adresei de memorie a căror date sunt destinate procesării.
 
  Concomitent cu transmiterea unilaterală a datelor, counter-ul incrementează cu 4 octeți index-ul următoarei instrucțiuni de executat. Motivul unei incrementări cu 4 octeți este implementarea arhitecturală byte-addresable a memoriei. Există bineînțeles posibilitatea unei incrementări unare, în cazul în care se majorează mărimea datelor din cuprinsul memoriei la mărimea cuvântului cu care lucrează procesorul, în cazul nostru, la 4 octeți. Evident, o astfel de modificare ar însemna o micșorare a spațiului de adresare, adică al numărului de adrese disponibile, la o valoarea egală cu mărimea spațiului de adresare byte-addressable împărțit la numărul de octeți din mărimea adresei refactorizate.
  
@@ -1397,7 +1388,7 @@ Cea mai vitală conexiune pentru buna funcționare a procesorului este reprezent
  
  La următoarea perioadă a ciclului de tact este transmisă valoarea 0 memoriei de instrucțiuni, aceasta transmițând mai departe prin semnalul \textit{Instruction} cuvântul de comandă destinat decodării și execuției. Tot în acest ciclu de tact se modifică valoarea din counter cu cea calculată anterior. Acest procedeu se repetă pentru fiecare instrucțiune de executat. Din punct de vedere digital, circuitul implementat până în acest punct este cel prezentat în Figura \ref{Figura:39}. 
 
-Odată ce adresa instrucțiunii a fost calculată, urmează ca aceasta să fie transmisă unității de control pentru decodarea cuvântului. Concomitent cu decodarea are loc, în funcție de instrucțiune, accesul la nivelul fișierelor de registre, al memoriei și ulterior transmiterea datelor din registrele sau adresele memoriei cerute spre unitatea aritmetică și logică. De asemenea, dacă instrucțiunea are un câmp imediat, se produce cuvântul de calcul prin extensia de semn.
+Odată ce adresa instrucțiunii a fost calculată, urmează ca aceasta să fie transmisă unității de comandă pentru decodarea cuvântului. Concomitent cu decodarea are loc, în funcție de instrucțiune, accesul la nivelul fișierelor de registre, al memoriei și ulterior transmiterea datelor din registrele sau adresele memoriei cerute spre unitatea aritmetică și logică. De asemenea, dacă instrucțiunea are un câmp imediat, se produce cuvântul de calcul prin extensia de semn.
  
 Prin urmare, semnalele de intrare ale fișierului de registre destinate accesului vor fi legate la câmpurile de acces al registrelor din cuvântul produs de memoria de instrucțiuni. Semnalul de scriere într-un registru va fi multiplexat între valoarea provenita de la ALU și cea extrasă din memorie, în cazul în care se execută instrucțiunea \textit{lw(load word)}.
 
@@ -1412,12 +1403,12 @@ Astfel, diagrama digitală generată de sinteza automată a modului anterior des
  \label{Figura:51}
  \end{figure}
  
-Se pot observa clar legăturile dintre componente și rolul operațiilor de multiplexare. De asemenea, sunt vizibile intrările provenite de la unitatea de control, semnalele fiind direcționate fiecărui element cu rol în execuție, sigura excepție fiind program counter-ul. Memoria principală furnizează date prin semnalul  \textit{ReadData}, acesta fiind ulterior multiplexat pentru scriere în registre, în cadrul multiplexorului  \textit{ALU-DM}.
+Se pot observa clar legăturile dintre componente și rolul operațiilor de multiplexare. De asemenea, sunt vizibile intrările provenite de la unitatea de comandă, semnalele fiind direcționate fiecărui element cu rol în execuție, sigura excepție fiind program counter-ul. Memoria principală furnizează date prin semnalul  \textit{ReadData}, acesta fiind ulterior multiplexat pentru scriere în registre, în cadrul multiplexorului  \textit{ALU-DM}.
 
  Semnalele de ieșire sunt datele calculate de ALU, datele provenite din registrul specificat cât și următoarea adresă a instrucțiunii ce urmează a fi executată. Datele provenite din unitatea aritmetică și logică au pentru majoritatea comenzilor un rol intern destinat stocării în registre, dar în cazul instrucțiunilor de tipul \textit{sw(store word)} și \textit{lw(load word)}, acestea au o semnificație externă, indicând adresa de acces la nivelul memoriei de date.
  
 \subsection{NUCLEUL RISC-V} 
-Odata cu modelarea unității de execuție toate componentele microprocesorului sunt finalizate. Prin combinarea unității de control cu cea de execuție rezultă un nucleu RISC-V single-cycle. Termenul de single-cycle provine din faptul că procesorul nostru execută o operație numerică sau de transport a datelor într-o perioadă aproximativ egală cu cea a unui ciclu de tact. Teoretic vorbind, perioada acestui ciclu are ca specificație acoperirea duratei celui mai lung timp de execuție acoperit de una dintre instrucțiunile procesorului. 
+Odata cu modelarea unității de execuție toate componentele microprocesorului sunt finalizate. Prin combinarea unității de comandă cu cea de execuție rezultă un nucleu RISC-V single-cycle. Termenul de single-cycle provine din faptul că procesorul nostru execută o operație numerică sau de transport a datelor într-o perioadă aproximativ egală cu cea a unui ciclu de tact. Teoretic vorbind, perioada acestui ciclu are ca specificație acoperirea duratei celui mai lung timp de execuție acoperit de una dintre instrucțiunile procesorului. 
 
 
 Este important de menționat că dispozitivele de memorare nu fac parte din nucleul propriu-zis, memoria fiind considerată o entitate modulară și mutabilă. Figura \ref{Figura:52} prezintă nucleul RISC-V generat de sinteza automată. Alături de cele 2 unități structurale se poate observa prezența memoriei de date și a celei de instrucțiuni.
@@ -1430,7 +1421,7 @@ Este important de menționat că dispozitivele de memorare nu fac parte din nucl
  \end{figure}
 
 
-Entitatea VHDL a nucleului este formată în jurul tuturor entităților superioare implementate. Semnalele de comunicare între componentele microprocesorului sunt de o importanță deosebită, acestea fiind practic impulsurile care asigură funcționarea corectă a tuturor modulelor odată cu execuția unei instrucțiuni. O legare inadecvată implică activarea unei suite de module hardware greșite, rezultatul calculelor fiind astfel irelevant și incorect.
+Entitatea VHDL a nucleului este formată în jurul tuturor entităților superioare implementate. Semnalele de comunicare între componentele microprocesorului sunt de o importanță deosebită, acestea fiind practic impulsurile care asigură funcționarea corectă a tuturor modulelor odată cu execuția unei instrucțiuni [1]. O legare inadecvată implică activarea unei suite de module hardware greșite, rezultatul calculelor fiind astfel irelevant și incorect.
  
 De asemenea, semnalele trebuie inițializate prevenind astfel intrarea pe ramuri de execuție încă nedefinite. Spre exemplu, o valoare inițială alta decât 0 poate activa dispozitivele de memorare, scriind astfel date aleatorii la adrese nedestinate scrierii.
 
@@ -1439,25 +1430,25 @@ Codul sursă VHDL aferent nucleului se regăsește la nivelul Figurii \ref{Figur
   \begin{figure}[h!]
  \includegraphics[width=1.0\textwidth]{riscvcore.png}
  \centering
- \caption{Nucleul RISC-V ca entitate VHDL}
+ \caption{Implementare VHDL a nucleului RISC-V}
  \label{Figura:53}
  \end{figure}
  
  
-Procesorul single-cycle are ca mare avantaj relativa simplitate a implementării digitale.  Dezavantajul unui astfel de procesor este faptul că suntem limitați din punct de vedere al operațiilor pe care le putem executa. Comenzi complexe asupra numerelor precum înmulțirea și împărțirea nu sunt astfel fezabile, alternativa reprezentării acestora fiind adunări, scăderi și aproximări repetate.
+Procesorul single-cycle are ca mare avantaj relativa simplitate a implementării digitale.  Dezavantajul unui astfel de procesor este faptul că suntem limitați din punct de vedere al operațiilor pe care le putem executa [1]. Comenzi complexe asupra numerelor precum înmulțirea și împărțirea nu sunt astfel fezabile, alternativa reprezentării acestora fiind adunări, scăderi și aproximări repetate.
 
  În ciuda acestor probleme, procesorul single-cycle este o implementare cu un caracter didactic valoros, existând posibilitatea extinderii sale într-o unitate de execuție multi-cycle cu vaste capabilități și aplicații.
  
 \newpage
 \subsection{MEMORIA CACHE}
 
-În cazul în care dorim utilizarea unei memorii de date cu latență ridicată a accesului la date, utilizarea unei memorii cache intermediare devine obligatorie în creșterea metricilor de execuție. Astfel, ca posibilă soluție de implementare, se va prezenta procesul de design al unei memorii cache pe decursul acestui capitol. Ca mențiune, cache-ul este de-a dreptul opțional pentru buna funcționare a nucleului singe-cycle, acesta fiind dezvoltat în jurul unor memorii de date și instrucțiuni construite pe baza matricilor de registre.
+În cazul în care dorim utilizarea unei memorii de date cu latență ridicată a accesului la date, utilizarea unei memorii cache intermediare devine obligatorie în creșterea metricilor de execuție [8]. Astfel, ca posibilă soluție de implementare, se va prezenta procesul de design al unei memorii cache pe decursul acestui capitol. Ca mențiune, cache-ul este de-a dreptul opțional pentru buna funcționare a nucleului singe-cycle, acesta fiind dezvoltat în jurul unor memorii de date și instrucțiuni construite pe baza matricilor de registre.
  
 Precum dictează intuiția, sunt 2 utilizări spre care ne putem îndrepta când vine vorba de folosirea cache-ului în cardul unui sistem de calcul. Primul drum este marcat de utilizarea clasică care implică extragerea blocurilor de date din memoria principală, eliminând latența de acces. A doua cale este marcată de utilizarea cache-ului cu scop în minimizarea latenței de transmitere a instrucțiunilor ce urmează rulate.
 
 Aceste 2 metodologii nu trebuie însă tratate ca fiind mutual exclusive, ambele fiind implementate la nivelul unui procesor, reprezentând un mare salt făcut spre maximizarea randamentului computațional.
 
-Design-ul unui cache începe cu memoriile \textit{CACHE SRAM} și \textit{TAG SRAM}, urmând ca schimbul acestora cu memoria inferioară să fie orchestrat de un \textit{cache controler}.
+Design-ul unui cache începe cu memoriile \textit{CACHE SRAM} și \textit{TAG SRAM}, urmând ca schimbul acestora cu memoria inferioară să fie orchestrat de un \textit{cache controler} [5].
 
 Pentru simplificarea ilustrării conceptelor de design, se va lua în considerare că procesorul, pentru care implementăm acest nivel de cache, are o arhitectura pe 8 biți și un spațiu de adresare al memoriei egal cu $\ 2^{16}$ adrese byte-addresable. Practic, cuvântul de lucru al microprocesorului de 1 octet este congruent cu octetul dintr-o adresa.
 
@@ -1486,7 +1477,7 @@ Memoria cache SRAM are ca structura diagrama digitală din Figura \ref{Figura:55
   \begin{figure}[h!]
  \includegraphics[width=0.6\textwidth]{cachesramcode.png}
  \centering
- \caption{Codul VHDL aferent memorie cache SRAM}
+ \caption{Implementare VHDL a memoriei cache SRAM}
  \label{Figura:56}
  \end{figure}
 
@@ -1506,21 +1497,21 @@ Prima jumătate a structurii este similară cu cea a cache SRAM-ului, fiind comp
   \begin{figure}[h!]
  \includegraphics[width=0.8\textwidth]{tagsramvhdl.png}
  \centering
- \caption{Diagrama digitală a memoriei tag SRAM}
+ \caption{Implementare VHDL a memoriei tag SRAM}
  \label{Figura:58}
  \end{figure}
   
 \newpage
-Memoria RAM principală va avea rolul de a gestiona trimiterea blocurilor de 4 octeți spre unitatea de control a cache-ului. Prim urmare, în ciuda caracterului byte-addresable, cuvântul transmis în exterior va fi de 4 octeți. Fiecare combinație unică de tag și index va determina accesarea unui astfel de cuvânt. Scrierea pe de altă parte se va face la nivel de byte. Arhitectura generată de sinteza automată este similară cu cea prezentată în \ref{Figura:32}. Codul VHDL al acestei entități este prezentat în Figura \ref{Figura:59}.
+Memoria RAM principală va avea rolul de a gestiona trimiterea blocurilor de 4 octeți spre unitatea de comandă a cache-ului. Prim urmare, în ciuda caracterului byte-addresable, cuvântul transmis în exterior va fi de 4 octeți [5]. Fiecare combinație unică de tag și index va determina accesarea unui astfel de cuvânt. Scrierea pe de altă parte se va face la nivel de byte. Arhitectura generată de sinteza automată este similară cu cea prezentată în \ref{Figura:32}. Codul VHDL al acestei entități este prezentat în Figura \ref{Figura:59}.
 
   \begin{figure}[h!]
  \includegraphics[width=0.64\textwidth]{ram64kb.png}
  \centering
- \caption{Entitatea VHDL a memoriei RAM}
+ \caption{Implementare VHDL a memoriei RAM}
  \label{Figura:59}
  \end{figure}
 
-Unitatea de control a cache-ului va fi modelată ca un automat cu stări finite, astfel ilustrând în cel mai mare detaliu modul acesteia de funcționare. Odată cu implementarea controlerului, trebuie să decidem asupra modului în care cache-ul nostru va gestiona cererile de scriere și citire.
+Unitatea de comandă a cache-ului va fi modelată ca un automat cu stări finite, astfel ilustrând în cel mai mare detaliu modul acesteia de funcționare [5]. Odată cu implementarea controlerului, trebuie să decidem asupra modului în care cache-ul nostru va gestiona cererile de scriere și citire.
 
  Pentru a ilustra conceptul și a reduce complexitatea procedeului de stocare, memoria cache va implementa, prin intermediul controlerului, politicile write through și no write allocate.
 
@@ -1542,7 +1533,7 @@ Stările enumerate și anterior explicate, precum și semnalele care determină 
  
 \newpage
   \begin{figure}[h!]
- \hspace*{-0.48cm}\includegraphics[width=1.1\textwidth]{cachefsm_0.pdf}
+ \hspace*{-0.20cm}\includegraphics[width=1\textwidth]{cachefsm_0.pdf}
  \centering
  \caption{Diagrama de stări a cache controlerului}
  \label{Figura:63}
@@ -1551,15 +1542,15 @@ Stările enumerate și anterior explicate, precum și semnalele care determină 
 Prin comasarea celor 3 entități descrise, tag SRAM, cache SRAM și nu în ultimul rând cache controler, rezultă memoria cache L1, a cărei diagramă digitală poate fi consultată în Figura \ref{Figura:64}. Se poate observa și prezența memoriei inferioare la nivelul acestei entități, însă, aceasta nu trebuie considerată ca făcând parte din cache, fiind doar un dispozitiv de memorare terț.
 
   \begin{figure}[h!]
- \hspace*{-0.6cm}\includegraphics[width=1.1\textwidth]{cachel1.png}
+ \hspace*{-0.2cm}\includegraphics[width=0.95\textwidth]{cachel1.png}
  \centering
- \caption{Diagrama de stări a cache controlerului}
+ \caption{Diagrama digitală a memoriei cache L1}
  \label{Figura:64}
  \end{figure}
 
 
 \section{\centering TESTAREA ȘI VALIDAREA ENTITĂȚILOR} 
-Pentru a exemplifica buna funcționare a entităților modelate, se vor implementa entități de testare VHDL, numite \textit{testbench}. În cadrul acestor entități de test se vor analiza doar dispozitivele finale, și anume nucleul single-cycle RISC-V și memoria cache L1. 
+Pentru a exemplifica buna funcționare a entităților modelate, se vor implementa entități de testare VHDL, numite \textit{testbench} [8]. În cadrul acestor entități de test se vor analiza doar dispozitivele finale, și anume nucleul single-cycle RISC-V și memoria cache L1. 
 La nivelul testbench-urilor ce urmează prezentate se vor evidenția cazuri de utilizare cheie care ilustrează scenarii de execuție comun întâlnite în practică.
 
 \subsection{TESTAREA NUCLEULUI RISC-V}
@@ -1574,10 +1565,10 @@ Se vor ilustra instrucțiunile sw(store word), lw(load word) cât și una dintre
  
 Conform acestui cuvânt, se va stoca informația din cadrul registrului x6 într-o adresă de memorie egală cu valoarea imediată 5 însumată la valoarea din registrul x5. Execuția instrucțiunii va începe în momentul în care se acționează semnalul de reset asupra microprocesorului. Odată cu această tranziție, progam counter-ul începe numărătoarea ciclică care determină execuția secvențială a instrucțiunilor.
 
-Prima comandă fiind cea prezentată anterior, decodorul de instrucțiuni semnalează nevoie de scriere a datelor la nivelul memoriei inferioare, astfel fiind setat semnalul \textit{MemWrite}. În paralel sunt extrase datele din registrele x5 și x6. Cuvântul registrului x5 va intra împreuna cu valoarea imediată rezultată extinderii de semn în unitatea aritmetică și logică pentru efectuarea calculului adresei. Valorea din registrul x6 va fi preluată de pinul de scriere a datelor la nivelul memoriei principale. 
+Prima comandă fiind cea prezentată anterior, decodificatorul de instrucțiuni semnalează nevoie de scriere a datelor la nivelul memoriei inferioare, astfel fiind setat semnalul \textit{MemWrite}. În paralel sunt extrase datele din registrele x5 și x6. Cuvântul registrului x5 va intra împreuna cu valoarea imediată rezultată extinderii de semn în unitatea aritmetică și logică pentru efectuarea calculului adresei. Valorea din registrul x6 va fi preluată de pinul de scriere a datelor la nivelul memoriei principale. 
 Odată cu începerea următoarei perioade a ciclului de tact, datele din registru vor fi scrise în adresa cerută de rezultatul însumării efectuate de ALU.
  
-În Figura \ref{Figura:66} se poate observa forma de undă generată de acest exemplu. Se pot, de asemenea, distinge semnalele intermediare de decodare atât ale decodorului principal cât și al decodorului secundar.
+În Figura \ref{Figura:66} se poate observa forma de undă generată de acest exemplu. Se pot, de asemenea, distinge semnalele intermediare de decodare atât ale decodificatorului principal cât și al decodificatorului secundar.
 \newpage
 
   \begin{figure}[h!]
@@ -1610,7 +1601,7 @@ Acest cuvânt de comandă dorește stocarea informației din adresa de memorie c
  
  Se poate observa marea notă de similaritate cu instrucțiunea lw(load word) anterior prezentată. La nivel funcționat, acestea două sunt similare, singura diferență fiind polaritatea de acces a memoriei, o instrucțiune realizând scrierea, cealaltă efectuând citirea și încărcarea în registre.
  
-Ultimul exemplu de utilizare al instrucțiunilor va fi comanda de însumare a conținutului din 2 registre și plasarea rezultatului într-unul de al treilea. Toate instrucțiunile care efectuează calcule asupra numerelor cu datele din interiorul registrelor se comportă identic, singura diferență fiind cuvântul pe care decodorul aritmetic îl trimite unității aritmetice și logice, conform operației de executat. Instrucțiunea care urmează a fi executată este prezentă în Figura \ref{Figura:69}. Forma de undă și modul în care execuția decurge este prezentat în Figura \ref{Figura:70}.
+Ultimul exemplu de utilizare al instrucțiunilor va fi comanda de însumare a conținutului din 2 registre și plasarea rezultatului într-unul de al treilea. Toate instrucțiunile care efectuează calcule asupra numerelor cu datele din interiorul registrelor se comportă identic, singura diferență fiind cuvântul pe care decodificatorul aritmetic îl trimite unității aritmetice și logice, conform operației de executat. Instrucțiunea care urmează a fi executată este prezentă în Figura \ref{Figura:69}. Forma de undă și modul în care execuția decurge este prezentat în Figura \ref{Figura:70}.
 
    \begin{figure}[h!]
  \hspace*{-0.1cm}\includegraphics[width=0.72\textwidth]{rtype.png}
@@ -1620,20 +1611,20 @@ Ultimul exemplu de utilizare al instrucțiunilor va fi comanda de însumare a co
  \end{figure}
 
  \begin{figure}[h!]
- \hspace*{-0.1cm}\includegraphics[width=0.9\textwidth]{addexample.png}
+ \hspace*{-0.1cm}\includegraphics[width=0.82\textwidth]{addexample.png}
  \centering
  \caption{Forma de undă a testbench-ului instrucțiunii add}
  \label{Figura:70}
  \end{figure}
 
-Cum se poate vedea, valorile din registrele x6 și x5 sunt extrase și trimite unității aritmetice și logice pentru a efectua operația de adunare. În urma însumării, rezultatul este încărcat în registrul x7. Sunt notabile semnalele produse de decodorul aritmetic, acesta fiind cea mai relevantă componentă de diferențiere a operațiilor, în cazul de execuție al comenzilor aritmetice.
+Cum se poate vedea, valorile din registrele x6 și x5 sunt extrase și trimite unității aritmetice și logice pentru a efectua operația de adunare. În urma însumării, rezultatul este încărcat în registrul x7. Sunt notabile semnalele produse de decodificatorul aritmetic, acesta fiind cea mai relevantă componentă de diferențiere a operațiilor, în cazul de execuție al comenzilor aritmetice.
 
  \subsection{TESTAREA MEMORIEI CACHE}
  Pentru ilustrarea bunei funcționări a memoriei cache, se vor analiza mai multe scenarii de utilizare. Va fi prezentat succesiv modul în care cache-ul raspunde cererilor de scriere și citire, atât în cazul unui răspuns de tipul cache miss cât și de cache hit.
  
 
  Figura \ref{Figura:71} prezintă un exemplu ce cache hit, la prima accesare a cache-ului. Procesorul cere datele de la adresa 0x0000, însă, acestea nefiind valide și prezente în cache, se returnează un cache miss de către 
-unitatea de control.
+unitatea de comandă.
 
 Astfel, utilitatea cache-ului este mai mult decât evidentă, în perioada pierdută cu tratarea a unui miss fiind posibile cel puțin 3 accesări la nivelul cache SRAM-ului. Eficiența acestuia poate fi ridicată prin alterarea design-ului digital și a modului de tratare a diferitelor cereri ale procesorului.
 
@@ -1678,7 +1669,23 @@ Dacă se dorește scrierea la nivelul unei adrese care nu se găsește în cache
  
 \newpage 
 \section{\centering CONCLUZII} 
+\subsection{CONCLUZII}
+Prin cadrul acestei lucrări se realizează, în primul rând, studiul elementelor de logică digitală necesare implementării unui sistem computațional. O notă importantă este faptul că limbajul de programare VHDL se consideră familiar, nefiind studiat în cadrul lucrării. În urma enumerării elementelor teoretice sunt implementate componentele de bază digitale ale unui procesor, urmând ca acestea să fie interconectate conform respectării specificației RISC-V.
 
+Implementarea microprocesorului vizează doar un subset de instrucțiuni ale acestei specificații, implementarea celor rămase fiind posibilă prin extensia decodificatorului principal. 
+
+De asemenea, se ilustrează problema care face din memoria cache o entitate digitală de nelipsit din cadrul design-ului unui procesor. Această lucrare prezintă prin urmare o implementare simplificată a unui modul cache superior L1.
+
+\subsection{PERSPECTIVE DE DEZVOLTARE}
+Deși obiectivul final al lucrării a fost atins, există numeroase direcții spre care o viitoare îmbunătățire a sistemului se poate îndrepta, printre acestea numărându-se următoarele:
+
+\begin{itemize}
+  \item Transformarea procesorului dintr-unul single-cycle în unul multi-cycle, fiind astfel posibilă implementarea unor instrucțiuni aritmetice mai complexe, precum înmulțirea numerelor.
+  \item Îmbunătățirea modulului de decodificare, crescând capabilitățile de execuție ale nucleului prezentat în lucrare.
+  \item Utilizarea unui hardware mai eficient în cadrul unității aritmetice și logice, percum un lookahead carry adder.
+  \item Modificarea arhitecturii memoriei cache în una mai apropiată de implementările moderne, cum ar fi un cache total asociativ ce utilizează un algoritm LRU.
+  \item Implementarea unui procesor cu mai multe nuclee RISC-V, acest lucru implicând utilizarea protocoalelor de coerență la nivelul memoriei  și a celor de sincronizare la nivelul nucleelor.
+\end{itemize}
 
 \newpage 
 \section*{\centering BIBLIOGRAFIE}
@@ -1689,6 +1696,18 @@ S. Harris, D. Harris, Digital Design and Computer Architecture: RISC-V Edition, 
 C. Petzold, Code: The Hidden Language of Computer Hardware and Software, Microsoft Press, 2000
 \bibitem{roscv_petterson}
 D. A. Patterson, J. L. Hennessy, Computer Organization and Design RISC-V Edition: The Hardware Software Interface, Morgan Kaufmann, 2017.
+\bibitem{link}
+*** https://drive.google.com/file/d/1uviu1nH-tScFfgrovvFCrj7Omv8tFtkp/view
+\bibitem{hug}
+H. Gurban, Laboratorul 7 sisteme multiprocesor, Facultatea de Automatică și Calculatoare, Universitatea Politehnică Timișoara, 2023.
+\bibitem{vhdl}
+M. Ciletti, Advanced Digital Design with the Verilog HDL, ediția a 2-a,
+Prentice Hall, 2010.
+\bibitem{arithmetic}
+M. Ercegovac, and T. Lang, Digital Arithmetic, Morgan Kaufmann,
+2003.
+\bibitem{cache}
+J. Handy, Cache Memory Book, ediția a 2-a, Morgan Kaufmann, 1998.
 
 \end{thebibliography}
 \end{document}
